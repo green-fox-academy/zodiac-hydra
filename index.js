@@ -14,7 +14,7 @@ app.set('public', __dirname + '/public');
 app.set('src', __dirname + '/src');
 
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/public/index.html')
+    res.sendFile(__dirname + '/build/index.html')
 });
 
 app.listen(app.get('port'), function () {
