@@ -7,14 +7,14 @@ const app = express();
 
 app.set('port', (process.env.PORT || 3000));
 
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/src'));
+
 app.set('public', __dirname + '/public');
 app.set('src', __dirname + '/src');
 
-app.use('/public', express.static('public'));
-app.use('/src', express.static('/src'));
-
 app.get('/', function (req, res) {
-    res.render('public/index');
+    res.sendFile(__dirname + '/public/index.html')
 });
 
 app.listen(app.get('port'), function () {
