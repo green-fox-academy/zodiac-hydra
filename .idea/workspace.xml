@@ -29,8 +29,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+            <state relative-caret-position="187">
+              <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
               <folding>
                 <element signature="e#0#42#0" expanded="false" />
               </folding>
@@ -189,7 +189,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1496925402905</updated>
-      <workItem from="1496925408705" duration="2788000" />
+      <workItem from="1496925408705" duration="3580000" />
     </task>
     <task id="LOCAL-00001" summary="procfile created for heroku">
       <created>1496927998595</created>
@@ -198,11 +198,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496927998595</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="serve other static files">
+      <created>1496928385989</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1496928385989</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2788000" />
+    <option name="totallyTimeSpent" value="3580000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="952" y="0" width="976" height="1038" extended-state="0" />
@@ -240,7 +247,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="procfile created for heroku" />
-    <option name="LAST_COMMIT_MESSAGE" value="procfile created for heroku" />
+    <MESSAGE value="serve other static files" />
+    <option name="LAST_COMMIT_MESSAGE" value="serve other static files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -265,8 +273,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+        <state relative-caret-position="187">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
           </folding>

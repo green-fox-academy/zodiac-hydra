@@ -11,7 +11,8 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/src'));
 
 app.get('/', function (req, res) {
-    res.render('pages/index');
+    //res.render('pages/index');
+    res.sendFile(__dirname + '/public/index.html')
 });
 
 app.listen(app.get('port'), function () {
