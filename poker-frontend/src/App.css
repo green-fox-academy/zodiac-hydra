@@ -1,0 +1,40 @@
+body {
+  background-image: url("poker.jpeg");
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 1s alternate;
+  height: 80px;
+}
+
+.App-header {
+  background-color: rgba(10,10,10,0.6);
+  height: 230px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+  background-color: rgba(200,200,200,0.6);
+}
+
+@keyframes App-logo-spin {
+  from {
+    margin-left: -10%;
+
+  }
+
+  to {
+    margin-left: 10%;
+  }
+}
