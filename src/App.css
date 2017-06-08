@@ -13,12 +13,12 @@ body {
 
 .App-logo {
   animation: App-logo-spin infinite 1s alternate;
-  height: 80px;
+  height: 50px;
 }
 
 .App-header {
   background-color: rgba(10,10,10,0.6);
-  height: 230px;
+  height: 150px;
   padding: 20px;
   color: white;
 }
@@ -27,6 +27,7 @@ body {
   font-size: large;
   background-color: rgba(200,200,200,0.6);
 }
+
 
 @keyframes App-logo-spin {
   from {
@@ -37,4 +38,20 @@ body {
   to {
     margin-left: 10%;
   }
+}
+
+.Login {
+  width: 300px;
+  height: 300px;
+  background-color: rgba(200,200,200,0.6);
+}
+
+input {
+  width: 200px;
+  margin: 10px;
+}
+
+button {
+  width: 200px;
+  margin: 10px;
 }
