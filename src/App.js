@@ -11,6 +11,7 @@ class App extends Component {
       credit: 100,
       tables: [0, 1, 2, 3]
     };
+    let loggedIn = false;
     return (
       <div className="App">
         <div className="App-header">
@@ -19,7 +20,7 @@ class App extends Component {
           <h4>This is a temporary page for the Poker front-end project.</h4>
         </div>
         <div className="Container">
-          <Login/>
+          <Login loggedIn={loggedIn}/>
           <Welcome user={user}/>
         </div>
       </div>
