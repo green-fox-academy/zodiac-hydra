@@ -20,7 +20,6 @@ export class Table extends React.Component {
 
   onDraw() {
     let shuffledStock = shuffleArray(this.stock);
-    let card = shuffledStock[0];
     this.hand.push(shuffledStock.shift());
     this.stock = shuffledStock;
     console.log( 'Hand: ' + this.hand);
