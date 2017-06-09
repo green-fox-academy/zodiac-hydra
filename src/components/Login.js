@@ -18,11 +18,11 @@ export class Login extends React.Component {
     if (this.loggedIn === false) {
       return (
         <div className="Login">
-        <p>Please login or <a href="#">register</a> to continue. </p>
+        <p>Please login or <a href="http://www.index.hu">register</a> to continue. </p>
         <input type="text" className="text" placeholder="example@example.com" required/><br/>
         <input type="text" className="password" placeholder="password" required/><br/>
         <button onClick={this.onLogin.bind(this)} className="btn btn-primary">Login</button>
-        <p><a href="#">Forgot password?</a></p>
+        <p><a href="http://www.index.hu">Forgot password?</a></p>
         </div>
       );
     } else {
