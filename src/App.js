@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import logo from './hydra.png';
 import { Login } from "./components/Login";
 import { Welcome } from "./components/Welcome";
+import { Table } from "./components/Table";
+
 import './App.css';
 
 class App extends Component {
+
   render() {
     let user = {
       name: "User",
@@ -12,6 +15,7 @@ class App extends Component {
       tables: [0, 1, 2, 3]
     };
     let loggedIn = false;
+
     return (
       <div className="App">
         <div className="App-header">
@@ -22,6 +26,7 @@ class App extends Component {
         <div className="Container">
           <Login loggedIn={loggedIn}/>
           <Welcome user={user}/>
+          <Table/>
         </div>
       </div>
     );
