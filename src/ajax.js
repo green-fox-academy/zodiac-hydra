@@ -19,4 +19,4 @@ let postLogin = function (data) {
     }
 };
 
-module.exports = postLogin();
+module.exports = postLogin;
