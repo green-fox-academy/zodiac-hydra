@@ -8,7 +8,8 @@ export class Login extends React.Component {
     this.loggedIn = props.loggedIn;
   }
 
-  onLogin() {
+  onLogin(e) {
+    e.preventDefault();
     console.log('authentication started...');
     let refEmail = this.refs.loginEmail.value;
     let refPassword = this.refs.loginPassword.value;
@@ -26,11 +27,11 @@ export class Login extends React.Component {
   render() {
     if (this.loggedIn === false) {
       return (
-        <form onSubmit={this.onLogin} className="Login">
+        <form onSubmit={this.onLogin.bind(this)} className="Login">
         <p>Please login or <a href="http://www.index.hu">register</a> to continue. </p>
         <input ref='loginEmail' type="email" className="text" placeholder="example@example.com" required/><br/>
         <input ref='loginPassword' type="password" className="password" placeholder="password" required/><br/>
-        <button /*onClick={this.onLogin.bind(this)}*/ className="btn btn-primary">Login</button>
+        <button className="btn btn-primary">Login</button>
         <p><a href="http://www.index.hu">Forgot password?</a></p>
         </form>
       );
