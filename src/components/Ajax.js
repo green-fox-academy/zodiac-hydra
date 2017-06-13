@@ -1,8 +1,6 @@
 /**
  * Created by Ylwoi on 2017-06-13.
  */
-'use strict';
-
 const xhr = new XMLHttpRequest();
 
 const root = 'https://equal-koala.glitch.me';
