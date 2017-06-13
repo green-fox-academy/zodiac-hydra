@@ -9,8 +9,9 @@ export class Login extends React.Component {
   }
 
   onLogin() {
-    let refEmail = this.refs.email.value;
-    let refPassword = this.refs.password.value;
+    console.log('authentication started...');
+    let refEmail = this.refs.loginEmail.value;
+    let refPassword = this.refs.loginPassword.value;
     console.log(refEmail);
     let message = {
       "email": refEmail,
@@ -18,8 +19,7 @@ export class Login extends React.Component {
     };
     ajax(message);
     this.loggedIn = true;
-    console.log('authentication started...');
-    this.render();
+
     console.log('authentication finished.')
   }
 
