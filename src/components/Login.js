@@ -1,5 +1,5 @@
 import React from "react";
-const ajax = require('./ajax.js');
+const ajax = require('./Ajax.js');
 
 export class Login extends React.Component {
 
