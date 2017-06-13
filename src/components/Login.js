@@ -26,13 +26,13 @@ export class Login extends React.Component {
   render() {
     if (this.loggedIn === false) {
       return (
-        <div onSubmit={this.onLogin} className="Login">
+        <form onSubmit={this.onLogin} className="Login">
         <p>Please login or <a href="http://www.index.hu">register</a> to continue. </p>
         <input ref='loginEmail' type="email" className="text" placeholder="example@example.com" required/><br/>
         <input ref='loginPassword' type="password" className="password" placeholder="password" required/><br/>
         <button /*onClick={this.onLogin.bind(this)}*/ className="btn btn-primary">Login</button>
         <p><a href="http://www.index.hu">Forgot password?</a></p>
-        </div>
+        </form>
       );
     } else {
       return (
