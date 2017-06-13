@@ -1,4 +1,5 @@
 import React from "react";
+const ajax = require('./ajax.js');
 
 export class Login extends React.Component {
 
@@ -8,6 +9,14 @@ export class Login extends React.Component {
   }
 
   onLogin() {
+    let refEmail = this.refs.email.value;
+    let refPassword = this.refs.password.value;
+    console.log(refEmail);
+    let message = {
+      "email": refEmail,
+      "password": refPassword
+    };
+    ajax(message);
     this.loggedIn = true;
     console.log('authentication started...');
     this.render();
@@ -17,11 +26,11 @@ export class Login extends React.Component {
   render() {
     if (this.loggedIn === false) {
       return (
-        <div className="Login">
+        <div onSubmit={this.onLogin} className="Login">
         <p>Please login or <a href="http://www.index.hu">register</a> to continue. </p>
-        <input type="text" className="text" placeholder="example@example.com" required/><br/>
-        <input type="text" className="password" placeholder="password" required/><br/>
-        <button onClick={this.onLogin.bind(this)} className="btn btn-primary">Login</button>
+        <input ref='loginEmail' type="email" className="text" placeholder="example@example.com" required/><br/>
+        <input ref='loginPassword' type="password" className="password" placeholder="password" required/><br/>
+        <button /*onClick={this.onLogin.bind(this)}*/ className="btn btn-primary">Login</button>
         <p><a href="http://www.index.hu">Forgot password?</a></p>
         </div>
       );
