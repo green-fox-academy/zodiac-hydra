@@ -7,10 +7,16 @@ import {
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
+import Leaderboard from './components/Leaderboard'
+import Nav from './components/Nav';
 
 ReactDOM.render(
-  <Router history="hashHistory">
-    <Route path="/" component={App}/>
+  <Router history="">
+    <div className="App">
+      <Nav/>
+      <Route exact path="/" component={App}/>
+      <Route path="/lead" component={Leaderboard}/>
+    </div>
   </Router>
   , document.getElementById('root'));
 registerServiceWorker();
