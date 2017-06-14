@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
-import React, { Component } from 'react'
-import Nav from './components/Nav'
+import React, { Component } from 'react';
+import Nav from './components/Nav';
 import './App.css';
 
 import { Login } from "./components/Login";
