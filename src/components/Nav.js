@@ -2,8 +2,9 @@
  * Created by Ylwoi on 2017-06-14.
  */
 import React from 'react';
-//import {Link, IndexLink} from 'react-router';
-var {Link} = require('react-router-dom');
+import {
+  Link
+} from 'react-router-dom';
 
 export class Nav extends React.Component {
   render() {
