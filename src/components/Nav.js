@@ -11,7 +11,6 @@ export class Nav extends React.Component {
     return (
       <div className="App-header">
         <h2>Hydra Poker</h2>
-        <Link to="http://www.index.hu">Index</Link>
       </div>
 
     )
