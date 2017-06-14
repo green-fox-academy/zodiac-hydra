@@ -3,11 +3,6 @@ const ajax = require('./Ajax.js');
 
 export class Login extends React.Component {
 
-  constructor(props) {
-    super();
-    this.loggedIn = props.loggedIn;
-  }
-
   onLogin(e) {
     e.preventDefault();
     console.log('authentication started...');
@@ -25,22 +20,16 @@ export class Login extends React.Component {
   }
 
   render() {
-    if (this.loggedIn === false) {
-      return (
-        <form onSubmit={this.onLogin.bind(this)} className="Login">
-        <p>Please login or <a href="http://www.index.hu">register</a> to continue. </p>
+    return (
+      <form onSubmit={this.onLogin.bind(this)} className="Login">
+        <p className="loginTitle">LOGIN FORM</p>
         <input ref='loginEmail' type="email" className="text" placeholder="example@example.com" required/><br/>
         <input ref='loginPassword' type="password" className="password" placeholder="password" required/><br/>
-        <button className="btn btn-primary">Login</button>
-        <p><a href="http://www.index.hu">Forgot password?</a></p>
-        </form>
-      );
-    } else {
-      return (
-        <div className="Login">
-          <p>You are now logged in with the following e-mail address: </p>
+        <div className="loginFooter">
+          <p><a href="http://www.index.hu/">Forgot password?</a></p>
+          <button className="loginButton">SIGN IN</button>
         </div>
-      );
-    }
+      </form>
+    );
   }
 }

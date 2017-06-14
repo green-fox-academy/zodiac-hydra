@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
-import logo from './hydra.png';
 import { Login } from "./components/Login";
-import { Welcome } from "./components/Welcome";
-import { Table } from "./components/Table";
+import { Intro } from "./components/Intro";
+import { Tables } from "./components/Tables";
+import { Leaderboard } from "./components/Leaderboard";
 
 import './App.css';
 
 class App extends Component {
 
   render() {
-    let user = {
-      name: "User",
-      credit: 100,
-      tables: [0, 1, 2, 3]
-    };
-    let loggedIn = false;
-
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Greenfox rlz. Zodiac rlz. Hydra team rules them all.</h2>
-          <img src={logo} className="App-logo" alt="logo" />
-          <h4>This is a temporary page for the Poker front-end project.</h4>
+          <h1>Hydra Poker</h1>
+          <button className="signupButton">SIGN UP</button>
         </div>
-        <div className="Container">
-          <Login loggedIn={loggedIn}/>
-          <Welcome user={user}/>
-          <Table/>
+        <div className="Page-content">
+          <div>
+            <Intro/>
+            <Login/>
+          </div>
+          <div>
+            <Tables/>
+            <Leaderboard/>
+          </div>
         </div>
       </div>
     );

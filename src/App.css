@@ -1,5 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 body {
-  background-image: url("poker.jpeg");
+  background-image: url("landing_bgr.jpg");
   min-height: 500px;
   background-attachment: fixed;
   background-position: center;
@@ -7,72 +17,125 @@ body {
   background-size: cover;
 }
 
-.App {
-  text-align: center;
+button {
+  width: 100px;
+  height: 30px;
+  font-family: 'Open Sans', sans-serif;
+  font-style: oblique;
+  background-color: #219e7b;
+  color: white;
+  border-radius: 3px;
+  border: 1px solid #219e7b;
+  cursor: pointer;
+  text-decoration: none;
+  text-shadow: rgb(21, 70, 130) 0px 1px 0px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 1s alternate;
-  height: 50px;
-}
+/* HEADER PART */
 
 .App-header {
-  background-color: rgba(10,10,10,0.6);
-  height: 180px;
-  padding: 20px;
-  color: white;
-}
-
-@keyframes App-logo-spin {
-  from {
-    margin-left: -10%;
-
-  }
-
-  to {
-    margin-left: 10%;
-  }
-}
-
-.Container {
+  background-color: white;
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  color: #219e7b;
 }
 
-.Login, .Welcome {
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 30px;
+  margin: 0 0 0 80px;
+}
+
+.signupButton {
+  position: absolute;
+  right: 110px;
+  top: 15px;
+}
+
+/* Intro component */
+
+.introTitle, .introPar{
+  width: 450px;
+  margin-left: 80px;
+  margin-top: 30px;
+}
+
+.introTitle p {
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  font-weight: 800;
+  font-style: italic;
+  text-align: justify;
+}
+
+.introTitle1 {
+  font-size: 84px;
+  line-height: 84px;
+}
+
+.introTitle2 {
+  font-size: 58px;
+  line-height: 50px;
+}
+
+.introPar p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  color: white;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+/* Login component */
+
+.Login {
+  position: absolute;
+  top: 70px;
+  right: 50px;
   width: 300px;
   height: 250px;
   margin: 30px;
-  padding: 30px;
-  background-color: rgba(250,250,250,0.9);
-  border-radius: 10px;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 4px 12px 0px rgba(50, 50, 50, 0.75);
+}
+
+.loginTitle {
+  font-family: 'Open Sans', sans-serif;
+  font-style: oblique;
+  background-color: #219e7b;
+  color: white;
+  width: 270px;
+  height: 50px;
+  padding-left: 30px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  text-shadow: rgb(21, 70, 130) 0px 1px 0px;
 }
 
 input {
-  width: 200px;
-  margin: 10px;
+  width: 240px;
+  height: 35px;
+  margin-left: 30px;
 }
 
-button {
-  width: 200px;
-  margin: 15px;
+.loginFooter p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10px;
+  color: #999999;
+  margin-left: 30px;
 }
 
-.Table {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  height: 250px;
-  margin: 30px;
-  padding: 30px;
-  background-color: rgba(250,250,250,0.9);
-  border-radius: 10px;
+.loginButton {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
 }
-
-.Cardstock p p, .Hand p p {
-  width: 250px;
-}
-
-/*.invisible {
-  display: none;
-}*/
