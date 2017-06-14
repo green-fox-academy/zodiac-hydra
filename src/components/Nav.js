@@ -2,9 +2,6 @@
  * Created by Ylwoi on 2017-06-14.
  */
 import React from 'react';
-import {
-  Link
-} from 'react-router-dom';
 
 export class Nav extends React.Component {
   render() {
