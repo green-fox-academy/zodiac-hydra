@@ -1,13 +1,13 @@
 
 import React, { Component } from 'react';
-import React, { Component } from 'react';
-import Nav from './components/Nav';
-import './App.css';
 
+import Nav from './components/Nav';
 import { Login } from "./components/Login";
 import { Intro } from "./components/Intro";
 import { Tables } from "./components/Tables";
 import { Leaderboard } from "./components/Leaderboard";
+
+import './App.css';
 
 class App extends Component {
 
