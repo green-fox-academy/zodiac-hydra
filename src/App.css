@@ -204,7 +204,7 @@ input {
   text-shadow: rgb(21, 70, 130) 0px 1px 0px;
 }
 
-input {
+.signUp input {
   width: 240px;
   height: 35px;
   margin-left: 30px;
