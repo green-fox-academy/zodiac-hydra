@@ -17,13 +17,18 @@ export class SignUp extends React.Component {
       "password": refPassword
     };
     ajax.postSignUp(this.getSignUp, message);
+    this.refs.signUpName.value = '';
+    this.refs.signUpEmail.value = '';
+    this.refs.signUpPassword.value = '';
+    
 
     console.log('authentication finished.')
   }
 
   getSignUp(userData) {
     if (userData.result === 'success') {
-      console.log(userData.id)
+      console.log(userData.id);
+      alert('Signed up successfully')
     } else {
       alert("ERROR")
     }
