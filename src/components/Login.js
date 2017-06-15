@@ -24,6 +24,7 @@ export class Login extends React.Component {
     if (userData.result === 'success') {
       ajax.getTables();
       ajax.getLeaderBoard();
+      window.location.href = '/dashboard'
     } else {
       alert("ERROR")
     }
