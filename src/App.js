@@ -1,18 +1,19 @@
 
 import React, { Component } from 'react';
 
-import { Login } from "./components/Login";
-import { Intro } from "./components/Intro";
+import Nav from './components/Nav';
+import { Landing } from "./components/Landing";
 
 import './App.css';
+
 
 class App extends Component {
 
   render() {
     return (
-      <div className="Page-content">
-        <Intro/>
-        <Login/>
+      <div className="App">
+        <Nav/>
+        <Landing/>
       </div>
     );
   }

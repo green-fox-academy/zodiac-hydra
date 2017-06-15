@@ -31,7 +31,20 @@ button {
   text-shadow: rgb(21, 70, 130) 0px 1px 0px;
 }
 
-/* HEADER PART */
+.Dash {
+  display: flex;
+}
+
+.componentTitle {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 30px 0 20px 75px;
+  color: #219e7b;
+  border-bottom: 1px solid #219e7b;
+}
+
+/* HEADER and NAV styling: */
 
 .App-header {
   background-color: white;
@@ -55,10 +68,10 @@ h1 {
   top: 15px;
 }
 
-/* Intro component */
+/* Intro component: */
 
 .introTitle, .introPar{
-  width: 450px;
+  width: 700px;
   margin-left: 80px;
   margin-top: 30px;
 }
@@ -89,7 +102,7 @@ h1 {
   line-height: 32px;
 }
 
-/* Login component */
+/* Login component: */
 
 .Login {
   position: absolute;
@@ -197,4 +210,81 @@ input {
   position: absolute;
   right: 30px;
   bottom: 20px;
+}
+
+/* Dashboard component*/
+
+.dashboard {
+  min-height: 1000px;
+  background-color: #34495e;
+  display: flex;
+}
+
+/* Tables component*/
+
+.tables {
+  border-collapse: collapse;
+  text-align: left;
+  width: 700px;
+  font-family: 'Open Sans', sans-serif;
+  overflow: hidden;
+  margin-left: 75px;
+}
+
+.tables td, .tables th {
+  padding: 3px 10px;
+}
+
+.tables thead th {
+  color:#FFFFFF;
+  border-bottom: 2px solid #219e7b;
+  font-size: 14px;
+  line-height: 28px;
+  font-weight: bold;
+}
+
+.tables tbody td {
+  color: #219e7b;
+  border-bottom: 1px solid #219e7b;
+  font-size: 14px;
+  line-height: 28px;
+  font-weight: normal;
+}
+
+.tables tbody .alt td {
+  color: #219e7b;
+}
+
+/* leaderboard component*/
+
+.leaderboard {
+  position: absolute;
+  top: 60px;
+  right: 50px;
+  width: 450px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+  margin-left: 75px;
+}
+
+.leader {
+  margin-left: 75px;
+  margin-bottom: 10px;
+  color: white;
+  display: flex;
+  align-items: flex-start;
+}
+
+.leaderboard img {
+  margin-right: 15px;
+  border: 5px solid #50677e;
+  border-radius: 30px;
+}
+.chips {
+  background-color: #219e7b;
+  color: white;
+  border-radius: 15px;
+  margin-top:5px;
+  padding: 2px 10px;
 }
