@@ -85,21 +85,21 @@ h1 {
 }
 
 .introTitle1 {
-  font-size: 84px;
-  line-height: 84px;
+  font-size: 128px;
+  line-height: 128px;
 }
 
 .introTitle2 {
-  font-size: 58px;
-  line-height: 50px;
+  font-size: 90px;
+  line-height: 72px;
 }
 
 .introPar p {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   color: white;
-  font-size: 18px;
-  line-height: 32px;
+  font-size: 24px;
+  line-height: 36px;
 }
 
 /* Login component: */
@@ -135,9 +135,28 @@ h1 {
 }
 
 input {
-  width: 240px;
+  width: 210px;
   height: 35px;
   margin-left: 30px;
+  padding-left: 10px;
+  padding-right: 30px;
+  border: 1px solid #e6e6e6;
+  background-color: #f0eef0;
+  color: #cbcbcb;
+}
+
+.userEmail {
+  background-image: url("user.png");
+  background-attachment: local;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.password {
+  background-image: url("lock.png");
+  background-attachment: local;
+  background-position: right;
+  background-repeat: no-repeat;
 }
 
 .loginFooter p {
