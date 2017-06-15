@@ -1,5 +1,5 @@
 import React from "react";
-const ajax = require('./Ajax.js');
+var ajax = require('./Ajax.js');
 
 export class Login extends React.Component {
 
@@ -8,15 +8,22 @@ export class Login extends React.Component {
     console.log('authentication started...');
     let refEmail = this.refs.loginEmail.value;
     let refPassword = this.refs.loginPassword.value;
-    console.log(refEmail);
     let message = {
       "email": refEmail,
       "password": refPassword
     };
-    ajax(message);
-    this.loggedIn = true;
+    ajax.postLogin(this.getLogin, message);
 
     console.log('authentication finished.')
+  }
+
+  getLogin(userData) {
+    if (userData.result === 'success') {
+      ajax.getTables();
+      ajax.getLeaderBoard();
+    } else {
+      alert("ERROR")
+    }
   }
 
   render() {
