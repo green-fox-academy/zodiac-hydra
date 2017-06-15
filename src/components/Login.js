@@ -24,6 +24,7 @@ export class Login extends React.Component {
     if (userData.result === 'success') {
       ajax.getTables();
       ajax.getLeaderBoard();
+      window.location.href = '/dashboard'
     } else {
       alert("ERROR")
     }
@@ -33,8 +34,8 @@ export class Login extends React.Component {
     return (
       <form onSubmit={this.onLogin.bind(this)} className="Login">
         <p className="loginTitle">LOGIN FORM</p>
-        <input ref='loginEmail' type="email" className="text" placeholder="example@example.com" required/><br/>
-        <input ref='loginPassword' type="password" className="password" placeholder="password" required/><br/>
+        <input ref='loginEmail' type="email" className="userEmail" placeholder="E-mail address" required/><br/>
+        <input ref='loginPassword' type="password" className="password" placeholder="Password" required/><br/>
         <div className="loginFooter">
           <p><a href="http://www.index.hu/">Forgot password?</a></p>
           <button className="loginButton">SIGN IN</button>
