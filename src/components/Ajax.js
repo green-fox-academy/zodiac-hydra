@@ -17,6 +17,18 @@ let postLogin = function (callback, data) {
     }
 };
 
+let postSignUp = function (callback, data) {
+  xhr.open('POST', root + '/register', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('Accept', 'application/json');
+  xhr.send(data);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      callback(JSON.parse(xhr.response))
+    }
+  }
+};
+
 let getTables = function () {
   xhr.open('GET', root + '/tables', true);
   xhr.send();
@@ -33,4 +45,4 @@ let getLeaderBoard = function () {
   }
 };
 
-module.exports = {postLogin, getTables, getLeaderBoard};
+module.exports = {postLogin, postSignUp, getTables, getLeaderBoard};

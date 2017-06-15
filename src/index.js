@@ -7,15 +7,15 @@ import {
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
-import Leaderboard from './components/Leaderboard'
 import Nav from './components/Nav';
+import SignUp from './components/SignUp';
 
 ReactDOM.render(
   <Router history="">
     <div className="App">
       <Nav/>
       <Route exact path="/" component={App}/>
-      <Route path="/lead" component={Leaderboard}/>
+      <Route path="/signUp" component={SignUp}/>
     </div>
   </Router>
   , document.getElementById('root'));
