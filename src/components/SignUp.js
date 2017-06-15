@@ -20,7 +20,6 @@ export class SignUp extends React.Component {
     this.refs.signUpName.value = '';
     this.refs.signUpEmail.value = '';
     this.refs.signUpPassword.value = '';
-    
 
     console.log('authentication finished.')
   }
