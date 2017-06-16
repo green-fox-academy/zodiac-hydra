@@ -8,7 +8,6 @@ import Leaderboard from './components/Leaderboard';
 import Login from './components/Login';
 import Nav from './components/Nav';
 import SignUp from './components/SignUp';
-import Tables from './components/Tables';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -19,5 +18,4 @@ it('renders without crashing', () => {
   ReactDOM.render(<Login />, div);
   ReactDOM.render(<Nav />, div);
   ReactDOM.render(<SignUp />, div);
-  ReactDOM.render(<Tables />, div);
 });
