@@ -11,9 +11,9 @@ import Dashboard from './components/Dashboard'
 
 class App extends React.Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
-      loggedIn: false
+      comp: Landing
     }
   }
   render() {
@@ -21,7 +21,7 @@ class App extends React.Component {
       <Router history="">
         <div className="App">
           <Nav/>
-          <Route exact path="/" component={Landing}/>
+          <Route exact path="/" component={this.state.comp}/>
           <Route path="/signUp" component={SignUp}/>
           <Route path="/dashboard" component={Dashboard}/>
         </div>

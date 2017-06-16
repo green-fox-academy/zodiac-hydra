@@ -26,7 +26,7 @@ export class SignUp extends React.Component {
 
   getSignUp(userData) {
     if (userData.result === 'success') {
-      console.log(userData.id);
+      window.location.href = '/';
       alert('Signed up successfully')
     } else {
       alert("ERROR")
