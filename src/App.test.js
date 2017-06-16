@@ -9,6 +9,8 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import App from './main';
 
+//JEST testing
+
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<Dashboard />, div);
@@ -18,15 +20,8 @@ it('renders without crashing', () => {
   ReactDOM.render(<SignUp />, div);
 });
 
+//ENZYME testing
+
 it('renders without crashing', () => {
   shallow(<App />);
 });
-
-// test('login with valid input changes layout', () => {
-//   let message = {
-//     "email": "example@example.com",
-//     "password": "1234"
-//   };
-//
-//
-// });
