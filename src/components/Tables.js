@@ -44,3 +44,5 @@ export class Tables extends React.Component {
     });
   }
 }
+
+export default Tables;
