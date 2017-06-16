@@ -12,22 +12,12 @@ export class Login extends React.Component {
       "email": refEmail,
       "password": refPassword
     };
-    ajax.postLogin(this.getLogin, message);
+    ajax.postLogin(this.props.getLogin, message);
     this.refs.loginEmail.value = '';
     this.refs.loginPassword.value = '';
 
 
     console.log('authentication finished.')
-  }
-
-  getLogin(userData) {
-    if (userData.result === 'success') {
-      ajax.getTables();
-      ajax.getLeaderBoard();
-      window.location.href = '/dashboard'
-    } else {
-      alert("ERROR")
-    }
   }
 
   render() {
