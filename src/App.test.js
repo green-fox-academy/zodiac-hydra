@@ -10,15 +10,15 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import App from './index'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Ajax />, div);
-  ReactDOM.render(<Dashboard />, div);
-  ReactDOM.render(<Intro />, div);
-  ReactDOM.render(<Landing />, div);
-  ReactDOM.render(<Login />, div);
-  ReactDOM.render(<SignUp />, div);
-});
+// it('renders without crashing', () => {
+//   const div = document.createElement('div');
+//   ReactDOM.render(<Ajax />, div);
+//   ReactDOM.render(<Dashboard />, div);
+//   ReactDOM.render(<Intro />, div);
+//   ReactDOM.render(<Landing />, div);
+//   ReactDOM.render(<Login />, div);
+//   ReactDOM.render(<SignUp />, div);
+// });
 
 it('renders without crashing', () => {
   shallow(<App />);
