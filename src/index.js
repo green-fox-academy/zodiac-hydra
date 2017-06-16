@@ -1,14 +1,10 @@
-import React from 'react';
+import React from "react";
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import App from './main';
 
 import registerServiceWorker from './registerServiceWorker';
-import './App.css';
-import Landing from './components/Landing';
-import Nav from './components/Nav';
-import SignUp from './components/SignUp';
-import Dashboard from './components/Dashboard'
 
+<<<<<<< HEAD
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -29,6 +25,9 @@ class App extends React.Component {
     )
   }
 }
+=======
+
+>>>>>>> testing
 
 ReactDOM.render(
     <App/>
