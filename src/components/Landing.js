@@ -8,7 +8,7 @@ export class Landing extends React.Component {
     return (
       <div className="landing">
         <Intro/>
-        <Login/>
+        <Login />
       </div>
     );
   }
