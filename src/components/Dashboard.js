@@ -5,6 +5,36 @@ import Nav2 from './Nav2';
 
 export class Dashboard extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      tables: [],
+      leaderBoard: []
+    };
+    this.loadTables();
+    this.loadLeaderBoard();
+  }
+
+  loadTables() {
+    fetch('https://equal-koala.glitch.me/tables').then( res => {
+      res.json().then( tables => {
+        this.setState({
+          tables: tables
+        })
+      });
+    });
+  }
+
+  loadLeaderBoard() {
+    fetch('https://equal-koala.glitch.me/leaderboard').then( res => {
+      res.json().then( leaders => {
+        this.setState({
+          leaderBoard: leaders
+        })
+      });
+    });
+  }
+
   render() {
     let user = {
       "id": 1234,
@@ -19,102 +49,6 @@ export class Dashboard extends React.Component {
         { key: 'stakes', label: 'Stakes' },
         { key: 'players', label: 'Players' },
         { key: 'avStack', label: 'Average stack' }
-    ];
-
-    let data = [
-      {
-        id: 1,
-        table_name: "Tibor's cool room",
-        stakes: '50/100',
-        players: 3,
-        maxPlayers: 6,
-        avStack: 1300
-      }, {
-        id: 2,
-        table_name: "Dori's cool room",
-        stakes: '50/100',
-        players: 2,
-        maxPlayers: 6,
-        avStack: 1000
-      }, {
-        id: 3,
-        table_name: "Balazs's cool room",
-        stakes: '50/100',
-        players: 4,
-        maxPlayers: 6,
-        avStack: 1800
-      }, {
-        id: 4,
-        table_name: "Gabor's cool room",
-        stakes: '50/100',
-        players: 3,
-        maxPlayers: 6,
-        avStack: 600
-      }
-    ];
-
-    let leaders = [
-      {
-       "id": 1234,
-       "username": "andybendy",
-       "email": "example@gmail.com",
-       "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
-       "chips": 3100
-      }, {
-       "id": 1234,
-       "username": "andybendy",
-       "email": "example@gmail.com",
-       "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
-       "chips": 3100
-      }, {
-       "id": 1234,
-       "username": "andybendy",
-       "email": "example@gmail.com",
-       "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
-       "chips": 3100
-      }, {
-       "id": 1234,
-       "username": "andybendy",
-       "email": "example@gmail.com",
-       "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
-       "chips": 3100
-      }, {
-       "id": 1234,
-       "username": "andybendy",
-       "email": "example@gmail.com",
-       "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
-       "chips": 3100
-      }, {
-       "id": 1234,
-       "username": "andybendy",
-       "email": "example@gmail.com",
-       "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
-       "chips": 3100
-      }, {
-       "id": 1234,
-       "username": "andybendy",
-       "email": "example@gmail.com",
-       "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
-       "chips": 3100
-      }, {
-       "id": 1234,
-       "username": "andybendy",
-       "email": "example@gmail.com",
-       "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
-       "chips": 3100
-      }, {
-       "id": 1234,
-       "username": "andybendy",
-       "email": "example@gmail.com",
-       "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
-       "chips": 3100
-      }, {
-       "id": 1234,
-       "username": "andybendy",
-       "email": "example@gmail.com",
-       "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
-       "chips": 3100
-      }
     ];
 
     return (

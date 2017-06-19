@@ -8,8 +8,6 @@ export class Landing extends React.Component {
 
   getLogin(userData) {
     if (userData.result === 'success') {
-      ajax.getTables();
-      ajax.getLeaderBoard();
       window.location.href = '/dashboard'
     } else {
       alert("ERROR")
