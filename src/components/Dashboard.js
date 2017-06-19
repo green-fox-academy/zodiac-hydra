@@ -1,10 +1,19 @@
 import React from "react";
 import { Tables } from "./Tables";
 import { Leaderboard } from "./Leaderboard";
+import Nav2 from './Nav2';
 
 export class Dashboard extends React.Component {
 
   render() {
+    let user = {
+      "id": 1234,
+      "username": "andybendy",
+      "email": "example@gmail.com",
+      "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
+      "chips": 3100
+    };
+
     let cols = [
         { key: 'table_name', label: 'Table name' },
         { key: 'stakes', label: 'Stakes' },
@@ -109,9 +118,12 @@ export class Dashboard extends React.Component {
     ];
 
     return (
-      <div className="dashboard">
-        <Tables cols={cols} data={data}/>
-        <Leaderboard leaders={leaders}/>
+      <div>
+        <Nav2 user={user}/>
+        <div className="dashboard">
+          <Tables cols={cols} data={data}/>
+          <Leaderboard leaders={leaders}/>
+        </div>
       </div>
     );
   }

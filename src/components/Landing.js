@@ -1,6 +1,7 @@
 import React from "react";
 import { Intro } from "./Intro";
 import { Login } from "./Login";
+import Nav from './Nav';
 var ajax = require('./Ajax.js');
 
 export class Landing extends React.Component {
@@ -18,6 +19,7 @@ export class Landing extends React.Component {
   render() {
     return (
       <div className="landing">
+        <Nav/>
         <Intro/>
         <Login getLogin={this.getLogin}/>
       </div>

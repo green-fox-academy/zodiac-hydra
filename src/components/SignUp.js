@@ -2,6 +2,7 @@
  * Created by Ylwoi on 2017-06-15.
  */
 import React from 'react';
+import Nav from './Nav';
 var ajax = require('./Ajax.js');
 
 export class SignUp extends React.Component {
@@ -35,18 +36,21 @@ export class SignUp extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.onSignUp.bind(this)} className="signUp">
-        <p className="signUpTitle">SIGN UP FORM</p>
-        <label className="signUpLabels">Name:</label>
-        <input ref='signUpName' type="text" className="name" placeholder="for example: John Doe"/>
-        <label className="signUpLabels">E-mail address:</label>
-        <input ref='signUpEmail' type="email" className="text" placeholder="example@example.com" required/><br/>
-        <label className="signUpLabels">Password:</label>
-        <input ref='signUpPassword' type="password" className="password" placeholder="password" required/><br/>
-        <div className="signUpFooter">
-          <button className="signUpButton">SIGN UP</button>
-        </div>
-      </form>
+      <div>
+        <Nav/>
+        <form onSubmit={this.onSignUp.bind(this)} className="signUp">
+          <p className="signUpTitle">SIGN UP FORM</p>
+          <label className="signUpLabels">Name:</label>
+          <input ref='signUpName' type="text" className="name" placeholder="for example: John Doe"/>
+          <label className="signUpLabels">E-mail address:</label>
+          <input ref='signUpEmail' type="email" className="text" placeholder="example@example.com" required/><br/>
+          <label className="signUpLabels">Password:</label>
+          <input ref='signUpPassword' type="password" className="password" placeholder="password" required/><br/>
+          <div className="signUpFooter">
+            <button className="signUpButton">SIGN UP</button>
+          </div>
+        </form>
+      </div>
     );
   }
 }
