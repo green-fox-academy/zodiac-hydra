@@ -55,8 +55,8 @@ export class Dashboard extends React.Component {
       <div>
         <Nav2 user={user}/>
         <div className="dashboard">
-          <Tables cols={cols} data={data}/>
-          <Leaderboard leaders={leaders}/>
+          <Tables cols={cols} data={this.state.tables}/>
+          <Leaderboard leaders={this.state.leaderBoard}/>
         </div>
       </div>
     );
