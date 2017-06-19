@@ -1,0 +1,56 @@
+.signUp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  width: 300px;
+  height: 350px;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 4px 12px 0px rgba(50, 50, 50, 0.75);
+}
+
+.signUpTitle {
+  font-family: 'Open Sans', sans-serif;
+  font-style: oblique;
+  background-color: #219e7b;
+  color: white;
+  width: 270px;
+  height: 50px;
+  padding-left: 30px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  text-shadow: rgb(21, 70, 130) 0px 1px 0px;
+}
+
+.signUp input {
+  width: 200px;
+  height: 35px;
+  margin-left: 30px;
+}
+
+.signUpLabels {
+  font-family: 'Open Sans', sans-serif;
+  font-style: oblique;
+  color: #219e7b;
+  margin-left: 30px;
+}
+
+.signUpFooter {
+  display: flex;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10px;
+  color: #999999;
+  margin-left: 30px;
+}
+
+.signUpButton {
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+}

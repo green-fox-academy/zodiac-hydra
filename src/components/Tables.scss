@@ -1,0 +1,32 @@
+.tables {
+  border-collapse: collapse;
+  text-align: left;
+  width: 700px;
+  font-family: 'Open Sans', sans-serif;
+  overflow: hidden;
+  margin-left: 75px;
+}
+
+.tables td, .tables th {
+  padding: 3px 10px;
+}
+
+.tables thead th {
+  color:#FFFFFF;
+  border-bottom: 2px solid #219e7b;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: bold;
+}
+
+.tables tbody td {
+  color: #219e7b;
+  border-bottom: 1px solid #219e7b;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: normal;
+}
+
+.tables tbody .alt td {
+  color: #219e7b;
+}

@@ -1,0 +1,47 @@
+.App-header {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  color: #219e7b;
+}
+
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 30px;
+  margin: 0 0 0 80px;
+}
+
+.signupButton {
+  position: absolute;
+  right: 110px;
+  top: 15px;
+}
+
+.container {
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  margin-right: 120px;
+}
+
+.container img {
+  margin-right: 15px;
+  border: 5px solid #50677e;
+  border-radius: 30px;
+}
+
+.container p {
+  color: #34495e;
+}
+
+.container p a {
+  color: #219e7b;
+}
+
+.vertLine {
+  margin: 0 10px;
+}
