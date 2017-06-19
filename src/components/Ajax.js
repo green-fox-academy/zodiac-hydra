@@ -29,20 +29,4 @@ let postSignUp = function (callback, data) {
   }
 };
 
-let getTables = function () {
-  xhr.open('GET', root + '/tables', true);
-  xhr.send();
-  xhr.onreadystatechange = function () {
-    console.log(xhr.response)
-  }
-};
-
-let getLeaderBoard = function () {
-  xhr.open('GET', root + '/leaderboard', true);
-  xhr.send();
-  xhr.onreadystatechange = function () {
-    console.log(xhr.response)
-  }
-};
-
-module.exports = {postLogin, postSignUp, getTables, getLeaderBoard};
+module.exports = {postLogin, postSignUp};
