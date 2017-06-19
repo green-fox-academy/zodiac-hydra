@@ -10,11 +10,11 @@ export class Dashboard extends React.Component {
       tables: [],
       leaderBoard: []
     };
-    this.setTables();
-    this.setLeaderBoard();
+    this.loadTables();
+    this.loadLeaderBoard();
   }
 
-  setTables() {
+  loadTables() {
     fetch('https://equal-koala.glitch.me/tables').then( res => {
       res.json().then( tables => {
         this.setState({
@@ -24,7 +24,7 @@ export class Dashboard extends React.Component {
     });
   }
 
-  setLeaderBoard() {
+  loadLeaderBoard() {
     fetch('https://equal-koala.glitch.me/leaderboard').then( res => {
       res.json().then( leaders => {
         this.setState({
@@ -46,7 +46,7 @@ export class Dashboard extends React.Component {
       <div className="dashboard">
         <Tables cols={cols} data={this.state.tables}/>
         <Leaderboard leaders={this.state.leaderBoard}/>
-        <button onClick={this.setTables.bind(this)}>Refresh Tables</button>
+        <button onClick={this.loadTables.bind(this)}>Refresh Tables</button>
       </div>
     );
   }
