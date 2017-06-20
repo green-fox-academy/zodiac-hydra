@@ -1,5 +1,6 @@
 import React from "react";
 import Dialog from './Dialog';
+import SignUp from './SignUp';
 var ajax = require('./Ajax.js');
 
 export class Login extends React.Component {
@@ -24,7 +25,7 @@ export class Login extends React.Component {
   render() {
     return (
       <div>
-        <Dialog/>
+        <Dialog header="Send your e-mail" component={SignUp}/>
         <form onSubmit={this.onLogin.bind(this)} className="Login">
           <p className="loginTitle">LOGIN FORM</p>
           <input ref='loginName' type="text" className="userName" placeholder="User name" required/><br/>

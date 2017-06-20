@@ -2,6 +2,7 @@
  * Created by Ylwoi on 2017-06-20.
  */
 import React from 'react';
+import {Route} from 'react-router-dom';
 
 export class Dialog extends React.Component {
 
@@ -17,16 +18,13 @@ export class Dialog extends React.Component {
 
   render() {
     return (
-      <div>
-        <dialog className="dialog">
-          <a onClick={this.closeDialog}>X</a>
-          <header>Header</header>
-          <p>The content</p>
-          <button>OK</button>
-          <button onClick={this.closeDialog}>Cancel</button>
-        </dialog>
-      </div>
-
+      <dialog className="dialog">
+        <a onClick={this.closeDialog}>X</a>
+        <header>{this.props.header}</header>
+        <Route component={this.props.component}/>
+        <button>OK</button>
+        <button onClick={this.closeDialog}>Cancel</button>
+      </dialog>
     )
   }
 }
