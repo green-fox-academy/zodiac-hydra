@@ -7,6 +7,7 @@ export class Landing extends React.Component {
 
   getLogin(userData) {
     if (userData.result === 'success') {
+      window.sessionStorage.accessToken = userData.token;
       window.location.href = '/dashboard'
     } else {
       alert("ERROR")
