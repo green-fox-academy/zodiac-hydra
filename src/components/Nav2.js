@@ -5,8 +5,9 @@ import React from 'react';
 
 export class Nav2 extends React.Component {
 
-  deleteToken() {
+  onLogout() {
     window.sessionStorage.accessToken = '';
+    window.sessionStorage.userID = '';
   }
 
   render() {
@@ -21,7 +22,7 @@ export class Nav2 extends React.Component {
           <p className="vertLine">|</p>
           <p><a href="http://www.index.hu/">profile</a></p>
           <p className="vertLine">|</p>
-          <p><a onClick={this.deleteToken} href="/">logout</a></p>
+          <p><a onClick={this.onLogout} href="/">logout</a></p>
         </div>
       </div>
 
