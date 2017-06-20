@@ -61,7 +61,8 @@
     "start-js": "node scripts/start.js",
     "start": "npm-run-all -p watch-css start-js",
     "test": "node scripts/test.js --env=jsdom",
-    "postinstall": "npm run build-css && node scripts/build.js",
+    "install": "npm run build-css",
+    "postinstall": "node scripts/build.js",
     "heroku-prebuild": "npm install node-sass-chokidar --save"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
