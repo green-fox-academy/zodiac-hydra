@@ -61,7 +61,7 @@
     "start-js": "node scripts/start.js",
     "start": "npm-run-all -p watch-css start-js",
     "test": "node scripts/test.js --env=jsdom",
-    "postinstall": "node scripts/build.js",
+    "postinstall": "npm run build-css && node scripts/build.js",
     "heroku-postbuild": "npm run build-css"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
