@@ -12,7 +12,7 @@
     "react-dom": "^15.5.4",
     "react-router": "^4.1.0",
     "react-router-dom": "^4.1.0",
-    "node-sass-chokidar": "0.0.3",
+    "node-sass-chokidar": "0.0.3"
   },
   "devDependencies": {
     "enzyme": "^2.8.2",
