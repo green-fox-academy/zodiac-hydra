@@ -25,7 +25,6 @@ export class Nav2 extends React.Component {
           <p><a onClick={this.onLogout} href="/">logout</a></p>
         </div>
       </div>
-
     )
   }
 }
