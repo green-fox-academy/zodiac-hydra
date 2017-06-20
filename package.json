@@ -1,5 +1,5 @@
 {
-  "name": "poker-fontend",
+  "name": "poker-frontend",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -41,5 +41,6 @@
   "bugs": {
     "url": "https://github.com/greenfox-academy/zodiac-hydra/issues"
   },
-  "homepage": "./"
+  "homepage": "./",
+  "cacheDirectories": ["client/node_modules", "server/node_modules"]
 }
