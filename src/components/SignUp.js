@@ -43,7 +43,7 @@ export class SignUp extends React.Component {
           <label className="signUpLabels">Name:</label>
           <input ref='signUpName' type="text" className="name" placeholder="for example: John Doe"/>
           <label className="signUpLabels">E-mail address:</label>
-          <input ref='signUpEmail' type="email" className="text" placeholder="example@example.com" required/><br/>
+          <input ref='signUpEmail' type="email" className="text" placeholder="example@example.com" required/>
           <label className="signUpLabels">Password:</label>
           <input ref='signUpPassword' type="password" className="password" placeholder="password" required/><br/>
           <div className="signUpFooter">
