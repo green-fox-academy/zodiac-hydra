@@ -1,4 +1,5 @@
 import React from "react";
+import Dialog from './Dialog';
 var ajax = require('./Ajax.js');
 
 export class Login extends React.Component {
@@ -22,15 +23,19 @@ export class Login extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.onLogin.bind(this)} className="Login">
-        <p className="loginTitle">LOGIN FORM</p>
-        <input ref='loginName' type="text" className="userName" placeholder="User name" required/><br/>
-        <input ref='loginPassword' type="password" className="password" placeholder="Password" required/><br/>
-        <div className="loginFooter">
-          <p><a href="http://www.index.hu/">Forgot password?</a></p>
-          <button className="loginButton">SIGN IN</button>
-        </div>
-      </form>
+      <div>
+        <Dialog/>
+        <form onSubmit={this.onLogin.bind(this)} className="Login">
+          <p className="loginTitle">LOGIN FORM</p>
+          <input ref='loginName' type="text" className="userName" placeholder="User name" required/><br/>
+          <input ref='loginPassword' type="password" className="password" placeholder="Password" required/><br/>
+          <div className="loginFooter">
+            <p><a onClick={Dialog.prototype.showDialog}>Forgot password?</a></p>
+            <button className="loginButton">SIGN IN</button>
+          </div>
+        </form>
+      </div>
+
     );
   }
 }
