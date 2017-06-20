@@ -6,10 +6,10 @@ export class Login extends React.Component {
   onLogin(e) {
     e.preventDefault();
     console.log('authentication started...');
-    let refEmail = this.refs.loginEmail.value;
+    let refUser = this.refs.loginName.value;
     let refPassword = this.refs.loginPassword.value;
     let message = {
-      "email": refEmail,
+      "username": refUser,
       "password": refPassword
     };
     ajax.postLogin(this.props.getLogin, message);
@@ -24,7 +24,7 @@ export class Login extends React.Component {
     return (
       <form onSubmit={this.onLogin.bind(this)} className="Login">
         <p className="loginTitle">LOGIN FORM</p>
-        <input ref='loginEmail' type="email" className="userEmail" placeholder="E-mail address" required/><br/>
+        <input ref='loginName' type="text" className="userName" placeholder="User name" required/><br/>
         <input ref='loginPassword' type="password" className="password" placeholder="Password" required/><br/>
         <div className="loginFooter">
           <p><a href="http://www.index.hu/">Forgot password?</a></p>
