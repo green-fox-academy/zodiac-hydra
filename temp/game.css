@@ -69,7 +69,10 @@ h2 {
   position: absolute;
   width: 120px;
   height: 80px;
-  background-color: white;
+  background-image: url("./img/cardsOnTable.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  /*background-color: white;*/
 }
 
 .user1 {
@@ -262,6 +265,12 @@ h2 {
   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6);
 }
 
+.folded .userArea {
+  background-image: url("./img/folded.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /* RAISED state styling */
 
 .raisedPar {
@@ -277,4 +286,16 @@ h2 {
   display:flex;
   justify-content: center;
   align-items: center;
+}
+
+/* ONTURN state styling */
+
+.onTurn img {
+  border: 5px solid #ffce54;
+}
+
+/* ACTIVE USER styling */
+
+.activeUser .userArea {
+  background-image: none;
 }
