@@ -18,7 +18,7 @@ export class Dashboard extends React.Component {
   }
 
   loadUser() {
-    fetch('https://equal-koala.glitch.me/user/' + window.sessionStorage.userID).then( res => {
+    fetch('https://equal-koala.glitch.me/user' + window.sessionStorage.userID).then( res => {
       res.json().then( user => {
         this.setState({
           user: user
@@ -30,6 +30,7 @@ export class Dashboard extends React.Component {
   loadTables() {
     fetch('https://equal-koala.glitch.me/tables').then( res => {
       res.json().then( tables => {
+        console.log(tables);
         this.setState({
           tables: tables
         })
@@ -48,13 +49,6 @@ export class Dashboard extends React.Component {
   }
 
   render() {
-    // let user = {
-    //   "id": 1234,
-    //   "username": "andybendy",
-    //   "email": "example@gmail.com",
-    //   "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
-    //   "chips": 3100
-    // };
 
     let cols = [
         { key: 'table_name', label: 'Table name' },
