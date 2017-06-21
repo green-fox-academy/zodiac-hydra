@@ -20,10 +20,8 @@ export class Login extends React.Component {
       "password": refPassword
     };
     ajax.postLogin(this.props.getLogin, message);
-    this.refs.loginEmail.value = '';
+    this.refs.loginName.value = '';
     this.refs.loginPassword.value = '';
-
-
     console.log('authentication finished.')
   }
 
