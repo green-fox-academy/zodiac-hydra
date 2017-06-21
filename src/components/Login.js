@@ -1,10 +1,14 @@
 import React from "react";
 import Dialog from './Dialog';
 import ForgotPassword from './ForgotPassword';
-import Dashboard from './Dashboard';
 var ajax = require('./Ajax.js');
 
 export class Login extends React.Component {
+
+  alert() {
+    alert('Your email has been sent.');
+    Dialog.prototype.closeDialog()
+  }
 
   onLogin(e) {
     e.preventDefault();
@@ -26,7 +30,7 @@ export class Login extends React.Component {
   render() {
     return (
       <div>
-        <Dialog header="Send your e-mail" component={ForgotPassword} callback={Dashboard.prototype.loadTables}/>
+        <Dialog header="Send your e-mail" component={ForgotPassword} callback={this.alert}/>
         <form onSubmit={this.onLogin.bind(this)} className="Login">
           <p className="loginTitle">LOGIN FORM</p>
           <input ref='loginName' type="text" className="userName" placeholder="User name" required/><br/>
