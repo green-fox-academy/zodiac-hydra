@@ -26,6 +26,7 @@ h2 {
   border: 10px solid #48cfad;
   border-radius: 160px;
   margin: 10px auto 50px auto;
+  box-shadow: inset 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 .container {
@@ -75,14 +76,26 @@ h2 {
   /*background-color: white;*/
 }
 
+.chipsArea {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  /*background-color: yellow;*/
+}
+
 .user1 {
-  top: 120px;
+  top: 110px;
   left: -100px;
 }
 
 .user1 .userArea {
   top: 0;
-  right: -180px;
+  right: -160px;
+}
+
+.user1 .chipsArea {
+  top: 20px;
+  right: -20px;
 }
 
 .user2 {
@@ -95,6 +108,11 @@ h2 {
   right: -110px;
 }
 
+.user2 .chipsArea {
+  top: -30px;
+  left: 60px;
+}
+
 .user3 {
   top: 320px;
   right: 60px;
@@ -105,14 +123,24 @@ h2 {
   left: -110px;
 }
 
+.user3 .chipsArea {
+  top: -30px;
+  right: 60px;
+}
+
 .user4 {
-  top: 120px;
+  top: 110px;
   right: -100px;
 }
 
 .user4 .userArea {
   top: 0;
-  left: -180px;
+  left: -160px;
+}
+
+.user4 .chipsArea {
+  top: 20px;
+  left: -20px;
 }
 
 .user5 {
@@ -125,6 +153,11 @@ h2 {
   left: -110px;
 }
 
+.user5 .chipsArea {
+  bottom: -30px;
+  right: 60px;
+}
+
 .user6 {
   top: -100px;
   left: 60px;
@@ -133,6 +166,11 @@ h2 {
 .user6 .userArea {
   bottom: -130px;
   right: -110px;
+}
+
+.user6 .chipsArea {
+  bottom: -30px;
+  left: 60px;
 }
 
 .chips {
@@ -158,66 +196,54 @@ h2 {
   border-radius: 30px;
 }
 
+/* CARDS styling */
+
+.card {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.4);
+  margin: 2px;
+}
+
 /* CENTER CARDS styling */
 
 .centerCards {
   position: absolute;
-  top: 120px;
-  left: 130px;
-  width: 240px;
+  top: 110px;
+  left: 120px;
+  width: 260px;
   height: 80px;
-  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background-color: grey;*/
 }
 
-
-/* BUTTONS styling */
-
-.gameButton {
-  font-family: 'Open Sans', sans-serif;
-  font-style: oblique;
-  color: white;
-  cursor: pointer;
-  text-decoration: none;
-  text-shadow: rgb(21, 70, 130) 0px 1px 0px;
+.centerCard1, .centerCard2, .centerCard3, .centerCard4, .centerCard5 {
+  width: 48px;
+  height: 71px;
+  border-radius: 5px;
 }
 
-.buyInButton {
-  width: 120px;
-  height: 40px;
-  font-size: 18px;
-  border-radius: 20px;
-  background-color: #219e7b;
-  border: 1px solid #219e7b;
-  margin-left: 75px;
+/* ACTIVE USER CARDS styling */
+
+.activeUser .userArea {
+  background-image: none;
 }
 
-.callButton {
-  width: 100px;
-  height: 30px;
-  border-radius: 15px;
-  background-color: #219e7b;
-  border: 1px solid #219e7b;
-  margin-right: 15px;
+.cardsArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
-.raiseButton {
-  width: 100px;
-  height: 30px;
-  border-radius: 15px;
-  background-color: #ffce54;
-  border: 1px solid #ffce54;
-  color: black;
+.activeCard1, .activeCard2 {
+  width: 34px;
+  height: 50px;
+  border-radius: 3px;
 }
-
-.foldButton {
-  width: 100px;
-  height: 30px;
-  border-radius: 15px;
-  background-color: #fc6e51;
-  border: 1px solid #fc6e51;
-  margin-left: 15px;
-}
-
 /* DEALER styling */
 
 .dealerPar {
@@ -236,12 +262,12 @@ h2 {
   align-items: center;
 }
 
-.bigBlindPar {
-
+.bigBlind .userArea .chipsArea {
+  background-image: url("./img/bigBlind.png");
 }
 
-.smallBlindPar {
-
+.smallBlind .userArea .chipsArea {
+  background-image: url("./img/smallBlind.png");
 }
 
 /* FOLDED state styling */
@@ -290,12 +316,54 @@ h2 {
 
 /* ONTURN state styling */
 
-.onTurn img {
+.onTurn .avatarImg {
   border: 5px solid #ffce54;
 }
 
-/* ACTIVE USER styling */
+/* BUTTONS styling */
 
-.activeUser .userArea {
-  background-image: none;
+.gameButton {
+  font-family: 'Open Sans', sans-serif;
+  font-style: oblique;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  text-shadow: rgb(21, 70, 130) 0px 1px 0px;
+}
+
+.buyInButton {
+  width: 120px;
+  height: 40px;
+  font-size: 18px;
+  border-radius: 20px;
+  background-color: #219e7b;
+  border: 1px solid #219e7b;
+  margin-left: 75px;
+}
+
+.callButton {
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #219e7b;
+  border: 1px solid #219e7b;
+  margin-right: 15px;
+}
+
+.raiseButton {
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #ffce54;
+  border: 1px solid #ffce54;
+  color: black;
+}
+
+.foldButton {
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #fc6e51;
+  border: 1px solid #fc6e51;
+  margin-left: 15px;
 }
