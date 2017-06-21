@@ -3,5 +3,33 @@
   top: 30%;
   left: 50%;
   width: 300px;
-  height: 400px;
+  height: auto;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  box-shadow: 0px 4px 12px 0px rgba(50, 50, 50, 0.75);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Open Sans', sans-serif;
+  font-style: oblique;
+  background-color: #219e7b;
+  color: white;
+  align-items: center;
+  margin-bottom: 30px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  text-shadow: rgb(21, 70, 130) 0px 1px 0px;
+}
+
+.component {
+
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

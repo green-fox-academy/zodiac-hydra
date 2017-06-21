@@ -30,6 +30,7 @@ export class Dashboard extends React.Component {
   loadTables() {
     fetch('https://equal-koala.glitch.me/tables').then( res => {
       res.json().then( tables => {
+        console.log(tables);
         this.setState({
           tables: tables
         })

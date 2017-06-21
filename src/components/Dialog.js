@@ -19,11 +19,15 @@ export class Dialog extends React.Component {
   render() {
     return (
       <dialog className="dialog">
-        <a onClick={this.closeDialog}>X</a>
-        <header>{this.props.header}</header>
-        <Route component={this.props.component}/>
-        <button>OK</button>
-        <button onClick={this.closeDialog}>Cancel</button>
+        <div className="header">
+          <header>{this.props.header}</header>
+          <a onClick={this.closeDialog}>X</a>
+        </div>
+        <Route className="component" component={this.props.component}/>
+        <div className="buttons">
+          <button onClick={this.props.callback}>OK</button>
+          <button onClick={this.closeDialog}>Cancel</button>
+        </div>
       </dialog>
     )
   }

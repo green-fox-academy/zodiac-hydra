@@ -5,7 +5,7 @@
 @import 'components/Dashboard.scss';
 @import 'components/Tables.scss';
 @import 'components/Leaderboard.scss';
-@import 'components/Dialog';
+@import 'components/Dialog.scss';
 
 * {
   margin: 0;
@@ -16,6 +16,7 @@ a {
   color: inherit;
   text-decoration: none;
   font-weight: bold;
+  cursor: pointer;
 }
 
 body {
