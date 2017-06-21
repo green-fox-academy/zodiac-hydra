@@ -1,0 +1,369 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100%;
+  background-color: #34495e;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 30px 0 20px 75px;
+  color: #219e7b;
+}
+
+.table {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  background-color: #23a484;
+  border: 10px solid #48cfad;
+  border-radius: 160px;
+  margin: 10px auto 50px auto;
+  box-shadow: inset 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  width: 500px;
+  padding: 15px;
+  margin: auto;
+}
+
+.raiseInput, .actionButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.raiseInput p {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 15px;
+}
+
+.raiseInput input {
+  font-family: 'Open Sans', sans-serif;
+  width: 50px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* PLAYERS styling */
+
+.player {
+  position: absolute;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.userArea {
+  position: absolute;
+  width: 120px;
+  height: 80px;
+  background-image: url("./img/cardsOnTable.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  /*background-color: white;*/
+}
+
+.chipsArea {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  /*background-color: yellow;*/
+}
+
+.user1 {
+  top: 110px;
+  left: -100px;
+}
+
+.user1 .userArea {
+  top: 0;
+  right: -160px;
+}
+
+.user1 .chipsArea {
+  top: 20px;
+  right: -20px;
+}
+
+.user2 {
+  top: 320px;
+  left: 60px;
+}
+
+.user2 .userArea {
+  top: -100px;
+  right: -110px;
+}
+
+.user2 .chipsArea {
+  top: -30px;
+  left: 60px;
+}
+
+.user3 {
+  top: 320px;
+  right: 60px;
+}
+
+.user3 .userArea {
+  top: -100px;
+  left: -110px;
+}
+
+.user3 .chipsArea {
+  top: -30px;
+  right: 60px;
+}
+
+.user4 {
+  top: 110px;
+  right: -100px;
+}
+
+.user4 .userArea {
+  top: 0;
+  left: -160px;
+}
+
+.user4 .chipsArea {
+  top: 20px;
+  left: -20px;
+}
+
+.user5 {
+  top: -100px;
+  right: 60px;
+}
+
+.user5 .userArea {
+  bottom: -130px;
+  left: -110px;
+}
+
+.user5 .chipsArea {
+  bottom: -30px;
+  right: 60px;
+}
+
+.user6 {
+  top: -100px;
+  left: 60px;
+}
+
+.user6 .userArea {
+  bottom: -130px;
+  right: -110px;
+}
+
+.user6 .chipsArea {
+  bottom: -30px;
+  left: 60px;
+}
+
+.chips {
+  position: absolute;
+  left: -2px;
+  bottom: -23px;
+  width: 50px;
+  height: 20px;
+  color: #a1a1a1;
+  font-size: 12px;
+  background-color: white;
+  border-radius: 10px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatarImg {
+  background-color: white;
+  width: 35px;
+  height: 35px;
+  border: 5px solid #50677e;
+  border-radius: 30px;
+}
+
+/* CARDS styling */
+
+.card {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.4);
+  margin: 2px;
+}
+
+/* CENTER CARDS styling */
+
+.centerCards {
+  position: absolute;
+  top: 110px;
+  left: 120px;
+  width: 260px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background-color: grey;*/
+}
+
+.centerCard1, .centerCard2, .centerCard3, .centerCard4, .centerCard5 {
+  width: 48px;
+  height: 71px;
+  border-radius: 5px;
+}
+
+/* ACTIVE USER CARDS styling */
+
+.activeUser .userArea {
+  background-image: none;
+}
+
+.cardsArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.activeCard1, .activeCard2 {
+  width: 34px;
+  height: 50px;
+  border-radius: 3px;
+}
+/* DEALER styling */
+
+.dealerPar {
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  color: black;
+  font-size: 12px;
+  background-color: #ffce54;
+  border-radius: 10px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bigBlind .userArea .chipsArea {
+  background-image: url("./img/bigBlind.png");
+}
+
+.smallBlind .userArea .chipsArea {
+  background-image: url("./img/smallBlind.png");
+}
+
+/* FOLDED state styling */
+
+.foldedPar {
+  position: absolute;
+  top: -28px;
+  left: -17px;
+  width: 80px;
+  height: 20px;
+  color: black;
+  font-size: 12px;
+  background-color: #fc6e51;
+  border-radius: 10px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.folded img {
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6);
+}
+
+.folded .userArea {
+  background-image: url("./img/folded.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* RAISED state styling */
+
+.raisedPar {
+  position: absolute;
+  top: -28px;
+  left: -17px;
+  width: 80px;
+  height: 20px;
+  color: black;
+  font-size: 12px;
+  background-color: #219e7b;
+  border-radius: 10px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ONTURN state styling */
+
+.onTurn .avatarImg {
+  border: 5px solid #ffce54;
+}
+
+/* BUTTONS styling */
+
+.gameButton {
+  font-family: 'Open Sans', sans-serif;
+  font-style: oblique;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  text-shadow: rgb(21, 70, 130) 0px 1px 0px;
+}
+
+.buyInButton {
+  width: 120px;
+  height: 40px;
+  font-size: 18px;
+  border-radius: 20px;
+  background-color: #219e7b;
+  border: 1px solid #219e7b;
+  margin-left: 75px;
+}
+
+.callButton {
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #219e7b;
+  border: 1px solid #219e7b;
+  margin-right: 15px;
+}
+
+.raiseButton {
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #ffce54;
+  border: 1px solid #ffce54;
+  color: black;
+}
+
+.foldButton {
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #fc6e51;
+  border: 1px solid #fc6e51;
+  margin-left: 15px;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Game room</title>
+    <link rel="stylesheet" href="game.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  </head>
+  <body>
+    <h2>Highrollers 25/50</h2>
+    <button class="gameButton buyInButton">BUY IN</button>
+    <div class="table">
+      <div class="bigBlind player user1">
+        <img class="avatarImg" src="http://findwise.github.io/Hydra/images/big-hydra-no-text.png">
+        <p class="chips">3100</p>
+        <div class="userArea">
+          <div class="cardsArea"></div>
+          <div class="chipsArea"></div>
+        </div>
+      </div>
+      <div class="activeUser onTurn player user2">
+        <img class="avatarImg" src="http://findwise.github.io/Hydra/images/big-hydra-no-text.png">
+        <p class="chips">3100</p>
+        <div class="userArea">
+          <div class="cardsArea">
+            <img class="card activeCard1" src="./img/cards/D2.png"/>
+            <img class="card activeCard2" src="./img/cards/H7.png"/>
+          </div>
+          <div class="chipsArea"></div>
+        </div>
+      </div>
+      <div class="player user3">
+        <img class="avatarImg" src="http://findwise.github.io/Hydra/images/big-hydra-no-text.png">
+        <p class="chips">3100</p>
+        <div class="userArea">
+          <div class="cardsArea"></div>
+          <div class="chipsArea"></div>
+        </div>
+      </div>
+      <div class="folded player user4">
+        <p class="foldedPar">FOLDED</p>
+        <img class="avatarImg" src="http://findwise.github.io/Hydra/images/big-hydra-no-text.png">
+        <p class="chips">3100</p>
+        <div class="userArea">
+          <div class="cardsArea"></div>
+          <div class="chipsArea"></div>
+        </div>
+      </div>
+      <div class="smallBlind dealer player user5">
+        <img class="avatarImg" src="http://findwise.github.io/Hydra/images/big-hydra-no-text.png">
+        <p class="chips">3100</p>
+        <p class="dealerPar">D</p>
+        <p class="raisedPar">RAISED</p>
+        <div class="userArea">
+          <div class="cardsArea"></div>
+          <div class="chipsArea"></div>
+        </div>
+      </div>
+      <div class="player user6">
+        <img class="avatarImg" src="http://findwise.github.io/Hydra/images/big-hydra-no-text.png">
+        <p class="chips">3100</p>
+        <div class="userArea">
+          <div class="cardsArea"></div>
+          <div class="chipsArea"></div>
+        </div>
+      </div>
+      <div class="centerCards">
+        <img class="card centerCard1" src="./img/cards/cardsBack.png"/>
+        <img class="card centerCard2" src="./img/cards/SK.png"/>
+        <img class="card centerCard3" src="./img/cards/HA.png"/>
+        <img class="card centerCard4" src="./img/cards/CA.png"/>
+        <img class="card centerCard5" src="./img/cards/SA.png"/>
+      </div>
+    </div>
+    <div class="container">
+      <div class="raiseInput">
+        <p class="raiseMinus">-</p>
+        <input ref='raiseInput' type="number" className="raiseInput" placeholder="100"/>
+        <p class="raisePlus">+</p>
+      </div>
+      <div class="actionButtons">
+        <button class="gameButton callButton">CALL</button>
+        <button class="gameButton raiseButton">RAISE</button>
+        <button class="gameButton foldButton">FOLD</button>
+      </div>
+  </body>
+</html>
