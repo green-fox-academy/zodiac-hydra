@@ -1,0 +1,26 @@
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 30px 0 20px 75px;
+  color: #219e7b;
+}
+
+.gameButton {
+  font-family: 'Open Sans', sans-serif;
+  font-style: oblique;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  text-shadow: rgb(21, 70, 130) 0px 1px 0px;
+}
+
+.buyInButton {
+  width: 120px;
+  height: 40px;
+  font-size: 18px;
+  border-radius: 20px;
+  background-color: #219e7b;
+  border: 1px solid #219e7b;
+  margin-left: 75px;
+}
