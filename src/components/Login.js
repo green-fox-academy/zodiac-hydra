@@ -1,7 +1,9 @@
 import React from "react";
 import Dialog from './Dialog';
 import ForgotPassword from './ForgotPassword';
-var ajax = require('./Ajax.js');
+import Ajax from './Ajax';
+
+let ajax = new Ajax();
 
 export class Login extends React.Component {
 

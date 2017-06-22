@@ -18,7 +18,7 @@ export class Dashboard extends React.Component {
   }
 
   loadUser() {
-    fetch('https://equal-koala.glitch.me/user' + window.sessionStorage.userID).then( res => {
+    fetch('https://equal-koala.glitch.me/user/' + window.sessionStorage.userID).then( res => {
       res.json().then( user => {
         this.setState({
           user: user

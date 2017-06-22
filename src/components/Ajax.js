@@ -1,32 +1,37 @@
 /**
  * Created by Ylwoi on 2017-06-13.
  */
-const xhr = new XMLHttpRequest();
 
-const root = 'https://equal-koala.glitch.me';
+class Ajax {
 
-let postLogin = function (callback, data) {
-    xhr.open('POST', root + '/login', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('Accept', 'application/json');
-    xhr.send(data);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            callback(JSON.parse(xhr.response))
-        }
-    }
-};
-
-let postSignUp = function (callback, data) {
-  xhr.open('POST', root + '/register', true);
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.setRequestHeader('Accept', 'application/json');
-  xhr.send(data);
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      callback(JSON.parse(xhr.response))
-    }
+  constructor() {
+    this.xhr = new XMLHttpRequest();
+    this.root = 'https://equal-koala.glitch.me';
   }
-};
 
-module.exports = {postLogin, postSignUp};
+  postLogin(callback, data) {
+    this.xhr.open('POST', this.root + '/login', true);
+    this.xhr.setRequestHeader('Content-Type', 'application/json');
+    this.xhr.setRequestHeader('Accept', 'application/json');
+    this.xhr.send(data);
+    this.xhr.onreadystatechange = () => {
+      if (this.xhr.readyState === 4 && this.xhr.status === 200) {
+        callback(JSON.parse(this.xhr.response))
+      }
+    }
+  };
+
+  postSignUp(callback, data) {
+    this.xhr.open('POST', this.root + '/register', true);
+    this.xhr.setRequestHeader('Content-Type', 'application/json');
+    this.xhr.setRequestHeader('Accept', 'application/json');
+    this.xhr.send(data);
+    this.xhr.onreadystatechange = () => {
+      if (this.xhr.readyState === 4 && this.xhr.status === 200) {
+        callback(JSON.parse(this.xhr.response))
+      }
+    }
+  };
+}
+
+export default Ajax;

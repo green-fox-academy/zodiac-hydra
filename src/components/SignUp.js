@@ -3,7 +3,9 @@
  */
 import React from 'react';
 import Nav from './Nav';
-var ajax = require('./Ajax.js');
+import Ajax from './Ajax';
+
+let ajax = new Ajax();
 
 export class SignUp extends React.Component {
   onSignUp(e) {
