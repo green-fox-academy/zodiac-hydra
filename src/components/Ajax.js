@@ -7,7 +7,7 @@ class Ajax {
   constructor() {
     this.xhr = new XMLHttpRequest();
     this.root = 'https://equal-koala.glitch.me';
-    this.headers = new Headers({'X-poker-token': window.sessionStorage.accesToken});
+    this.headers = new Headers({'X-poker-token': window.sessionStorage.accessToken});
   }
 
   postLogin(callback, data) {
