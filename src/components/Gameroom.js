@@ -1,6 +1,7 @@
 import React from 'react';
 import Table from './Table';
 import Header from './Header';
+import UserAction from './UserAction';
 
 export class Gameroom extends React.Component {
     render() {
@@ -14,11 +15,7 @@ export class Gameroom extends React.Component {
                   <input ref='raiseInput' type="number" className="raiseInput" placeholder="100"/>
                   <p className="raisePlus">+</p>
                 </div>
-                <div className="actionButtons">
-                  <button className="gameButton callButton">CALL</button>
-                  <button className="gameButton raiseButton">RAISE</button>
-                  <button className="gameButton foldButton">FOLD</button>
-                </div>
+                <UserAction/>
               </div>
             </section>
         );

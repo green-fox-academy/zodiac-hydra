@@ -1,4 +1,5 @@
 import React from 'react';
+import CenterCards from './CenterCards';
 
 export class Table extends React.Component {
     render() {
@@ -58,13 +59,7 @@ export class Table extends React.Component {
                   <div className="chipsArea"></div>
                 </div>
               </div>
-              <div className="centerCards">
-                <img className="card centerCard1" src="./img/cards/cardsBack.png" alt=""/>
-                <img className="card centerCard2" src="./img/cards/SK.png" alt=""/>
-                <img className="card centerCard3" src="./img/cards/HA.png" alt=""/>
-                <img className="card centerCard4" src="./img/cards/CA.png" alt=""/>
-                <img className="card centerCard5" src="./img/cards/SA.png" alt=""/>
-              </div>
+              <CenterCards/>
             </div>
         );
     }
