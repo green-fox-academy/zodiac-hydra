@@ -4,7 +4,7 @@ export class Intro extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="intro">
         <div className="introTitle">
           <p className="introTitle1">100% FREE</p>
           <p className="introTitle2">ONLINE POKER</p>
@@ -13,7 +13,6 @@ export class Intro extends React.Component {
           <p> Play Texas Hold’em no limit poker right in your browser,</p>
           <p> no plugins or anything just cool web technologies.</p>
         </div>
-
       </div>
     );
   }
