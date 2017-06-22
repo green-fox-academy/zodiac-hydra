@@ -18,7 +18,11 @@ export class Dashboard extends React.Component {
   }
 
   loadUser() {
-    fetch('https://equal-koala.glitch.me/user/' + window.sessionStorage.userID).then( res => {
+    let headers = new Headers({'X-poker-token': window.sessionStorage.accesToken});
+    fetch('https://equal-koala.glitch.me/user/' + window.sessionStorage.userID, {
+      method: 'GET',
+      headers: headers
+    }).then( res => {
       res.json().then( user => {
         this.setState({
           user: user
@@ -28,7 +32,11 @@ export class Dashboard extends React.Component {
   }
 
   loadTables() {
-    fetch('https://equal-koala.glitch.me/tables').then( res => {
+    let headers = new Headers({'X-poker-token': window.sessionStorage.accesToken});
+    fetch('https://equal-koala.glitch.me/tables', {
+      method: 'GET',
+      headers: headers
+    }).then( res => {
       res.json().then( tables => {
         console.log(tables);
         this.setState({
@@ -39,7 +47,11 @@ export class Dashboard extends React.Component {
   }
 
   loadLeaderBoard() {
-    fetch('https://equal-koala.glitch.me/leaderboard').then( res => {
+    let headers = new Headers({'X-poker-token': window.sessionStorage.accesToken});
+    fetch('https://equal-koala.glitch.me/leaderboard',{
+      method: 'GET',
+      headers: headers
+    }).then( res => {
       res.json().then( leaders => {
         this.setState({
           leaderBoard: leaders
