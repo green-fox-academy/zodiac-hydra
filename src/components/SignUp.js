@@ -19,7 +19,10 @@ export class SignUp extends React.Component {
       "email": refEmail,
       "password": refPassword
     };
-    ajax.postSignUp(this.getSignUp, message);
+    ajax.postData('/register', message)
+      .then( (data) => {
+        this.getSignUp(data)
+      });
     this.refs.signUpName.value = '';
     this.refs.signUpEmail.value = '';
     this.refs.signUpPassword.value = '';
