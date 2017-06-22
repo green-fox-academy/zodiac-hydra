@@ -20,7 +20,7 @@
   position: absolute;
   width: 120px;
   height: 80px;
-  background-image: url("./img/cardsOnTable.png");
+  background-image: url("./components/img/cardsOnTable.png");
   background-position: center;
   background-repeat: no-repeat;
   /*background-color: white;*/
@@ -193,11 +193,11 @@
 }
 
 .bigBlind .userArea .chipsArea {
-  background-image: url("./img/bigBlind.png");
+  background-image: url("./components/img/bigBlind.png");
 }
 
 .smallBlind .userArea .chipsArea {
-  background-image: url("./img/smallBlind.png");
+  background-image: url("./components/img/smallBlind.png");
 }
 
 /* FOLDED state styling */
@@ -222,7 +222,7 @@
 }
 
 .folded .userArea {
-  background-image: url(".\\img\\folded.png");
+  background-image: url("./components/img/folded.png");
   background-position: center;
   background-repeat: no-repeat;
 }

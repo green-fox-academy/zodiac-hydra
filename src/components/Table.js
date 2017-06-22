@@ -53,8 +53,8 @@ export class Table extends React.Component {
                 <p className="chips">3100</p>
                 <div className="userArea">
                   <div className="cardsArea">
-                    <img className="card activeCard1" src="./img/cards/D2.png" alt=""/>
-                    <img className="card activeCard2" src="./img/cards/H7.png" alt=""/>
+                    <img className="card activeCard1" src={require("./img/cards/D2.png")} alt="" width='34' height='50'/>
+                    <img className="card activeCard2" src={require("./img/cards/H7.png")} alt=""/>
                   </div>
                   <div className="chipsArea"></div>
                 </div>
