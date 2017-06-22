@@ -98,32 +98,32 @@ h2 {
   right: -20px;
 }
 
-.user2 {
+.user6 {
   top: 320px;
   left: 60px;
 }
 
-.user2 .userArea {
+.user6 .userArea {
   top: -100px;
   right: -110px;
 }
 
-.user2 .chipsArea {
+.user6 .chipsArea {
   top: -30px;
   left: 60px;
 }
 
-.user3 {
+.user5 {
   top: 320px;
   right: 60px;
 }
 
-.user3 .userArea {
+.user5 .userArea {
   top: -100px;
   left: -110px;
 }
 
-.user3 .chipsArea {
+.user5 .chipsArea {
   top: -30px;
   right: 60px;
 }
@@ -143,32 +143,32 @@ h2 {
   left: -20px;
 }
 
-.user5 {
+.user3 {
   top: -100px;
   right: 60px;
 }
 
-.user5 .userArea {
+.user3 .userArea {
   bottom: -130px;
   left: -110px;
 }
 
-.user5 .chipsArea {
+.user3 .chipsArea {
   bottom: -30px;
   right: 60px;
 }
 
-.user6 {
+.user2 {
   top: -100px;
   left: 60px;
 }
 
-.user6 .userArea {
+.user2 .userArea {
   bottom: -130px;
   right: -110px;
 }
 
-.user6 .chipsArea {
+.user2 .chipsArea {
   bottom: -30px;
   left: 60px;
 }
