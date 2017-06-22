@@ -7,6 +7,7 @@ class Ajax {
   constructor() {
     this.xhr = new XMLHttpRequest();
     this.root = 'https://equal-koala.glitch.me';
+    this.headers = new Headers({'X-poker-token': window.sessionStorage.accesToken});
   }
 
   postLogin(callback, data) {
@@ -32,6 +33,20 @@ class Ajax {
       }
     }
   };
+
+  loadData(endpoint) {
+    return new Promise((resolve, reject) => {
+      fetch(this.root + endpoint, {
+        method: 'GET',
+        headers: this.headers
+      }).then( res => {
+        res.json().then( data => {
+          resolve(data)
+        });
+      });
+    })
+  }
+
 }
 
 export default Ajax;
