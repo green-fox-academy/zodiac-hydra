@@ -1,32 +1,42 @@
 /**
  * Created by Ylwoi on 2017-06-13.
  */
-const xhr = new XMLHttpRequest();
 
-const root = 'https://equal-koala.glitch.me';
+class Ajax {
 
-let postLogin = function (callback, data) {
-    xhr.open('POST', root + '/login', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('Accept', 'application/json');
-    xhr.send(data);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            callback(JSON.parse(xhr.response))
-        }
-    }
-};
-
-let postSignUp = function (callback, data) {
-  xhr.open('POST', root + '/register', true);
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.setRequestHeader('Accept', 'application/json');
-  xhr.send(data);
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      callback(JSON.parse(xhr.response))
-    }
+  constructor() {
+    this.root = 'https://equal-koala.glitch.me';
+    this.getHeaders = new Headers({'X-poker-token': window.sessionStorage.accessToken});
+    this.postHeaders = new Headers({'Content-Type': 'application/json', 'Accept': 'application/json'})
   }
-};
 
-module.exports = {postLogin, postSignUp};
+  postData(endpoint, dataToSend) {
+    return new Promise((resolve, reject) => {
+      fetch(this.root + endpoint, {
+        method: 'POST',
+        headers: this.postHeaders,
+        body: dataToSend
+      }).then( res => {
+        res.json().then( data => {
+          resolve(data)
+        })
+      })
+    })
+  }
+
+  loadData(endpoint) {
+    return new Promise((resolve, reject) => {
+      fetch(this.root + endpoint, {
+        method: 'GET',
+        headers: this.getHeaders
+      }).then( res => {
+        res.json().then( data => {
+          resolve(data)
+        });
+      });
+    })
+  }
+
+}
+
+export default Ajax;
