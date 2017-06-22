@@ -1,0 +1,11 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+section {
+  min-height: 800px;
+  background-color: #34495e;
+  display: flex;
+  flex-direction: column;
+}
