@@ -25,6 +25,10 @@ export class Login extends React.Component {
     console.log('authentication finished.')
   }
 
+  componentDidMount() {
+    console.log("Component did mount");
+  }
+
   render() {
     return (
       <div>
