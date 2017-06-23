@@ -7,12 +7,12 @@ import {Route} from 'react-router-dom';
 export class Dialog extends React.Component {
 
   showDialog() {
-    var dialog = document.querySelector('.dialog');
+    let dialog = document.querySelector('.dialog');
     dialog.show();
   }
 
   closeDialog() {
-    var dialog = document.querySelector('.dialog');
+    let dialog = document.querySelector('.dialog');
     dialog.close();
   }
 
