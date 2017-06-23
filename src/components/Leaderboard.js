@@ -13,7 +13,7 @@ export class Leaderboard extends React.Component {
             <img src={user.avatar} alt="" height="50" width="50"/>
             <div>
               <p>{user.username}</p>
-              <p className="chips">{user.chips} chips</p>
+              <p className="leader-chips">{user.chips} chips</p>
             </div>
           </div>)
         }
