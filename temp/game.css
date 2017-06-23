@@ -196,16 +196,6 @@ h2 {
   border-radius: 30px;
 }
 
-/* CARDS styling */
-
-.card {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.4);
-  margin: 2px;
-}
-
 /* CENTER CARDS styling */
 
 .centerCards {
@@ -220,10 +210,56 @@ h2 {
   /*background-color: grey;*/
 }
 
-.centerCard1, .centerCard2, .centerCard3, .centerCard4, .centerCard5 {
+.cardContainer {
   width: 48px;
   height: 71px;
+  position: relative;
   border-radius: 5px;
+  margin: 2px;
+  perspective: 800px;
+}
+
+.centerCard1, .centerCard2, .centerCard3, .centerCard4, .centerCard5 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.cardContainer div .card {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.4);
+  margin: 0;
+  backface-visibility: hidden;
+}
+
+.front {
+  position: absolute;
+  transform: rotateY( 180deg );
+}
+
+.back {
+  position: absolute;
+}
+
+.flipped {
+  transform: rotateY( 180deg );
+}
+
+.pot {
+  position: absolute;
+  top: -20px;
+  font-family: 'Open Sans', sans-serif;
+  color: gold;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
 }
 
 /* ACTIVE USER CARDS styling */
@@ -243,6 +279,8 @@ h2 {
   width: 34px;
   height: 50px;
   border-radius: 3px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.4);
+  margin: 2px;
 }
 /* DEALER styling */
 
