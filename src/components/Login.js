@@ -1,7 +1,9 @@
 import React from "react";
 import Dialog from './Dialog';
 import ForgotPassword from './ForgotPassword';
-var ajax = require('./Ajax.js');
+import Ajax from './Ajax';
+
+let ajax = new Ajax();
 
 export class Login extends React.Component {
 
@@ -12,17 +14,18 @@ export class Login extends React.Component {
 
   onLogin(e) {
     e.preventDefault();
-    console.log('authentication started...');
     let refUser = this.refs.loginName.value;
     let refPassword = this.refs.loginPassword.value;
     let message = {
       "username": refUser,
       "password": refPassword
     };
-    ajax.postLogin(this.props.getLogin, message);
+    ajax.postData('/login', message)
+      .then( (data) => {
+        this.props.getLogin(data)
+      });
     this.refs.loginName.value = '';
     this.refs.loginPassword.value = '';
-    console.log('authentication finished.')
   }
 
   componentDidMount() {

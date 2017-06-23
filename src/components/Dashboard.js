@@ -2,6 +2,9 @@ import React from "react";
 import { Tables } from "./Tables";
 import { Leaderboard } from "./Leaderboard";
 import Nav2 from './Nav2';
+import Ajax from './Ajax';
+
+let ajax = new Ajax();
 
 export class Dashboard extends React.Component {
 
@@ -12,40 +15,27 @@ export class Dashboard extends React.Component {
       leaderBoard: [],
       user: {}
     };
-    this.loadUser();
-    this.loadTables();
-    this.loadLeaderBoard();
-  }
 
-  loadUser() {
-    fetch('https://equal-koala.glitch.me/user' + window.sessionStorage.userID).then( res => {
-      res.json().then( user => {
+    ajax.loadData('/user/' + window.sessionStorage.userID)
+      .then((data) => {
         this.setState({
-          user: user
+          user: data
         })
       });
-    });
-  }
 
-  loadTables() {
-    fetch('https://equal-koala.glitch.me/tables').then( res => {
-      res.json().then( tables => {
-        console.log(tables);
+    ajax.loadData('/tables')
+      .then((data) => {
         this.setState({
-          tables: tables
+          tables: data
         })
       });
-    });
-  }
 
-  loadLeaderBoard() {
-    fetch('https://equal-koala.glitch.me/leaderboard').then( res => {
-      res.json().then( leaders => {
+    ajax.loadData('/leaderboard')
+      .then((data) => {
         this.setState({
-          leaderBoard: leaders
+          leaderBoard: data
         })
       });
-    });
   }
 
   render() {

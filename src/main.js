@@ -4,6 +4,7 @@ import './App.css';
 import Landing from './components/Landing';
 import SignUp from './components/SignUp';
 import Dashboard from './components/Dashboard'
+//import Gameroom from './components/Gameroom'
 
 class App extends React.Component {
   constructor(props) {
