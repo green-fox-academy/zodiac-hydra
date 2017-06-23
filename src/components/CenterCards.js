@@ -9,6 +9,7 @@ export class CenterCards extends React.Component {
               <img className="card centerCard3" src={require("./img/cards/HA.png")} alt=""/>
               <img className="card centerCard4" src={require("./img/cards/CA.png")} alt=""/>
               <img className="card centerCard5" src={require("./img/cards/SA.png")} alt=""/>
+              <p className="pot"> Pot: 300</p>
             </div>
         );
     }
