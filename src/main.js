@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Landing from './components/Landing';
 import SignUp from './components/SignUp';
@@ -15,7 +15,7 @@ class App extends React.Component {
   }
   render() {
     return (
-      <Router history="">
+      <Router >
         <div className="App">
           <Route exact path="/" component={Landing}/>
           <Route path="/signUp" component={SignUp}/>

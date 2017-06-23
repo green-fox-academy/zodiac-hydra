@@ -28,6 +28,10 @@ export class Login extends React.Component {
     this.refs.loginPassword.value = '';
   }
 
+  componentDidMount() {
+    console.log("Component did mount");
+  }
+
   render() {
     return (
       <div>
