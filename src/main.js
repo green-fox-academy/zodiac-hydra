@@ -4,7 +4,7 @@ import './App.css';
 import Landing from './components/Landing';
 import SignUp from './components/SignUp';
 import Dashboard from './components/Dashboard'
-//import Gameroom from './components/Gameroom'
+import Gameroom from './components/Gameroom'
 
 class App extends React.Component {
   constructor(props) {
@@ -20,6 +20,7 @@ class App extends React.Component {
           <Route exact path="/" component={Landing}/>
           <Route path="/signUp" component={SignUp}/>
           <Route path="/dashboard" component={Dashboard}/>
+          <Route path="/gameroom" component={Gameroom}/>
         </div>
       </Router>
     )
