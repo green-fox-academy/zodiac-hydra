@@ -16,7 +16,7 @@ export class Nav2 extends React.Component {
     return (
       <div className="App-header">
         <h1>Hydra Poker</h1>
-        <div className="container">
+        <div className="nav-container">
           <img src={user.avatar} alt="" height="35" width="35"/>
           <p>Welcome, {user.username}</p>
           <p className="vertLine">|</p>
