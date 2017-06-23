@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import sinon from 'sinon';
 
 import Intro from './components/Intro';
 import App from './main'
