@@ -23,10 +23,10 @@ export class Dashboard extends React.Component {
         })
       });
 
-    ajax.loadData('/tables')
+    ajax.loadData('/games')
       .then((data) => {
         this.setState({
-          tables: data
+          games: data
         })
       });
 
