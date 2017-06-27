@@ -19,7 +19,7 @@ export class Gameroom extends React.Component {
     ajax.loadData('/games')
       .then((data) => {
         data.forEach((game) => {
-          if (game.gamestate_id == this.game_id) {
+          if (game.gamestate_id === this.game_id) {
             this.setState({
               table_name: game.name,
               big_blind: game.big_blind
@@ -27,8 +27,7 @@ export class Gameroom extends React.Component {
           }
         })
       })
-  }
-
+    }
     render() {
         return(
             <section>
