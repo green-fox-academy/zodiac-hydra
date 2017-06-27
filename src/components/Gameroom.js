@@ -10,10 +10,7 @@ export class Gameroom extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.game_id = window.location.pathname.slice(10);
-    console.log(this.game_id);
-
     this.state = {
       table_name: '',
       big_blind: null,
@@ -21,7 +18,7 @@ export class Gameroom extends React.Component {
 
     ajax.loadData('/games')
       .then((data) => {
-        data.map((game) => {
+        data.forEach((game) => {
           if (game.gamestate_id == this.game_id) {
             this.setState({
               table_name: game.name,
