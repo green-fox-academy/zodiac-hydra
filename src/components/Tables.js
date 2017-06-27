@@ -37,8 +37,8 @@ export class Tables extends React.Component {
     return data.map(function(item) {
       // handle the column data within each row
       let cells = cols.map(function(colData) {
-        if (colData.key === 'table_name') {
-          return <Link key={'table ' + item[colData.key]} to="/gameroom" className="tableLink"><td key={item[colData.key]}>{item[colData.key]}</td></Link>;
+        if (colData.key === 'name') {
+          return <Link key={'table ' + item[colData.key]} to={"/gameroom/" + item.gamestate_id}  className="tableLink"><td key={item[colData.key]}>{item[colData.key]}</td></Link>;
         }
         // colData.key might be "firstName"
         return <td key={item[colData.key]}>{item[colData.key]}</td>;
