@@ -11,7 +11,7 @@ export class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tables: [],
+      games: [],
       leaderBoard: [],
       user: {}
     };
@@ -41,17 +41,16 @@ export class Dashboard extends React.Component {
   render() {
 
     let cols = [
-        { key: 'table_name', label: 'Table name' },
-        { key: 'stakes', label: 'Stakes' },
-        { key: 'players', label: 'Players' },
-        { key: 'avStack', label: 'Average stack' }
+      { key: 'name', label: 'Table name' },
+      { key: 'big_blind', label: 'Stakes' },
+      { key: 'max_players', label: 'Max players' },
     ];
 
     return (
       <div>
         <Nav2 user={this.state.user}/>
         <div className="dashboard">
-          <Tables cols={cols} data={this.state.tables}/>
+          <Tables cols={cols} data={this.state.games}/>
           <Leaderboard leaders={this.state.leaderBoard}/>
         </div>
       </div>

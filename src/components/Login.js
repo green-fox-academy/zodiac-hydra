@@ -8,7 +8,7 @@ let ajax = new Ajax();
 export class Login extends React.Component {
 
   alert() {
-    alert('Your email has been sent.');
+    alert('Your e-mail has been sent.');
     Dialog.prototype.closeDialog()
   }
 

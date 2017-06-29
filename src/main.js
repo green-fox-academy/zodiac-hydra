@@ -7,18 +7,13 @@ import Dashboard from './components/Dashboard'
 import Gameroom from './components/Gameroom'
 
 class App extends React.Component {
-  constructor(props) {
-    super();
-    this.state = {
-      loggedIn: false
-    }
-  }
+
   render() {
     return (
       <Router history="">
         <div className="App">
-          <Route exact path="/" component={Landing}/>
-          <Route path="/signUp" component={SignUp}/>
+        <Route exact path="/" component={Landing}/>
+          <Route path="/signUp" component={SignUp} />
           <Route path="/dashboard" component={Dashboard}/>
           <Route path="/gameroom" component={Gameroom}/>
         </div>
