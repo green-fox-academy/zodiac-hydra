@@ -1,0 +1,16 @@
+.standings {
+  position: absolute;
+  top: 150px;
+  width: 100%;
+}
+
+.standings p, .standings h2 {
+  width: 100%;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: white;
+  text-shadow: -1px 0 gold, 0 1px black,
+      1px 0 gold, 0 -1px black;
+  margin: 0 auto 10px auto;
+}
