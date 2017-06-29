@@ -36,8 +36,8 @@ export class RoundEnd extends React.Component {
         <div>
           {this.state.game.user_cards.map((user, i) =>
             <div key={i} className="cardsArea">
-              <img key={i + "0"} className="card activeCard1" src={require("./img/cards/" + "D2" + ".png")} alt=""/>
-              <img key={i + "1"} className="card activeCard2" src={require("./img/cards/" + "DT" + ".png")} alt=""/>
+              <img key={i + "0"} className="card activeCard1" src={require("./img/cards/D2.png")} alt=""/>
+              <img key={i + "1"} className="card activeCard2" src={require("./img/cards/DT.png")} alt=""/>
             </div>
           )}
         </div>
