@@ -1,14 +1,22 @@
 import React from "react";
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux'
+import fetchLogin from './login_actions';
 import Dialog from '../Dialog';
 import ForgotPassword from '../ForgotPassword';
-import Ajax from '../Ajax';
+//import Ajax from '../Ajax';
 
-let ajax = new Ajax();
+//let ajax = new Ajax();
 
-export class Login extends React.Component {
+class LoginComp extends React.Component {
+
+  constructor(props) {
+    super(props);
+    console.log(this.props)
+  }
 
   alert() {
-    alert('Your e-mail has been sent.');
+    alert('Your email has been sent.');
     Dialog.prototype.closeDialog()
   }
 
@@ -20,10 +28,15 @@ export class Login extends React.Component {
       "username": refUser,
       "password": refPassword
     };
-    ajax.postData('/login', message)
+    console.log(this.props);
+    this.props.fetchLogin(message)
+     .then( (data) => {
+     this.props.getLogin(data)
+     });
+   /* ajax.postData('/login', message)
       .then( (data) => {
         this.props.getLogin(data)
-      });
+      });*/
     this.refs.loginName.value = '';
     this.refs.loginPassword.value = '';
   }
@@ -46,5 +59,17 @@ export class Login extends React.Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+   return {
+      theUser: state.login.theUser
+   }
+}
+
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({fetchLogin: fetchLogin}, dispatch)
+}
+
+let Login = connect(mapStateToProps, matchDispatchToProps)(LoginComp);
 
 export default Login;

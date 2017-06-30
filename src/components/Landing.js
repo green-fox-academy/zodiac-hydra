@@ -1,6 +1,6 @@
 import React from "react";
 import { Intro } from "./Intro";
-import { Login } from "./Login/Login";
+import Login from "./Login/Login";
 import Nav from './Nav';
 
 export class Landing extends React.Component {
