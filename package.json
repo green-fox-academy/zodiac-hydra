@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "autoprefixer": "7.1.0",
+    "axios": "^0.16.2",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
@@ -42,9 +43,13 @@
     "react-dev-utils": "^3.0.0",
     "react-dom": "^15.5.4",
     "react-error-overlay": "^1.0.7",
+    "react-redux": "^5.0.5",
     "react-router": "^4.1.0",
     "react-router-dom": "^4.1.0",
     "react-test-renderer": "^15.6.1",
+    "redux": "^3.7.1",
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^4.3.0",
     "redux-thunk": "^2.2.0",
     "style-loader": "0.17.0",
     "sw-precache-webpack-plugin": "0.9.1",
@@ -61,7 +66,7 @@
     "start-js": "node scripts/start.js",
     "start": "npm-run-all -p watch-css start-js",
     "test": "node scripts/test.js --env=jsdom",
-    "postinstall": "npm run build-css && node scripts/build.js"
+    "build": "npm run build-css && node scripts/build.js"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
   "main": "index.js",
