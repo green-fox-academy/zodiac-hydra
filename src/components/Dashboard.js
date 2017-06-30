@@ -1,5 +1,5 @@
 import React from "react";
-import { Tables } from "./Tables";
+import { Tables } from "./Tables/Tables";
 import Leaderboard from "./Leaderboard/Leaderboard";
 import Nav2 from './Nav2';
 import Ajax from './Ajax';
