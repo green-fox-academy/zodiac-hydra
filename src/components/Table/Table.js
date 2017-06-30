@@ -1,6 +1,6 @@
 import React from 'react';
-import CenterCards from './CenterCards';
-import UserAction from './UserAction';
+import CenterCards from '../CenterCards/CenterCards';
+import UserAction from '../UserAction/UserAction';
 
 export class Table extends React.Component {
 
@@ -63,8 +63,8 @@ export class Table extends React.Component {
             <p className="chips">3100</p>
             <div className="userArea">
               <div className="cardsArea">
-                <img className="card activeCard1" src={require("./img/cards/D2.png")} alt=""/>
-                <img className="card activeCard2" src={require("./img/cards/H7.png")} alt=""/>
+                <img className="card activeCard1" src={require("../img/cards/D2.png")} alt=""/>
+                <img className="card activeCard2" src={require("../img/cards/H7.png")} alt=""/>
               </div>
               <div className="chipsArea"></div>
             </div>
