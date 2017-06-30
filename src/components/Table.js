@@ -3,6 +3,8 @@ import CenterCards from './CenterCards';
 import UserAction from './UserAction';
 
 export class Table extends React.Component {
+
+
   render() {
     return(
       <div>

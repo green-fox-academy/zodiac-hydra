@@ -32,8 +32,7 @@ export class Tables extends React.Component {
 
   generateRows() {
     let cols = this.props.cols,  // [{key, label}]
-    data = this.props.data;
-
+      data = this.props.data;
     return data.map(function(item) {
       // handle the column data within each row
       let cells = cols.map(function(colData) {
