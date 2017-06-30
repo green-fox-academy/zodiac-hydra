@@ -1,7 +1,7 @@
 import React from "react";
-import Dialog from './Dialog';
-import ForgotPassword from './ForgotPassword';
-import Ajax from './Ajax';
+import Dialog from '../Dialog';
+import ForgotPassword from '../ForgotPassword';
+import Ajax from '../Ajax';
 
 let ajax = new Ajax();
 
