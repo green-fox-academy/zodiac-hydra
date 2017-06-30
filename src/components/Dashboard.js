@@ -1,6 +1,6 @@
 import React from "react";
 import { Tables } from "./Tables";
-import { Leaderboard } from "./Leaderboard";
+import Leaderboard from "./Leaderboard/Leaderboard";
 import Nav2 from './Nav2';
 import Ajax from './Ajax';
 
@@ -12,7 +12,7 @@ export class Dashboard extends React.Component {
     super(props);
     this.state = {
       games: [],
-      leaderBoard: [],
+      tables: [],
       user: {}
     };
 
@@ -27,13 +27,6 @@ export class Dashboard extends React.Component {
       .then((data) => {
         this.setState({
           games: data
-        })
-      });
-
-    ajax.loadData('/leaderboard')
-      .then((data) => {
-        this.setState({
-          leaderBoard: data
         })
       });
   }
@@ -51,7 +44,7 @@ export class Dashboard extends React.Component {
         <Nav2 user={this.state.user}/>
         <div className="dashboard">
           <Tables cols={cols} data={this.state.games}/>
-          <Leaderboard leaders={this.state.leaderBoard}/>
+          <Leaderboard/>
         </div>
       </div>
     );

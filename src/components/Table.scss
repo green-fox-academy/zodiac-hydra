@@ -17,9 +17,12 @@
 }
 
 .username {
-    color: White;
-    margin-bottom: 5px;
-    font-size: 15px;
+  position: absolute;
+  left: 60px;
+  top: 12px;
+  color: White;
+  margin-bottom: 5px;
+  font-size: 15px;
 }
 
 .userArea {
@@ -41,12 +44,12 @@
 
 .user1 {
   top: 110px;
-  left: -100px;
+  left: -150px;
 }
 
 .user1 .userArea {
   top: 0;
-  right: -160px;
+  right: -210px;
 }
 
 .user1 .chipsArea {

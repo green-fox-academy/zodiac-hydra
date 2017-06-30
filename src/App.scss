@@ -4,13 +4,14 @@
 @import 'components/SignUp.scss';
 @import 'components/Dashboard.scss';
 @import 'components/Tables.scss';
-@import 'components/Leaderboard.scss';
+@import 'components/Leaderboard/Leaderboard.scss';
 @import 'components/Dialog.scss';
 @import 'components/Gameroom.scss';
 @import 'components/Table.scss';
 @import 'components/Header.scss';
 @import 'components/UserAction.scss';
 @import 'components/CenterCards.scss';
+@import 'components/RoundEnd.scss';
 
 * {
   margin: 0;
@@ -54,4 +55,8 @@ button {
   margin: 30px 0 20px 75px;
   color: #219e7b;
   border-bottom: 1px solid #219e7b;
+}
+
+.invisible {
+  display: none;
 }
