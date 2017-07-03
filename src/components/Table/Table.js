@@ -4,77 +4,66 @@ import {bindActionCreators} from 'redux';
 import {fetchTable} from './table_actions'
 import CenterCards from '../CenterCards/CenterCards';
 import UserAction from '../UserAction/UserAction';
+import Ajax from '../Ajax';
+
+let ajax = new Ajax();
 
 export class TableComp extends React.Component {
   constructor(props) {
     super(props);
-    this.props.fetchTable()
+    this.props.fetchTable();
+  }
+
+  playerRenderer(userData) {
+    return (userData).map((user, i) => {
+      let userClass = 'player user' + (i+1).toString();
+      let dealerIcon = '';
+      if (user.id === this.props.gameData.dealer_player_id) {
+        userClass += ' dealer';
+        dealerIcon = <p className="dealerPar">D</p>;
+      };
+      if (user.id === this.props.gameData.actor_player_id) {
+        userClass += ' onTurn';
+      };
+      if (user.id.toString() === window.sessionStorage.userID) {
+        userClass += ' activeUser';
+      };
+      return (
+        <div key={i} className={userClass}>
+          <img className="avatarImg" src={user.avatar} alt=""/>
+          <p className="username">{user.username}</p>
+          <p className="chips">{user.chips}</p>
+          {dealerIcon}
+          <div className="userArea">
+            {this.activeCardRenderer(user.id.toString())}
+            <div className="chipsArea"></div>
+          </div>
+        </div>
+      )
+    })
+  }
+
+  activeCardRenderer(id) {
+    if (this.props.gameData.round !== 'idle' && id === window.sessionStorage.userID) {
+      let url = '/game/' + this.props.gameData.id + '/hand';
+      ajax.loadData(url)
+        .then((data) => {
+          console.log('hand: ', data);
+          let message = <div className="cardsArea"></div>
+          return message;
+        }
+      );
+    } else {
+      return <div className="cardsArea"></div>
+    }
   }
 
   render() {
     return(
       <div>
         <div className="table">
-          <div className="bigBlind player user1">
-            <img className="avatarImg" src="http://findwise.github.io/Hydra/images/big-hydra-no-text.png" alt=""/>
-            <p className="username">username</p>
-            <p className="chips">3100</p>
-            <div className="userArea">
-              <div className="cardsArea"></div>
-              <div className="chipsArea"></div>
-            </div>
-          </div>
-          <div className="player user2">
-            <img className="avatarImg" src="http://findwise.github.io/Hydra/images/big-hydra-no-text.png" alt=""/>
-            <p className="username">username</p>
-            <p className="chips">3100</p>
-            <div className="userArea">
-              <div className="cardsArea"></div>
-              <div className="chipsArea"></div>
-            </div>
-          </div>
-          <div className="smallBlind dealer player user3">
-            <img className="avatarImg" src="http://findwise.github.io/Hydra/images/big-hydra-no-text.png" alt=""/>
-            <p className="username">username</p>
-            <p className="chips">3100</p>
-            <p className="dealerPar">D</p>
-            <p className="raisedPar">RAISED</p>
-            <div className="userArea">
-              <div className="cardsArea"></div>
-              <div className="chipsArea"></div>
-            </div>
-          </div>
-          <div className="folded player user4">
-            <p className="foldedPar">FOLDED</p>
-            <img className="avatarImg" src="http://findwise.github.io/Hydra/images/big-hydra-no-text.png" alt=""/>
-            <p className="username">username</p>
-            <p className="chips">3100</p>
-            <div className="userArea">
-              <div className="cardsArea"></div>
-              <div className="chipsArea"></div>
-            </div>
-          </div>
-          <div className="player user5">
-            <img className="avatarImg" src="http://findwise.github.io/Hydra/images/big-hydra-no-text.png" alt=""/>
-            <p className="username">username</p>
-            <p className="chips">3100</p>
-            <div className="userArea">
-              <div className="cardsArea"></div>
-              <div className="chipsArea"></div>
-            </div>
-          </div>
-          <div className="activeUser onTurn player user6">
-            <img className="avatarImg" src="http://findwise.github.io/Hydra/images/big-hydra-no-text.png" alt=""/>
-            <p className="username">username</p>
-            <p className="chips">3100</p>
-            <div className="userArea">
-              <div className="cardsArea">
-                <img className="card activeCard1" src={require("../img/cards/D2.png")} alt=""/>
-                <img className="card activeCard2" src={require("../img/cards/H7.png")} alt=""/>
-              </div>
-              <div className="chipsArea"></div>
-            </div>
-          </div>
+          {this.playerRenderer(this.props.gameData.players)}
+
           <CenterCards/>
         </div>
         <UserAction/>

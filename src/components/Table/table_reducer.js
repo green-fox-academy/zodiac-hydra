@@ -1,9 +1,12 @@
-export const tableReducer = (state={gameData:{}} , action) => {
+export const tableReducer = (state={
+  gameData:{
+    players: [],
+    cards_on_table: []
+  }
+} , action) => {
   switch (action.type) {
     case 'GAME_LOADED':
-      return {
-        gameData: action.gameData
-      };
+      return Object.assign({}, state, { gameData: action.gameData });
     default:
       return state;
   }
