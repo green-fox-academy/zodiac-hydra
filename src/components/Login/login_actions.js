@@ -2,7 +2,6 @@
  * Created by cw on 2017-06-30.
  */
 import Ajax from '../Ajax';
-//import axios from 'axios';
 let ajax = new Ajax();
 
 export const loginUser = (theUser) => {
@@ -16,14 +15,15 @@ const fetchLogin = (loginInput) => {
   return (dispatch, getState) => {
     ajax.postData('/login', loginInput)
      .then(function (res) {
-     console.log('loginData', res);
-     dispatch(loginUser(res))
+      if (res.result === 'success') {
+        dispatch(loginUser(res));
+        window.sessionStorage.userID = res.id;
+        window.sessionStorage.accessToken = res.token;
+        window.location.href = '/dashboard'
+      } else {
+        alert('LOGIN ERROR')
+      }
      });
-    /*axios.post('https://equal-koala.glitch.me/leaderboard', loginInput)
-      .then(function (res) {
-        console.log('axios',res);
-        dispatch(loginUser(res.data))
-      })*/
   }
 };
 

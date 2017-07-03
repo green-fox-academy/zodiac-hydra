@@ -4,16 +4,8 @@ import {bindActionCreators} from 'redux'
 import fetchLogin from './login_actions';
 import Dialog from '../Dialog';
 import ForgotPassword from '../ForgotPassword';
-//import Ajax from '../Ajax';
-
-//let ajax = new Ajax();
 
 class LoginComp extends React.Component {
-
-  constructor(props) {
-    super(props);
-    console.log(this.props)
-  }
 
   alert() {
     alert('Your email has been sent.');
@@ -28,15 +20,8 @@ class LoginComp extends React.Component {
       "username": refUser,
       "password": refPassword
     };
-    console.log(this.props);
-    this.props.fetchLogin(message)
-     .then( (data) => {
-     this.props.getLogin(data)
-     });
-   /* ajax.postData('/login', message)
-      .then( (data) => {
-        this.props.getLogin(data)
-      });*/
+
+    this.props.fetchLogin(message);
     this.refs.loginName.value = '';
     this.refs.loginPassword.value = '';
   }
