@@ -1,7 +1,17 @@
 import React from "react";
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {fetchTables} from './tables_actions'
+
 
 export class Tables extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.props.fetchTables()
+  }
+
   render() {
     let headerComponents = this.generateHeaders(),
     rowComponents = this.generateRows();
@@ -32,7 +42,7 @@ export class Tables extends React.Component {
 
   generateRows() {
     let cols = this.props.cols,  // [{key, label}]
-      data = this.props.data;
+      data = this.props.tables;
     return data.map(function(item) {
       // handle the column data within each row
       let cells = cols.map(function(colData) {
@@ -47,4 +57,16 @@ export class Tables extends React.Component {
   }
 }
 
-export default Tables;
+function mapStateToProps(state) {
+  return {
+    tables: state.tables.tables
+  }
+}
+
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({fetchTables: fetchTables}, dispatch)
+}
+
+let allTables = connect(mapStateToProps, matchDispatchToProps)(Tables);
+
+export default allTables;
