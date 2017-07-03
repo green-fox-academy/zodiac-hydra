@@ -9,4 +9,5 @@ const allReducers = combineReducers({
   table: tableReducer
 });
 
+// main export
 export default allReducers;
