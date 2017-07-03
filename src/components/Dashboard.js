@@ -11,6 +11,7 @@ export class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      games: [],
       tables: [],
       user: {}
     };
@@ -25,7 +26,7 @@ export class Dashboard extends React.Component {
     ajax.loadData('/games')
       .then((data) => {
         this.setState({
-          tables: data
+          games: data
         })
       });
   }
@@ -34,15 +35,15 @@ export class Dashboard extends React.Component {
 
     let cols = [
         { key: 'name', label: 'Table name' },
-        { key: 'big_blind', label: 'Stakes' },
-        { key: 'max_players', label: 'Players' },
+        { key: 'big_blind', label: 'Big blind' },
+        { key: 'max_players', label: 'Max players' },
     ];
 
     return (
       <div>
         <Nav2 user={this.state.user}/>
         <div className="dashboard">
-          <Tables cols={cols} data={this.state.tables}/>
+          <Tables cols={cols} data={this.state.games}/>
           <Leaderboard/>
         </div>
       </div>

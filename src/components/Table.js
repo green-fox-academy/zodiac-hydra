@@ -1,15 +1,9 @@
 import React from 'react';
-import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux';
-import {fetchTable} from './table_actions'
-import CenterCards from '../CenterCards/CenterCards';
-import UserAction from '../UserAction/UserAction';
+import CenterCards from './CenterCards';
+import UserAction from './UserAction';
 
-export class TableComp extends React.Component {
-  constructor(props) {
-    super(props);
-    this.props.fetchTable()
-  }
+export class Table extends React.Component {
+
 
   render() {
     return(
@@ -69,8 +63,8 @@ export class TableComp extends React.Component {
             <p className="chips">3100</p>
             <div className="userArea">
               <div className="cardsArea">
-                <img className="card activeCard1" src={require("../img/cards/D2.png")} alt=""/>
-                <img className="card activeCard2" src={require("../img/cards/H7.png")} alt=""/>
+                <img className="card activeCard1" src={require("./img/cards/D2.png")} alt=""/>
+                <img className="card activeCard2" src={require("./img/cards/H7.png")} alt=""/>
               </div>
               <div className="chipsArea"></div>
             </div>
@@ -82,17 +76,5 @@ export class TableComp extends React.Component {
     );
   }
 }
-
-function mapStateToProps(state) {
-  return {
-    gameData: state.table.gameData
-  }
-}
-
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators({fetchTable: fetchTable}, dispatch)
-}
-
-let Table = connect(mapStateToProps, matchDispatchToProps)(TableComp);
 
 export default Table;
