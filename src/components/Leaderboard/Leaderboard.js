@@ -13,8 +13,6 @@ export class LeaderboardComp extends React.Component {
   }
 
   leaderBoardMaker() {
-    console.log(this.props);
-
     return this.props.users.map((user, i) => {
       return (
         <div key={i} className="leader">

@@ -7,7 +7,7 @@ class Ajax {
   constructor() {
     this.root = 'https://equal-koala.glitch.me';
     this.getHeaders = new Headers({'X-poker-token': window.sessionStorage.accessToken});
-    this.postHeaders = new Headers({'Content-Type': 'application/json', 'Accept': 'application/json', 'X-poker-token': window.sessionStorage.accessToken})
+    this.postHeaders = new Headers({'Content-Type': 'application/json', 'Accept': 'application/json'});
     this.putHeaders = new Headers({'Content-Type': 'application/json', 'Accept': 'application/json', 'X-poker-token': window.sessionStorage.accessToken})
   }
 
@@ -16,7 +16,7 @@ class Ajax {
       fetch(this.root + endpoint, {
         method: 'POST',
         headers: this.postHeaders,
-        body: dataToSend
+        body: JSON.stringify(dataToSend)
       }).then( res => {
         res.json().then( data => {
           resolve(data)
@@ -43,7 +43,7 @@ class Ajax {
       fetch(this.root + endpoint, {
         method: 'PUT',
         headers: this.putHeaders,
-        body: dataToSend
+        body: JSON.stringify(dataToSend)
       }).then( res => {
         res.json().then( data => {
           resolve(data)
