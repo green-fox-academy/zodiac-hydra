@@ -7,8 +7,9 @@ import {fetchTables} from './tables_actions'
 
 export class Tables extends React.Component {
 
-    constructor(props) {
-      super(props)
+  constructor(props) {
+    super(props);
+    this.props.fetchTables()
   }
 
   render() {
@@ -41,7 +42,7 @@ export class Tables extends React.Component {
 
   generateRows() {
     let cols = this.props.cols,  // [{key, label}]
-      data = this.props.data;
+      data = this.props.tables;
     return data.map(function(item) {
       // handle the column data within each row
       let cells = cols.map(function(colData) {
@@ -58,7 +59,7 @@ export class Tables extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    tables: state.tables.data
+    tables: state.tables.tables
   }
 }
 
@@ -68,4 +69,4 @@ function matchDispatchToProps(dispatch) {
 
 let allTables = connect(mapStateToProps, matchDispatchToProps)(Tables);
 
-export default Tables;
+export default allTables;

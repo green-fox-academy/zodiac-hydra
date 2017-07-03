@@ -11,8 +11,8 @@ export const fetchTables = () => {
   return (dispatch, getState) => {
 
     axios.get('https://equal-koala.glitch.me/games')
-      .then(function (res) {
-        console.log("all the tables",res);
+      .then(function(res) {
+        console.log("all the tables", res);
       dispatch(loadTables(res.data));
     });
   };
