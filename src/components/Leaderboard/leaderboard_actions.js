@@ -12,7 +12,6 @@ export const fetchLeaderBoard = () => {
 
     axios.get('https://equal-koala.glitch.me/leaderboard')
       .then(function (res) {
-        console.log("leaderdata",res);
       dispatch(loadLeaderBoard(res.data));
     });
   };
