@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
 import {fetchTable, fetchHand} from './table_actions'
-import UserAction from '../UserAction/UserAction';
 
 export class TableComp extends React.Component {
   constructor(props) {
@@ -39,12 +38,11 @@ export class TableComp extends React.Component {
 
   userAreaRenderer(id) {
     if (this.props.gameData.round !== 'idle' && id === window.sessionStorage.userID) {
-
       return <div className="userArea">
         <div className="cardsArea">
           <img className="card activeCard1" src={require("../img/cards/" + this.props.handData[0] + ".png")} alt=""/>
           <img className="card activeCard2" src={require("../img/cards/" + this.props.handData[1] + ".png")} alt=""/>
-        </div>;
+        </div>
         <div className="chipsArea"></div>
       </div>
     } else {
@@ -64,7 +62,34 @@ export class TableComp extends React.Component {
     });
   }
 
-  
+  userActionAreaRenderer() {
+    if (this.props.gameData.actor_player_id = window.sessionStorage.userID) {
+      return <div className="container">
+        <div className="raiseInput">
+          <p className="raiseMinus">-</p>
+          <input ref='raiseInput' type="number" className="inputField" placeholder="100"/>
+          <p className="raisePlus">+</p>
+        </div>
+        <div className="actionButtons">
+          <button onClick={this.userActionCall} className="gameButton callButton">CALL</button>
+          <button onClick={this.userActionRaise} className="gameButton raiseButton">RAISE</button>
+          <button onClick={this.userActionFold} className="gameButton foldButton">FOLD</button>
+        </div>
+      </div>
+    }
+  }
+
+  userActionCall() {
+    console.log('Call action called');
+  }
+
+  userActionRaise() {
+    console.log('Raise action called');
+  }
+
+  userActionFold() {
+    console.log('Fold action called');
+  }
 
   render() {
     return(
@@ -76,7 +101,7 @@ export class TableComp extends React.Component {
             <p className="pot"> Pot: {this.props.gameData.pot}</p>
           </div>
         </div>
-        <UserAction/>
+        {this.userActionAreaRenderer()}
       </div>
     );
   }

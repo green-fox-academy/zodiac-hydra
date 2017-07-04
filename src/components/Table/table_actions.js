@@ -38,4 +38,5 @@ export const fetchHand = () => {
   };
 };
 
+
 export default {fetchTable, fetchHand};
