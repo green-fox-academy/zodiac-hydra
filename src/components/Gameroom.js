@@ -1,7 +1,6 @@
 import React from 'react';
 import Table from './Table/Table';
 import Header from './Header';
-import RoundEnd from './RoundEnd';
 
 export class Gameroom extends React.Component {
   render() {
@@ -9,7 +8,6 @@ export class Gameroom extends React.Component {
       <section>
         <Header/>
         <Table/>
-        <RoundEnd/>
       </section>
     );
   }
