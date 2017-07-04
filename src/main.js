@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Landing from './components/Landing';
 import SignUp from './components/SignUp';
-import Dashboard from './components/Dashboard'
-import Gameroom from './components/Gameroom'
+import Dashboard from './components/Dashboard/Dashboard';
+import Gameroom from './components/Gameroom/Gameroom';
 
 class App extends React.Component {
 
@@ -22,4 +22,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default App;

@@ -10,10 +10,8 @@ export class Nav2 extends React.Component {
     window.sessionStorage.userID = '';
   }
 
-
-
   render() {
-    let user = this.props.userInfo;
+    let user = this.props.user;
 
     return (
       <div className="App-header">
@@ -28,12 +26,6 @@ export class Nav2 extends React.Component {
         </div>
       </div>
     )
-  }
-}
-
-function mapStateToProps(state) {
-  return {
-    userInfo: state.userInfo.userInfo
   }
 }
 
