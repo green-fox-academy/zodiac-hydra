@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const root = 'https://equal-koala.glitch.me'
+const root = 'https://equal-koala.glitch.me';
 
 export const loadTable = (gameData) => {
   return {
@@ -37,6 +37,7 @@ export const fetchHand = () => {
     });
   };
 };
+
 
 
 export default {fetchTable, fetchHand};
