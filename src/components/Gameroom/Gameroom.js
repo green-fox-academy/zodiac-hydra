@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Table from '../Table/Table';
-import Header from '../Header';
+import Header from '../Header/Header';
 import RoundEnd from '../RoundEnd';
 
 export class GameRoomComp extends React.Component {

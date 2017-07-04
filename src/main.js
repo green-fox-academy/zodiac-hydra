@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Landing from './components/Landing';
 import SignUp from './components/SignUp';
-import Dashboard from './components/Dashboard'
+import Dashboard from './components/Dashboard/Dashboard'
 import GameRoomTables from './components/Gameroom/Gameroom'
 
 class App extends React.Component {
