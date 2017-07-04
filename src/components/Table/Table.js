@@ -63,7 +63,7 @@ export class TableComp extends React.Component {
   }
 
   userActionAreaRenderer() {
-    if (this.props.gameData.actor_player_id = window.sessionStorage.userID) {
+    if (this.props.gameData.actor_player_id === parseInt(window.sessionStorage.userID, 10) ) {
       return <div className="container">
         <div className="raiseInput">
           <p className="raiseMinus">-</p>
