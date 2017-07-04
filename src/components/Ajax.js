@@ -16,7 +16,7 @@ class Ajax {
       fetch(this.root + endpoint, {
         method: 'POST',
         headers: this.postHeaders,
-        body: dataToSend
+        body: JSON.stringify(dataToSend)
       }).then( res => {
         res.json().then( data => {
           resolve(data)
