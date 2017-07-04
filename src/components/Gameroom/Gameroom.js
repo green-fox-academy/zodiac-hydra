@@ -14,7 +14,7 @@ export class GameRoomComp extends React.Component {
   render() {
     return(
       <section>
-        <Header table_name={this.props.tables[this.roomID-1].name} big_blind={this.props.tables[this.roomID-1].big_blind}/>
+        <Header table_name={this.props.tables[this.roomID-1].name} big_blind={this.props.tables[this.roomID-1].big_blind} gameID={this.roomID}/>
         <Table/>
         <RoundEnd/>
       </section>
@@ -28,6 +28,6 @@ function mapStateToProps(state) {
   }
 }
 
-let gameRoomTables = connect(mapStateToProps)(GameRoomComp);
+let gameRoom = connect(mapStateToProps)(GameRoomComp);
 
-export default gameRoomTables;
+export default gameRoom;
