@@ -38,6 +38,22 @@ export const fetchHand = () => {
   };
 };
 
+export const loadShowdown = (showdownData) => {
+  return {
+    type: 'SHOWDOWN_LOADED',
+    showdownData
+  }
+};
 
+export const fetchShowdown = () => {
+  return (dispatch, getState) => {
+    let url = '/game/6/showdown';
+    axios.get(root + url)
+      .then(function (res) {
+        console.log("Showdown data: ",res);
+      dispatch(loadShowdown(res.data));
+    });
+  };
+};
 
-export default {fetchTable, fetchHand};
+export default {fetchTable, fetchHand, fetchShowdown};

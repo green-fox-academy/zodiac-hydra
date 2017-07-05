@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
-import {fetchTable, fetchHand} from './table_actions'
+import {fetchTable, fetchHand, fetchShowdown} from './table_actions'
 
 const root = 'https://equal-koala.glitch.me';
 
@@ -12,6 +12,7 @@ export class TableComp extends React.Component {
     super(props);
     this.props.fetchTable();
     this.props.fetchHand();
+    this.props.fetchShowdown();
   }
 
   playerRenderer(userData) {
@@ -151,6 +152,25 @@ export class TableComp extends React.Component {
       })
   }
 
+  showDownRenderer() {
+    if (this.props.gameData.round === 'showdown') {
+      return(
+        <div className="standings">
+          <h2>Round ended</h2>
+          <p>Winner ID: {this.props.showdownData.winner_user_id} </p>
+          <div>
+            {this.props.showdownData.user_cards.map((user, i) =>
+              <div key={i} className="cardsArea">
+                <img key={i + "0"} className="card activeCard1" src={require("../img/cards/" + user.cards[0] + ".png")} alt=""/>
+                <img key={i + "1"} className="card activeCard2" src={require("../img/cards/" + user.cards[1] + ".png")} alt=""/>
+              </div>
+            )}
+          </div>
+        </div>
+      )
+    }
+  }
+
   render() {
     return(
       <div>
@@ -162,6 +182,7 @@ export class TableComp extends React.Component {
           </div>
         </div>
         {this.userActionAreaRenderer()}
+        {this.showDownRenderer()}
       </div>
     );
   }
@@ -170,14 +191,16 @@ export class TableComp extends React.Component {
 function mapStateToProps(state) {
   return {
     gameData: state.table.gameData,
-    handData: state.table.handData
+    handData: state.table.handData,
+    showdownData: state.table.showdownData
   }
 }
 
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
     fetchTable: fetchTable,
-    fetchHand: fetchHand
+    fetchHand: fetchHand,
+    fetchShowdown: fetchShowdown
   }, dispatch)
 }
 
