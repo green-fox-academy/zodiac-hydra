@@ -8,18 +8,58 @@ let ajax = new Ajax();
 
 export class HeaderComp extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      buttonText: 'BUY IN'
+    }
+  }
+
+  functionSwitcher() {
+    if (window.sessionStorage.joined === '0') {
+      Dialog.prototype.showDialog()
+    }
+    else if (window.sessionStorage.joined === '1') {
+      this.leaveGame()
+    }
+  }
+
   joinGame() {
     let message = {"chips": this.props.buyInChips};
     ajax.postData('/game/' + this.props.gameID + '/join', message)
       .then((res) => {
         if (res.result === 'success') {
+          window.sessionStorage.joined = '1';
           alert(res.message);
+          this.buttonText();
           Dialog.prototype.closeDialog()
         } else {
           alert(res.message)
         }
-
       })
+  }
+
+  leaveGame() {
+    ajax.postData('/game/' + this.props.gameID + '/leave')
+      .then((res) => {
+        if (res.result === 'success') {
+          window.sessionStorage.joined = '0';
+          alert(res.message);
+          this.buttonText()
+        }
+      })
+  }
+
+  buttonText() {
+    if (window.sessionStorage.joined === '1') {
+      this.setState({
+        buttonText: 'SIT OUT',
+      })
+    } else {
+      this.setState({
+        buttonText: 'BUY IN',
+      })
+    }
   }
 
   render() {
@@ -28,7 +68,7 @@ export class HeaderComp extends React.Component {
         <Dialog header="Enter chips to buy in" component={BuyIn}  callback={this.joinGame.bind(this)}/>
         <div>
           <h2>{this.props.table_name} {this.props.big_blind /2} / {this.props.big_blind}</h2>
-          <button onClick={Dialog.prototype.showDialog} className="gameButton buyInButton">BUY IN</button>
+          <button onClick={this.functionSwitcher.bind(this)} className="gameButton buyInButton">{this.state.buttonText}</button>
         </div>
       </div>
 
