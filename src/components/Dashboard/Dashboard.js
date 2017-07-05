@@ -6,7 +6,6 @@ import Tables from "../Tables/Tables";
 import Leaderboard from "../Leaderboard/Leaderboard";
 import Nav2 from '../Nav2/Nav2';
 
-
 export class DashboardComp extends React.Component {
 
   constructor(props) {
