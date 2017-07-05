@@ -30,13 +30,13 @@ export class Nav2Comp extends React.Component {
             <img src={user.avatar} alt="" height="35" width="35"/>
             <p>Welcome, {user.username}</p>
             <p className="vertLine">|</p>
-            <p><a href={Dialog.prototype.showDialog}>profile</a></p>
+            <p><a onClick={Dialog.prototype.showDialog}>profile</a></p>
             <p className="vertLine">|</p>
             <p><a onClick={this.onLogout} href="/">logout</a></p>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
