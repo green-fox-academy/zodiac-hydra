@@ -63,7 +63,9 @@ export class TableComp extends React.Component {
       </div>
     } else {
       return <div className="userArea">
-        <div className="cardsArea"></div>
+        <div key={id} className="cardsArea"></div>
+          <img src="" alt=""/>
+          <img src="" alt=""/>
         <div className="chipsArea"></div>
       </div>
     }
