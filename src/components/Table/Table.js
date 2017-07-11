@@ -46,13 +46,19 @@ export class TableComp extends React.Component {
           {dealerIcon}
           {foldedPar}
           {raisedPar}
-          {this.userAreaRenderer(user.id.toString())}
+          {this.userAreaRenderer(user.id.toString(), i, user.isFolded)}
         </div>
       )
     })
   }
 
-  userAreaRenderer(id) {
+  userAreaRenderer(id, i, isFolded) {
+    if (isFolded === true) {
+      return <div className="userArea">
+        <div className="chipsArea"></div>
+      </div>
+    }
+
     if (this.props.gameData.round !== 'idle' && id === window.sessionStorage.userID) {
       return <div className="userArea">
         <div className="cardsArea">
@@ -63,11 +69,13 @@ export class TableComp extends React.Component {
       </div>
     } else {
       return <div className="userArea">
-        <div key={id} className="cardsArea"></div>
-          <img src="" alt=""/>
-          <img src="" alt=""/>
+        <div className="cardsArea">
+          <img className="card activeCard1" src={require("../img/cards/" + this.props.showdownData.user_cards[i].cards[0] + ".png")} alt=""/>
+          <img className="card activeCard2" src={require("../img/cards/" + this.props.showdownData.user_cards[i].cards[1] + ".png")} alt=""/>
+        </div>
         <div className="chipsArea"></div>
       </div>
+
     }
   }
 
@@ -154,25 +162,6 @@ export class TableComp extends React.Component {
       })
   }
 
-  showDownRenderer() {
-    if (this.props.gameData.round === 'showdown') {
-      return(
-        <div className="standings">
-          <h2>Round ended</h2>
-          <p>Winner ID: {this.props.showdownData.winner_user_id} </p>
-          <div>
-            {this.props.showdownData.user_cards.map((user, i) =>
-              <div key={i} className="cardsArea">
-                <img key={"first"} className="card activeCard1" src={require('../img/cards/' + user.cards[0] + '.png')} alt=""/>
-                <img key={"second"} className="card activeCard2" src={require("../img/cards/" + user.cards[1] + ".png")} alt=""/>
-              </div>
-            )}
-          </div>
-        </div>
-      )
-    }
-  }
-
   render() {
     return(
       <div>
@@ -184,7 +173,6 @@ export class TableComp extends React.Component {
           </div>
         </div>
         {this.userActionAreaRenderer()}
-        {this.showDownRenderer()}
       </div>
     );
   }

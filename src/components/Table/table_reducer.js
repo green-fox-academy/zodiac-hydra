@@ -9,6 +9,21 @@ export const tableReducer = (state={
     user_cards: [{
       user_id: 0,
       cards: ['cardsBack', 'cardsBack']
+    }, {
+      user_id: 0,
+      cards: ['cardsBack', 'cardsBack']
+    }, {
+      user_id: 0,
+      cards: ['cardsBack', 'cardsBack']
+    }, {
+      user_id: 0,
+      cards: ['cardsBack', 'cardsBack']
+    }, {
+      user_id: 0,
+      cards: ['cardsBack', 'cardsBack']
+    }, {
+      user_id: 0,
+      cards: ['cardsBack', 'cardsBack']
     }]
   }
 } , action) => {
