@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
-import {fetchTable, fetchHand} from './table_actions'
+import {fetchTable, fetchHand, fetchShowdown} from './table_actions'
 
 const root = 'https://equal-koala.glitch.me';
 
@@ -12,6 +12,7 @@ export class TableComp extends React.Component {
     super(props);
     this.props.fetchTable();
     this.props.fetchHand();
+    this.props.fetchShowdown();
   }
 
   playerRenderer(userData) {
@@ -45,13 +46,19 @@ export class TableComp extends React.Component {
           {dealerIcon}
           {foldedPar}
           {raisedPar}
-          {this.userAreaRenderer(user.id.toString())}
+          {this.userAreaRenderer(user.id.toString(), i, user.isFolded)}
         </div>
       )
     })
   }
 
-  userAreaRenderer(id) {
+  userAreaRenderer(id, i, isFolded) {
+    if (isFolded === true) {
+      return <div className="userArea">
+        <div className="chipsArea"></div>
+      </div>
+    }
+
     if (this.props.gameData.round !== 'idle' && id === window.sessionStorage.userID) {
       return <div className="userArea">
         <div className="cardsArea">
@@ -62,9 +69,13 @@ export class TableComp extends React.Component {
       </div>
     } else {
       return <div className="userArea">
-        <div className="cardsArea"></div>
+        <div className="cardsArea">
+          <img className="card activeCard1" src={require("../img/cards/" + this.props.showdownData.user_cards[i].cards[0] + ".png")} alt=""/>
+          <img className="card activeCard2" src={require("../img/cards/" + this.props.showdownData.user_cards[i].cards[1] + ".png")} alt=""/>
+        </div>
         <div className="chipsArea"></div>
       </div>
+
     }
   }
 
@@ -170,14 +181,16 @@ export class TableComp extends React.Component {
 function mapStateToProps(state) {
   return {
     gameData: state.table.gameData,
-    handData: state.table.handData
+    handData: state.table.handData,
+    showdownData: state.table.showdownData
   }
 }
 
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
     fetchTable: fetchTable,
-    fetchHand: fetchHand
+    fetchHand: fetchHand,
+    fetchShowdown: fetchShowdown
   }, dispatch)
 }
 
