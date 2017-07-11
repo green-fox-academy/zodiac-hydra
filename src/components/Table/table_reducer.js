@@ -8,7 +8,7 @@ export const tableReducer = (state={
     winner_user_id: 0,
     user_cards: [{
       user_id: 0,
-      cards: []
+      cards: ['cardsBack', 'cardsBack']
     }]
   }
 } , action) => {

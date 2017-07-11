@@ -163,8 +163,8 @@ export class TableComp extends React.Component {
           <div>
             {this.props.showdownData.user_cards.map((user, i) =>
               <div key={i} className="cardsArea">
-                <img key={i + "0"} className="card activeCard1" src={require("../img/cards/" + user.cards[0] + ".png")} alt=""/>
-                <img key={i + "1"} className="card activeCard2" src={require("../img/cards/" + user.cards[1] + ".png")} alt=""/>
+                <img key={"first"} className="card activeCard1" src={require('../img/cards/' + user.cards[0] + '.png')} alt=""/>
+                <img key={"second"} className="card activeCard2" src={require("../img/cards/" + user.cards[1] + ".png")} alt=""/>
               </div>
             )}
           </div>
