@@ -10,9 +10,9 @@ const root = 'https://equal-koala.glitch.me';
 export class TableComp extends React.Component {
   constructor(props) {
     super(props);
-    this.props.fetchTable();
-    this.props.fetchHand();
-    this.props.fetchShowdown();
+    this.props.fetchTable(this.props.gameroom.id);
+    this.props.fetchHand(this.props.gameroom.id);
+    this.props.fetchShowdown(this.props.gameroom.id);
   }
 
   playerRenderer(userData) {
@@ -182,7 +182,8 @@ function mapStateToProps(state) {
   return {
     gameData: state.table.gameData,
     handData: state.table.handData,
-    showdownData: state.table.showdownData
+    showdownData: state.table.showdownData,
+    gameroom: state.gameroom.gameroom
   }
 }
 

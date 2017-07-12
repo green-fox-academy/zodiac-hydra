@@ -10,7 +10,7 @@ export class Nav extends React.Component {
       <div className="App-header">
         <h1>Hydra Poker</h1>
         <button className="signupButton">
-          <Link to="/signUp">SIGN UP</Link>
+          <Link to="/register">SIGN UP</Link>
         </button>
       </div>
 

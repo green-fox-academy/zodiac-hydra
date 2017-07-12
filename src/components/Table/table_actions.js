@@ -9,9 +9,9 @@ export const loadTable = (gameData) => {
   }
 };
 
-export const fetchTable = () => {
+export const fetchTable = (id) => {
   return (dispatch, getState) => {
-    let url = '/game/6';
+    let url = '/game/' + id;
     axios.get(root + url)
       .then(function (res) {
         console.log("Game data: ",res);
@@ -46,9 +46,9 @@ export const loadHand = (handData) => {
   }
 };
 
-export const fetchHand = () => {
+export const fetchHand = (id) => {
   return (dispatch, getState) => {
-    let url = '/game/6/hand'
+    let url = '/game/' + id + '/hand'
     axios.get(root + url)
       .then(function (res) {
         console.log("Hand data: ",res);
@@ -83,9 +83,9 @@ export const loadShowdown = (showdownData) => {
   }
 };
 
-export const fetchShowdown = () => {
+export const fetchShowdown = (id) => {
   return (dispatch, getState) => {
-    let url = '/game/6/showdown';
+    let url = '/game/' + id + '/showdown';
     axios.get(root + url)
       .then(function (res) {
         console.log("Showdown data: ",res);

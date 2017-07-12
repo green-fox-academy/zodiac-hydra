@@ -13,7 +13,7 @@ class App extends React.Component {
       <Router history="">
         <div className="App">
         <Route exact path="/" component={Landing}/>
-          <Route path="/signUp" component={SignUp} />
+          <Route path="/register" component={SignUp} />
           <Route path="/dashboard" component={Dashboard}/>
           <Route path="/gameroom" component={GameRoomTables}/>
         </div>
