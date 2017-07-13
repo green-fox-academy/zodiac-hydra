@@ -5,11 +5,11 @@ import Table from '../Table/Table';
 import Header from '../Header/Header';
 import {fetchGameroom} from './gameroom_actions'
 
-export class GameRoomComp extends React.Component {
+export class GameroomComp extends React.Component {
 
   constructor(props) {
     super(props);
-    this.roomID = window.location.pathname.slice(10);
+    this.roomID = window.location.pathname.slice(6);
     this.props.fetchGameroom(this.roomID)
   }
 
@@ -33,6 +33,6 @@ function matchDispatchToProps(dispatch) {
   return bindActionCreators({fetchGameroom: fetchGameroom}, dispatch)
 }
 
-let gameRoom = connect(mapStateToProps, matchDispatchToProps)(GameRoomComp);
+let gameroom = connect(mapStateToProps, matchDispatchToProps)(GameroomComp);
 
-export default gameRoom;
+export default gameroom;

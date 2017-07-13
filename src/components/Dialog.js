@@ -6,6 +6,13 @@ import {Route} from 'react-router-dom';
 
 export class Dialog extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      classNames: "dialog invisible"
+    }
+  }
+
   showDialog() {
     let dialog = document.querySelector('.dialog');
     dialog.classList.remove('invisible');
@@ -20,7 +27,7 @@ export class Dialog extends React.Component {
 
   render() {
     return (
-      <dialog className="dialog invisible">
+      <dialog className={this.state.classNames}>
         <div className="wrapper">
           <div className="header">
             <header>{this.props.header}</header>

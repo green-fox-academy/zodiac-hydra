@@ -16,40 +16,45 @@ export class TableComp extends React.Component {
   }
 
   playerRenderer(userData) {
-    return (userData).map((user, i) => {
-      let userClass = 'player user' + (i+1).toString();
-      let dealerIcon = '';
-      let foldedPar = '';
-      let raisedPar = '';
-      if (user.id === this.props.gameData.dealer_player_id) {
-        userClass += ' dealer';
-        dealerIcon = <p className="dealerPar">D</p>;
-      };
-      if (user.id === this.props.gameData.actor_player_id) {
-        userClass += ' onTurn';
-      };
-      if (user.id.toString() === window.sessionStorage.userID) {
-        userClass += ' activeUser';
-      };
-      if (user.isFolded === true) {
-        userClass += ' folded';
-        foldedPar = <p className="foldedPar">FOLDED</p>
-      };
-      if (user.lastAction === 'raise') {
-        raisedPar = <p className="raisedPar">RAISED</p>
-      };
-      return (
-        <div key={i} className={userClass}>
-          <img className="avatarImg" src={user.avatar} alt=""/>
-          <p className="username">{user.username}</p>
-          <p className="chips">{user.chips}</p>
-          {dealerIcon}
-          {foldedPar}
-          {raisedPar}
-          {this.userAreaRenderer(user.id.toString(), i, user.isFolded)}
-        </div>
+    if (userData === undefined) {
+      return "";
+    } else {
+        return (userData).map((user, i) => {
+          let userClass = 'player user' + (i+1).toString();
+          let dealerIcon = '';
+          let foldedPar = '';
+          let raisedPar = '';
+          if (user.id === this.props.gameData.dealer_player_id) {
+            userClass += ' dealer';
+            dealerIcon = <p className="dealerPar">D</p>;
+          };
+          if (user.id === this.props.gameData.actor_player_id) {
+            userClass += ' onTurn';
+          };
+          if (user.id.toString() === window.sessionStorage.userID) {
+            userClass += ' activeUser';
+          };
+          if (user.isFolded === true) {
+            userClass += ' folded';
+            foldedPar = <p className="foldedPar">FOLDED</p>
+          };
+          if (user.lastAction === 'raise') {
+            raisedPar = <p className="raisedPar">RAISED</p>
+          };
+          return (
+            <div key={i} className={userClass}>
+            <img className="avatarImg" src={user.avatar} alt=""/>
+            <p className="username">{user.username}</p>
+            <p className="chips">{user.chips}</p>
+            {dealerIcon}
+            {foldedPar}
+            {raisedPar}
+            {this.userAreaRenderer(user.id.toString(), i, user.isFolded)}
+            </div>
+          );
+        }
       )
-    })
+    }
   }
 
   userAreaRenderer(id, i, isFolded) {
@@ -80,12 +85,17 @@ export class TableComp extends React.Component {
   }
 
   centerCardsRenderer(data) {
-    return data.map((card, i) => {
-      let cardClass = 'card centerCard' + (i+1).toString();
-      return (
-        <img key={i} className={cardClass} src={require("../img/cards/" + card + ".png")} alt=""/>
-      )
-    });
+    if (data === undefined) {
+      return "";
+    } else {
+        return data.map((card, i) => {
+          let cardClass = 'card centerCard' + (i+1).toString();
+          return (
+            <img key={i} className={cardClass} src={require("../img/cards/" + card + ".png")} alt=""/>
+          )
+        }
+      );
+    }
   }
 
   userActionAreaRenderer() {
