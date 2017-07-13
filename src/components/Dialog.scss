@@ -1,5 +1,16 @@
 .dialog {
   position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
   top: 30%;
   left: 40%;
   width: 300px;
@@ -7,10 +18,9 @@
   background-color: #f2f2f2;
   border: none;
   border-radius: 3px;
-  box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
+  box-shadow: 0 0 500px 0 rgba(10px,10px,5px,0.4);
   text-shadow: rgb(21, 70, 130) 0 1px 0;
-  font-family:sans-serif;
-  z-index: 999;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .header {
@@ -33,9 +43,9 @@
   color: #999999;
 }
 
-.buttons {
+.dialogButton, .buttons {
   display: flex;
   justify-content: space-around;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

@@ -4,7 +4,7 @@ import './App.css';
 import Landing from './components/Landing';
 import SignUp from './components/SignUp';
 import Dashboard from './components/Dashboard/Dashboard'
-import GameRoomTables from './components/Gameroom/Gameroom'
+import GameRoom from './components/Gameroom/Gameroom'
 
 class App extends React.Component {
 
@@ -13,9 +13,9 @@ class App extends React.Component {
       <Router history="">
         <div className="App">
         <Route exact path="/" component={Landing}/>
-          <Route path="/signUp" component={SignUp} />
+          <Route path="/register" component={SignUp} />
           <Route path="/dashboard" component={Dashboard}/>
-          <Route path="/gameroom" component={GameRoomTables}/>
+          <Route path="/game" component={GameRoom}/>
         </div>
       </Router>
     )

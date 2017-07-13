@@ -26,7 +26,7 @@ export class HeaderComp extends React.Component {
 
   joinGame() {
     let message = {"chips": this.props.buyInChips};
-    ajax.postData('/game/' + this.props.gameID + '/join', message)
+    ajax.postData('/game/' + this.props.gameroom.id + '/join', message)
       .then((res) => {
         if (res.result === 'success') {
           window.sessionStorage.joined = '1';
@@ -40,7 +40,7 @@ export class HeaderComp extends React.Component {
   }
 
   leaveGame() {
-    ajax.postData('/game/' + this.props.gameID + '/leave')
+    ajax.postData('/game/' + this.props.gameroom.id + '/leave')
       .then((res) => {
         if (res.result === 'success') {
           window.sessionStorage.joined = '0';
@@ -67,7 +67,7 @@ export class HeaderComp extends React.Component {
       <div>
         <Dialog header="Enter chips to buy in" component={BuyIn}  callback={this.joinGame.bind(this)}/>
         <div>
-          <h2>{this.props.table_name} {this.props.big_blind /2} / {this.props.big_blind}</h2>
+          <h2>{this.props.gameroom.name} {this.props.gameroom.big_blind /2} / {this.props.gameroom.big_blind}</h2>
           <button onClick={this.functionSwitcher.bind(this)} className="gameButton buyInButton">{this.state.buttonText}</button>
         </div>
       </div>
@@ -78,7 +78,8 @@ export class HeaderComp extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    buyInChips: state.buyIn.buyInChips
+    buyInChips: state.buyIn.buyInChips,
+    gameroom: state.gameroom.gameroom
   }
 }
 
