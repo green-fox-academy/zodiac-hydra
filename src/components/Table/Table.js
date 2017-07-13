@@ -13,6 +13,7 @@ export class TableComp extends React.Component {
     this.props.fetchTable(this.props.gameroom.id);
     this.props.fetchHand(this.props.gameroom.id);
     this.props.fetchShowdown(this.props.gameroom.id);
+    this.startPoll();
   }
 
   playerRenderer(userData) {
@@ -172,6 +173,11 @@ export class TableComp extends React.Component {
       })
   }
 
+  startPoll() {
+    this.timeout = setInterval(() => this.props.fetchTable(this.props.gameroom.id), 3000);
+  }
+
+
   render() {
     return(
       <div>
@@ -193,7 +199,7 @@ function mapStateToProps(state) {
     gameData: state.table.gameData,
     handData: state.table.handData,
     showdownData: state.table.showdownData,
-    gameroom: state.gameroom.gameroom
+    gameroom: state.gameroom.gameroom,
   }
 }
 
