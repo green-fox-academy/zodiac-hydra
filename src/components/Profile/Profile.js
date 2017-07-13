@@ -7,14 +7,14 @@ export class ProfileComp extends React.Component {
     let user = this.props.userInfo;
     return (
       <div>
-        <p>Username: </p>
+        <p className="profile">Username: </p>
         <input defaultValue={user.username}/><br/>
-        <p>E-mail: </p>
+        <p className="profile">E-mail: </p>
         <input type="email" defaultValue={user.email}/>
-        <p>Profile picture:
+        <p className="profile">Profile picture:
         <img src={user.avatar} alt="" height="35" width="35"/>
         </p>
-        <p>Chips: {user.chips}</p>
+        <p className="profile">Chips: {user.chips}</p>
       </div>
     );
   }
