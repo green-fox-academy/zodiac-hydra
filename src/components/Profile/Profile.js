@@ -3,6 +3,31 @@ import {connect} from 'react-redux';
 
 export class ProfileComp extends React.Component {
 
+  onOK(e) {
+    e.preventDefault();
+    let avatar = this.refs.avatar.value;
+    let message = {
+      "avatar": avatar
+    };
+    ajax.putData('/register', message)
+      .then( (data) => {
+        this.getSignUp(data)
+      });
+    this.refs.signUpName.value = '';
+    this.refs.signUpEmail.value = '';
+    this.refs.signUpPassword.value = '';
+
+    console.log('authentication finished.')
+  }
+
+  getSignUp(userData) {
+    if (userData.result === 'success') {
+      window.location.href = '/';
+      alert('Signed up successfully')
+    } else {
+      alert("ERROR")
+    }
+  }
 
   render() {
     let user = this.props.userInfo;
