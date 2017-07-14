@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 export class ProfileComp extends React.Component {
 
+
   render() {
     let user = this.props.userInfo;
     console.log("USER STUFF", user);
