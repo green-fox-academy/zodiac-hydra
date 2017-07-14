@@ -5,7 +5,7 @@
 class Ajax {
 
   constructor() {
-    this.root = 'https://equal-koala.glitch.me';
+    this.root = window.sessionStorage.backend;
     this.getHeaders = new Headers({'X-poker-token': window.sessionStorage.accessToken});
     this.postHeaders = new Headers({'Content-Type': 'application/json', 'Accept': 'application/json'});
     this.putHeaders = new Headers({'Content-Type': 'application/json', 'Accept': 'application/json', 'X-poker-token': window.sessionStorage.accessToken})

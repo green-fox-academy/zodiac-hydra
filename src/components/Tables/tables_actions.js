@@ -1,4 +1,6 @@
-import axios from 'axios';
+import Ajax from '../Ajax';
+
+let ajax = new Ajax();
 
 export const loadTables = (tables) => {
   return {
@@ -9,12 +11,10 @@ export const loadTables = (tables) => {
 
 export const fetchTables = () => {
   return (dispatch, getState) => {
-
-    axios.get('https://equal-koala.glitch.me/games')
-      .then(function(res) {
-        console.log("all the tables", res);
-      dispatch(loadTables(res.data));
-    });
+    ajax.loadData('/games')
+      .then((res) => {
+        dispatch(loadTables(res.games));
+      });
   };
 };
 
