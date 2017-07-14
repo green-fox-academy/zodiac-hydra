@@ -1,33 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Ajax from './../Ajax';
-
-let ajax = new Ajax();
-
 
 export class ProfileComp extends React.Component {
-
-  onOK(e) {
-    e.preventDefault();
-    let avatar = this.refs.avatar.value;
-    let message = {
-      "avatar": avatar
-    };
-    ajax.putData('/:id/avatar', message)
-      .then( (data) => {
-        this.getSignUp(data)
-      });
-    console.log('authentication finished.')
-  }
-
-  getSignUp(userData) {
-    if (userData.result === 'success') {
-      window.location.href = '/';
-      alert('Signed up successfully')
-    } else {
-      alert("ERROR")
-    }
-  }
 
   render() {
     let user = this.props.userInfo;
