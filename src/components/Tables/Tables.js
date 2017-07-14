@@ -17,7 +17,7 @@ export class Tables extends React.Component {
     rowComponents = this.generateRows();
 
     return (
-      <div>
+      <div className="tableContainer">
         <p className="componentTitle">open tables</p>
         <table className="tables">
           <thead>
