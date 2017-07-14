@@ -1,5 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import Ajax from './../Ajax';
+
+let ajax = new Ajax();
+
 
 export class ProfileComp extends React.Component {
 
@@ -9,14 +13,10 @@ export class ProfileComp extends React.Component {
     let message = {
       "avatar": avatar
     };
-    ajax.putData('/register', message)
+    ajax.putData('/:id/avatar', message)
       .then( (data) => {
         this.getSignUp(data)
       });
-    this.refs.signUpName.value = '';
-    this.refs.signUpEmail.value = '';
-    this.refs.signUpPassword.value = '';
-
     console.log('authentication finished.')
   }
 
