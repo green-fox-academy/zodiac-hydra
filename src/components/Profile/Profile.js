@@ -5,15 +5,16 @@ export class ProfileComp extends React.Component {
 
   render() {
     let user = this.props.userInfo;
+    console.log("USER STUFF", user);
     return (
       <div>
-        <p className="profile">Username: </p>
-        <input defaultValue={user.username}/><br/>
-        <p className="profile">E-mail: </p>
-        <input type="email" defaultValue={user.email}/>
+        <p className="profile">Username: {user.username}</p>
+        <p className="profile">E-mail: {user.email}</p>
         <p className="profile">Profile picture:
         <img src={user.avatar} alt="" height="35" width="35"/>
         </p>
+        <label className="profile">Change your avatar:</label>
+        <input className="profile"></input>
         <p className="profile">Chips: {user.chips}</p>
       </div>
     );
