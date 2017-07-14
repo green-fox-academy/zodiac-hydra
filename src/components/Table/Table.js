@@ -74,13 +74,22 @@ export class TableComp extends React.Component {
         <div className="chipsArea"></div>
       </div>
     } else {
-      return <div className="userArea">
-        <div className="cardsArea">
-          <img className="card activeCard1" src={require("../img/cards/" + this.props.showdownData.user_cards[i].cards[0] + ".png")} alt=""/>
-          <img className="card activeCard2" src={require("../img/cards/" + this.props.showdownData.user_cards[i].cards[1] + ".png")} alt=""/>
+      if (this.props.gameData.round === 'idle') {
+        return <div></div>
+      } else if (this.props.gameData.round === 'showdown') {
+        return <div className="userArea">
+          <div className="cardsArea">
+            <img className="card activeCard1" src={require("../img/cards/" + this.props.showdownData.user_cards[i].cards[0] + ".png")} alt=""/>
+            <img className="card activeCard2" src={require("../img/cards/" + this.props.showdownData.user_cards[i].cards[1] + ".png")} alt=""/>
+          </div>
+          <div className="chipsArea"></div>
         </div>
-        <div className="chipsArea"></div>
-      </div>
+      } else {
+        return <div className="userArea">
+          <div className="cardsArea"></div>
+          <div className="chipsArea"></div>
+        </div>
+      }
 
     }
   }
@@ -199,7 +208,7 @@ function mapStateToProps(state) {
     gameData: state.table.gameData,
     handData: state.table.handData,
     showdownData: state.table.showdownData,
-    gameroom: state.gameroom.gameroom,
+    gameroom: state.gameroom.gameroom
   }
 }
 
