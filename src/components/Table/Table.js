@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux';
 import {fetchTable, fetchHand, fetchShowdown} from './table_actions'
 
-const root = 'https://equal-koala.glitch.me';
+const root = window.sessionStorage.backend;
 
 
 export class TableComp extends React.Component {

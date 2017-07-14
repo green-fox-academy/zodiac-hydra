@@ -1,3 +1,6 @@
+
+
+import backendCheck from './backend_helper';
 import React from "react";
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
@@ -7,11 +10,9 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 import App from './main';
 import allReducers from './all_reducers';
-import backendCheck from './backend_helper';
+
 
 const middleware = applyMiddleware(promise(), thunk, createLogger());
-
-backendCheck();
 
 const store = createStore(allReducers, middleware);
 

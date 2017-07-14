@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const root = 'https://equal-koala.glitch.me'
+const root = window.sessionStorage.backend;
 
 export const loadGameroom = (gameroom) => {
   return {
@@ -11,7 +11,11 @@ export const loadGameroom = (gameroom) => {
 
 export const fetchGameroom = (id) => {
   return (dispatch, getState) => {
-    let url = '/games/' + id;
+    let game_id = id;
+    if (game_id === undefined) {
+      game_id = 1;
+    }
+    let url = '/games/' + game_id;
     axios.get(root + url)
       .then(function(res) {
         console.log("gameroom data", res);
