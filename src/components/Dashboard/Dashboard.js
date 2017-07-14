@@ -6,12 +6,10 @@ import Tables from "../Tables/Tables";
 import Leaderboard from "../Leaderboard/Leaderboard";
 import Nav2 from '../Nav2';
 
-
 export class DashboardComp extends React.Component {
 
   constructor(props) {
     super(props);
-    window.sessionStorage.joined = '0';
     this.props.fetchUserInfo()
   }
 
