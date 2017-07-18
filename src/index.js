@@ -11,6 +11,7 @@ import promise from 'redux-promise-middleware';
 import App from './main';
 import allReducers from './all_reducers';
 
+backendCheck();
 
 const middleware = applyMiddleware(promise(), thunk, createLogger());
 
