@@ -1,7 +1,28 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import Ajax from './../Ajax';
 
+let ajax = new Ajax();
 export class ProfileComp extends React.Component {
+
+  changeAvatar() {
+    let message = {
+      "avatar": avatar
+    }
+    ajax.putData("/:id/avatar", message) {
+      return new Promise((resolve, reject) => {
+        fetch(this.root + "/:id/avatar", {
+          method: 'PUT',
+          headers: this.putHeaders,
+          body: JSON.stringify(message)
+        }).then(res => {
+          res.json().then(data => {
+            resolve(data)
+          });
+        });
+      });
+    }
+  }
 
   render() {
     let user = this.props.userInfo;
@@ -39,3 +60,24 @@ export default Profile;
    "chips": 3100
   };
 */
+
+
+/*changeAvatar(e) {
+  e.preventDefault();
+  let message = {
+    "avatar": avatar
+  };
+  ajax.putData('/:id/avatar', message)
+    .then( (data) => {
+      this.getSignUp(data)
+    });
+}
+
+getSignUp(userData) {
+  if (userData.result === 'success') {
+    window.location.href = '/dashboard';
+    alert('Changed the avatar successfully')
+  } else {
+    alert("ERROR")
+  }
+}*/

@@ -13,7 +13,7 @@ export const fetchTables = () => {
     axios.get('https://equal-koala.glitch.me/games')
       .then(function(res) {
         console.log("all the tables", res);
-      dispatch(loadTables(res.data));
+      dispatch(loadTables(res.data.games));
     });
   };
 };
