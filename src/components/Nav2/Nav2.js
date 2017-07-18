@@ -5,6 +5,9 @@ import React from 'react';
 import Dialog from '../Dialog';
 import Profile from '../Profile/Profile';
 import {connect} from 'react-redux';
+import Ajax from './../Ajax';
+
+let ajax = new Ajax;
 
 export class Nav2Comp extends React.Component {
 
@@ -13,19 +16,23 @@ export class Nav2Comp extends React.Component {
     window.sessionStorage.userID = '';
   }
 
-  alert() {
-    alert('Your changes has been saved.');
-    Dialog.prototype.closeDialog()
+  changeAvatar() {
+    let message = {
+      "avatar": window.sessionStorage.avatar
+    }
+    ajax.putData("/user/" + window.sessionStorage.userID + "/avatar", message)
+    .then((data) => {
+      alert(data.message);
+      Dialog.prototype.closeDialog();
+    });
   }
-
-  
 
   render() {
     let user = this.props.userInfo;
 
     return (
       <div>
-        <div><Dialog header="My profile" component={Profile} callback={this.alert}/></div>
+        <div><Dialog header="My profile" component={Profile} callback={this.changeAvatar}/></div>
         <div className="App-header">
           <h1>Hydra Poker</h1>
           <div className="nav-container">
