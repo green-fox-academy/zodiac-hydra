@@ -18,6 +18,8 @@ export class Nav2Comp extends React.Component {
     Dialog.prototype.closeDialog()
   }
 
+  
+
   render() {
     let user = this.props.userInfo;
 
