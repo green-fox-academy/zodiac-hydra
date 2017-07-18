@@ -36,3 +36,4 @@ function matchDispatchToProps(dispatch) {
 let gameroom = connect(mapStateToProps, matchDispatchToProps)(GameroomComp);
 
 export default gameroom;
+

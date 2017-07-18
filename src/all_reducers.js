@@ -15,6 +15,7 @@ const allReducers = combineReducers({
   gameroom: gameroomReducer,
   userInfo: dashboardReducer,
   buyIn: buyInReducers
+
 });
 
 // main export

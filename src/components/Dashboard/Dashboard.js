@@ -4,8 +4,7 @@ import {bindActionCreators} from 'redux';
 import fetchUserInfo from './dashboard_actions'
 import Tables from "../Tables/Tables";
 import Leaderboard from "../Leaderboard/Leaderboard";
-import Nav2 from '../Nav2';
-
+import Nav2 from '../Nav2/Nav2';
 
 export class DashboardComp extends React.Component {
 

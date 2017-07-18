@@ -71,7 +71,6 @@ export class HeaderComp extends React.Component {
           <button onClick={this.functionSwitcher.bind(this)} className="gameButton buyInButton">{this.state.buttonText}</button>
         </div>
       </div>
-
     );
   }
 }
