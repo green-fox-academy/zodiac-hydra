@@ -7,7 +7,7 @@ import Profile from '../Profile/Profile';
 import {connect} from 'react-redux';
 import Ajax from './../Ajax';
 
-let ajax = new Ajax;
+let ajax = new Ajax();
 
 export class Nav2Comp extends React.Component {
 
