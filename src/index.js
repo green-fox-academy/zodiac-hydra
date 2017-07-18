@@ -1,5 +1,3 @@
-
-
 import backendCheck from './backend_helper';
 import React from "react";
 import ReactDOM from 'react-dom';

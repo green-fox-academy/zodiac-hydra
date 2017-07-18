@@ -12,6 +12,7 @@ export class Nav2 extends React.Component {
 
   render() {
     let user = this.props.user;
+    console.log(user);
 
     return (
       <div className="App-header">

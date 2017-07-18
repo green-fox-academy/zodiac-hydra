@@ -10,6 +10,7 @@ export class GameroomComp extends React.Component {
   constructor(props) {
     super(props);
     this.roomID = window.location.pathname.slice(6);
+    console.log('Room ID', this.roomID);
     this.props.fetchGameroom(this.roomID)
   }
 

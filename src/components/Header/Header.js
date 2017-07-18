@@ -26,7 +26,7 @@ export class HeaderComp extends React.Component {
 
   joinGame() {
     let message = {"chips": this.props.buyInChips};
-    ajax.postData('/game/' + this.props.gameroom.id + '/join', message)
+    ajax.postData('/games/' + this.props.gameroom.id + '/join', message)
       .then((res) => {
         if (res.result === 'success') {
           window.sessionStorage.joined = '1';
@@ -40,7 +40,7 @@ export class HeaderComp extends React.Component {
   }
 
   leaveGame() {
-    ajax.postData('/game/' + this.props.gameroom.id + '/leave')
+    ajax.postData('/games/' + this.props.gameroom.id + '/leave')
       .then((res) => {
         if (res.result === 'success') {
           window.sessionStorage.joined = '0';

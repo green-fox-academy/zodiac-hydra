@@ -11,8 +11,6 @@ export class TableComp extends React.Component {
   constructor(props) {
     super(props);
     this.props.fetchTable(this.props.gameroom.id);
-    this.props.fetchHand(this.props.gameroom.id);
-    this.props.fetchShowdown(this.props.gameroom.id);
     this.startPoll();
   }
 
@@ -46,7 +44,7 @@ export class TableComp extends React.Component {
             <div key={i} className={userClass}>
             <img className="avatarImg" src={user.avatar} alt=""/>
             <p className="username">{user.username}</p>
-            <p className="chips">{user.chips}</p>
+            <p className="chips">{user.chipsAtGame}</p>
             {dealerIcon}
             {foldedPar}
             {raisedPar}
@@ -142,7 +140,7 @@ export class TableComp extends React.Component {
   userActionCall() {
     console.log('Call action called');
     let message = {"action": 'call'};
-    let url = '/game/6';
+    let url = '/games/' + this.props.gameroom.id;
     axios.put(root + url, message)
       .then(function (res) {
         console.log("Action response: ",res);
@@ -159,7 +157,7 @@ export class TableComp extends React.Component {
       "action": 'raise',
       "value": amount
     };
-    let url = '/game/6';
+    let url = '/game/' + this.props.gameroom.id;
     axios.put(root + url, message)
       .then(function (res) {
         console.log("Action response: ",res);
@@ -172,7 +170,7 @@ export class TableComp extends React.Component {
   userActionFold() {
     console.log('Fold action called');
     let message = {"action": 'fold'};
-    let url = '/game/6';
+    let url = '/game/' + this.props.gameroom.id;
     axios.put(root + url, message)
       .then(function (res) {
         console.log("Action response: ",res);
@@ -188,18 +186,32 @@ export class TableComp extends React.Component {
 
 
   render() {
-    return(
-      <div>
-        <div className="table">
-          {this.playerRenderer(this.props.gameData.players)}
-          <div className="centerCards">
-            {this.centerCardsRenderer(this.props.gameData.cards_on_table)}
-            <p className="pot"> Pot: {this.props.gameData.pot}</p>
+    if (this.props.gameData.round === 'idle') {
+      return(
+        <div>
+          <div className="table">
+            {this.playerRenderer(this.props.gameData.players)}
           </div>
         </div>
+      );
+    } else {
+      this.props.fetchHand(this.props.gameroom.id);
+      if (this.props.gameData.round === 'showdown') {
+        this.props.fetchShowdown(this.props.gameroom.id);
+      }
+      return(
+        <div>
+        <div className="table">
+        {this.playerRenderer(this.props.gameData.players)}
+        <div className="centerCards">
+        {this.centerCardsRenderer(this.props.gameData.cards_on_table)}
+        <p className="pot"> Pot: {this.props.gameData.pot}</p>
+        </div>
+        </div>
         {this.userActionAreaRenderer()}
-      </div>
-    );
+        </div>
+      );
+    }
   }
 }
 

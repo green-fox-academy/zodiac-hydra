@@ -15,7 +15,7 @@ export const fetchGameroom = (id) => {
     if (game_id === undefined) {
       game_id = 1;
     }
-    let url = '/games/' + game_id;
+    let url = '/game/' + game_id;
     axios.get(root + url)
       .then(function(res) {
         console.log("gameroom data", res);
