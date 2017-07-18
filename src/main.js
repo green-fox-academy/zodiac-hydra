@@ -4,7 +4,7 @@ import './App.css';
 import Landing from './components/Landing';
 import SignUp from './components/SignUp';
 import Dashboard from './components/Dashboard/Dashboard';
-import Gameroom from './components/Gameroom/Gameroom';
+import GameRoom from './components/Gameroom/Gameroom';
 
 class App extends React.Component {
 
