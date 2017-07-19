@@ -9,7 +9,8 @@ export class GameroomComp extends React.Component {
 
   constructor(props) {
     super(props);
-    this.roomID = window.location.pathname.slice(6);
+    this.roomID = window.location.pathname.slice(7);
+    window.sessionStorage.roomID = this.roomID;
     console.log('Room ID', this.roomID);
     this.props.fetchGameroom(this.roomID);
   }

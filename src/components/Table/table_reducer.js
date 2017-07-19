@@ -5,7 +5,7 @@ export const tableReducer = (state={
   },
   handData:['cardsBack', 'cardsBack'],
   showdownData:{
-    winner_user_id: 0,
+    winner_user_ids: [],
     user_cards: [{
       user_id: 0,
       cards: ['cardsBack', 'cardsBack']

@@ -7,17 +7,18 @@ import {fetchTable, fetchHand, fetchShowdown} from './table_actions'
 const root = window.sessionStorage.backend;
 
 let timeoutFunction = ''
-
+console.log('ROOM ID at table: ', window.sessionStorage.roomID);
 
 export class TableComp extends React.Component {
   constructor(props) {
     super(props);
-    this.props.fetchTable(this.props.gameroom.id);
+    this.props.fetchTable(window.sessionStorage.roomID);
     this.startPoll();
     this.state = {
       handFetched: false,
       showdownFetched: false
-    }
+    };
+
   }
 
   playerRenderer(userData) {
@@ -187,7 +188,7 @@ export class TableComp extends React.Component {
   }
 
   startPoll() {
-    timeoutFunction = setInterval(() => this.props.fetchTable(this.props.gameroom.id), 3000);
+    timeoutFunction = setInterval(() => this.props.fetchTable(window.sessionStorage.roomID), 3000);
   }
 
   stopPoll() {
@@ -196,17 +197,18 @@ export class TableComp extends React.Component {
 
   componentWillMount() {
     if (this.props.gameData.round !== 'idle' && this.state.handFetched === false) {
-      this.props.fetchHand(this.props.gameroom.id);
+      this.props.fetchHand(window.sessionStorage.roomID);
       this.setState({
         handFetched: true
       })
-    } else if (this.props.gameData.round === 'showdown' && this.state.showdownFetched === false) {
-        this.props.fetchShowdown(this.props.gameroom.id);
-        this.setState({
-          showdownFetched: true
-        })
+    };
+    if (this.props.gameData.round === 'showdown') {
+      console.log('Fetch Showdown inited');
+      this.props.fetchShowdown(window.sessionStorage.roomID);
+      this.setState({
+        showdownFetched: true
+      })
     }
-
   }
 
   render() {
