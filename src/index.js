@@ -9,11 +9,13 @@ import promise from 'redux-promise-middleware';
 import App from './main';
 import allReducers from './all_reducers';
 
-backendCheck();
+// backendCheck();
 
 const middleware = applyMiddleware(promise(), thunk, createLogger());
 
 const store = createStore(allReducers, middleware);
+
+console.log(backendCheck);
 
 ReactDOM.render(
   <Provider store={store}>
