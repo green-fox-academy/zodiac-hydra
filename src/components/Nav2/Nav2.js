@@ -32,7 +32,7 @@ export class Nav2Comp extends React.Component {
 
     return (
       <div>
-        <div><Dialog header="My profile" component={Profile} callback={this.changeAvatar}/></div>
+        <div><Dialog classname="header" header="MY PROFILE" component={Profile} callback={this.changeAvatar}/></div>
         <div className="App-header">
           <h1>Hydra Poker</h1>
           <div className="nav-container">

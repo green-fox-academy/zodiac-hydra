@@ -1,10 +1,14 @@
 .tables {
   border-collapse: collapse;
   text-align: left;
-  width: 700px;
+  min-width: 200px;
   font-family: 'Open Sans', sans-serif;
   overflow: hidden;
-  margin-left: 75px;
+  margin-left: 60px;
+}
+
+.tablesContainer {
+  margin-bottom: -75px;
 }
 
 .tables td, .tables th {
