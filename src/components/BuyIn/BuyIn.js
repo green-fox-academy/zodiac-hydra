@@ -15,7 +15,7 @@ class BuyInComp extends React.Component {
   render() {
     return (
       <div>
-        <h4 className="chipsHeader">The chips: {this.props.buyInChips}$</h4>
+        <h4 className="chipsHeader">Amount of chips: {this.props.buyInChips}$</h4>
         <input type="range" min="0" max={this.props.userInfo.chips} step='10' onChange={this.changeInput.bind(this)} />
       </div>
     )
