@@ -9,6 +9,6 @@ export default (() => {
   } else if (url.search('mock') > 0) {
     window.sessionStorage.backend = 'https://equal-koala.glitch.me'
   } else if (url.search('gabor') > 0) {
-    window.sessionStorage.backend = 'http://10.27.6.212:8080'
+    window.sessionStorage.backend = 'http://10.27.6.159:8080'
   }
 })()

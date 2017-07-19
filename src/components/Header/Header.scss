@@ -23,4 +23,14 @@ h2 {
   background-color: #219e7b;
   border: 1px solid #219e7b;
   margin-left: 75px;
+  margin-right: 75px;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.invisible {
+  display: none;
 }

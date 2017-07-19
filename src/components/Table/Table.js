@@ -6,12 +6,18 @@ import {fetchTable, fetchHand, fetchShowdown} from './table_actions'
 
 const root = window.sessionStorage.backend;
 
+let timeoutFunction = ''
+
 
 export class TableComp extends React.Component {
   constructor(props) {
     super(props);
     this.props.fetchTable(this.props.gameroom.id);
     this.startPoll();
+    this.state = {
+      handFetched: false,
+      showdownFetched: false
+    }
   }
 
   playerRenderer(userData) {
@@ -181,9 +187,27 @@ export class TableComp extends React.Component {
   }
 
   startPoll() {
-    this.timeout = setInterval(() => this.props.fetchTable(this.props.gameroom.id), 3000);
+    timeoutFunction = setInterval(() => this.props.fetchTable(this.props.gameroom.id), 3000);
   }
 
+  stopPoll() {
+    clearInterval(timeoutFunction);
+  }
+
+  componentWillMount() {
+    if (this.props.gameData.round !== 'idle' && this.state.handFetched === false) {
+      this.props.fetchHand(this.props.gameroom.id);
+      this.setState({
+        handFetched: true
+      })
+    } else if (this.props.gameData.round === 'showdown' && this.state.showdownFetched === false) {
+        this.props.fetchShowdown(this.props.gameroom.id);
+        this.setState({
+          showdownFetched: true
+        })
+    }
+
+  }
 
   render() {
     if (this.props.gameData.round === 'idle') {
@@ -195,20 +219,35 @@ export class TableComp extends React.Component {
         </div>
       );
     } else {
-      this.props.fetchHand(this.props.gameroom.id);
+
       if (this.props.gameData.round === 'showdown') {
-        this.props.fetchShowdown(this.props.gameroom.id);
+        return(
+          <div>
+            <div className="table">
+              {this.playerRenderer(this.props.gameData.players)}
+                <div className="centerCards">
+                  {this.centerCardsRenderer(this.props.gameData.cards_on_table)}
+                <p className="pot"> Pot: {this.props.gameData.pot}</p>
+              </div>
+            </div>
+            {this.userActionAreaRenderer()}
+            <div className="standings">
+              <h2>Round ended</h2>
+              <p>Winner ID: {this.props.showdownData.winner_user_ids[0]} </p>
+            </div>
+          </div>
+        );
       }
       return(
         <div>
-        <div className="table">
-        {this.playerRenderer(this.props.gameData.players)}
-        <div className="centerCards">
-        {this.centerCardsRenderer(this.props.gameData.cards_on_table)}
-        <p className="pot"> Pot: {this.props.gameData.pot}</p>
-        </div>
-        </div>
-        {this.userActionAreaRenderer()}
+          <div className="table">
+            {this.playerRenderer(this.props.gameData.players)}
+              <div className="centerCards">
+                {this.centerCardsRenderer(this.props.gameData.cards_on_table)}
+              <p className="pot"> Pot: {this.props.gameData.pot}</p>
+            </div>
+          </div>
+          {this.userActionAreaRenderer()}
         </div>
       );
     }

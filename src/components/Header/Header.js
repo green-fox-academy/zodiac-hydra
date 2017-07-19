@@ -11,7 +11,8 @@ export class HeaderComp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      buttonText: 'BUY IN'
+      buttonText: 'BUY IN',
+      backButtonClasslist: 'gameButton buyInButton'
     }
   }
 
@@ -22,6 +23,10 @@ export class HeaderComp extends React.Component {
     else if (window.sessionStorage.joined === '1') {
       this.leaveGame()
     }
+  }
+
+  backToDashboard() {
+    window.location.href = '/dashboard';
   }
 
   joinGame() {
@@ -54,10 +59,12 @@ export class HeaderComp extends React.Component {
     if (window.sessionStorage.joined === '1') {
       this.setState({
         buttonText: 'SIT OUT',
+        backButtonClasslist: 'invisible gameButton buyInButton'
       })
     } else {
       this.setState({
         buttonText: 'BUY IN',
+        backButtonClasslist: 'gameButton buyInButton'
       })
     }
   }
@@ -68,7 +75,10 @@ export class HeaderComp extends React.Component {
         <Dialog header="Enter chips to buy in" component={BuyIn}  callback={this.joinGame.bind(this)}/>
         <div>
           <h2>{this.props.gameroom.name} {this.props.gameroom.big_blind /2} / {this.props.gameroom.big_blind}</h2>
-          <button onClick={this.functionSwitcher.bind(this)} className="gameButton buyInButton">{this.state.buttonText}</button>
+          <div className="headerContainer">
+            <button onClick={this.backToDashboard.bind(this)} className={this.state.backButtonClasslist}>BACK</button>
+            <button onClick={this.functionSwitcher.bind(this)} className="gameButton buyInButton">{this.state.buttonText}</button>
+          </div>
         </div>
       </div>
     );

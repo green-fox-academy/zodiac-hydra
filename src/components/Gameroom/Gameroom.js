@@ -11,7 +11,7 @@ export class GameroomComp extends React.Component {
     super(props);
     this.roomID = window.location.pathname.slice(6);
     console.log('Room ID', this.roomID);
-    this.props.fetchGameroom(this.roomID)
+    this.props.fetchGameroom(this.roomID);
   }
 
   render() {
@@ -37,4 +37,3 @@ function matchDispatchToProps(dispatch) {
 let gameroom = connect(mapStateToProps, matchDispatchToProps)(GameroomComp);
 
 export default gameroom;
-
