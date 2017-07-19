@@ -58,12 +58,12 @@
 }
 
 .user6 {
-  top: 320px;
+  top: 350px;
   left: 60px;
 }
 
 .user6 .userArea {
-  top: -100px;
+  top: -130px;
   right: -110px;
 }
 
@@ -73,12 +73,12 @@
 }
 
 .user5 {
-  top: 320px;
+  top: 350px;
   right: 60px;
 }
 
 .user5 .userArea {
-  top: -100px;
+  top: -130px;
   left: -110px;
 }
 
@@ -183,6 +183,38 @@
   height: 50px;
   border-radius: 3px;
 }
+
+/* CENTER CARDS styling */
+
+.centerCards {
+  position: absolute;
+  top: 110px;
+  left: 120px;
+  width: 260px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background-color: grey;*/
+}
+
+.centerCard1, .centerCard2, .centerCard3, .centerCard4, .centerCard5 {
+  width: 48px;
+  height: 71px;
+  border-radius: 5px;
+}
+
+.pot {
+  position: absolute;
+  font-family: 'Open Sans', sans-serif;
+  top: -20px;
+  left: 100px;
+  font-weight: bold;
+  color: white;
+  text-shadow: -1px 0 gold, 0 1px black,
+      1px 0 gold, 0 -1px black;
+}
+
 /* DEALER styling */
 
 .dealerPar {
@@ -257,4 +289,87 @@
 
 .onTurn .avatarImg {
   border: 5px solid #ffce54;
+}
+
+/* USER ACTION AREA */
+
+.container {
+  width: 500px;
+  padding: 15px;
+  margin: 100px auto;
+  flex-direction: column;
+}
+
+.raiseInput, .actionButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.raiseInput p {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 15px;
+}
+
+.inputField {
+  font-family: 'Open Sans', sans-serif;
+  width: 50px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 7px;
+  margin-right: 0;
+}
+
+/* BUTTONS styling */
+
+.callButton {
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #219e7b;
+  border: 1px solid #219e7b;
+  margin-right: 15px;
+}
+
+.raiseButton {
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #ffce54;
+  border: 1px solid #ffce54;
+  color: black;
+}
+
+.foldButton {
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #fc6e51;
+  border: 1px solid #fc6e51;
+  margin-left: 15px;
+}
+
+/* SHOWDOWN styling */
+
+.standings {
+  position: absolute;
+  top: 150px;
+  width: 100%;
+}
+
+.standings p, .standings h2 {
+  width: 100%;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: white;
+  text-shadow: -1px 0 gold, 0 1px black,
+      1px 0 gold, 0 -1px black;
+  margin: 0 auto 10px auto;
 }

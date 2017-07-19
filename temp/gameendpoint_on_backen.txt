@@ -1,0 +1,299 @@
+'use strict';
+
+const express = require('express');
+
+const router = express.Router();
+let round_no = 0;
+
+const gamerooms = [
+  {
+    "id": 1,
+    "players": [],
+    "actor_player_id": {},
+    "dealer_player_id": {},
+    "round": "idle",
+    "cards_on_table": [],
+    "pot": 0
+  }, {
+    "id": 2,
+    "players": [],
+    "actor_player_id": {},
+    "dealer_player_id": {},
+    "round": "idle",
+    "cards_on_table": [],
+    "pot": 0
+  }, {
+    "id": 3,
+    "players": [],
+    "actor_player_id": {},
+    "dealer_player_id": {},
+    "round": "idle",
+    "cards_on_table": [],
+    "pot": 0
+  }, {
+    "id": 4,
+    "players": [],
+    "actor_player_id": {},
+    "dealer_player_id": {},
+    "round": "idle",
+    "cards_on_table": [],
+    "pot": 0
+  },
+]
+
+router.get("/:id", function (request, response) {
+  let game_id = request.params.id;
+  console.log(game_id);
+  let result = {
+      "id": game_id,
+      "players": [],
+      "actor_player_id": {},
+      "dealer_player_id": {},
+      "round": "idle",
+      "cards_on_table": [],
+      "pot": 0
+    };
+  
+  if (game_id == 666) {
+    result = {
+      "id": game_id,
+      "players": [],
+      "actor_player_id": {},
+      "dealer_player_id": {},
+      "round": "idle",
+      "cards_on_table": [],
+      "pot": 0
+    };
+  } else if (game_id == 333) {
+    result = {
+      "id": game_id,
+      "players": [{
+        "id": 1234,
+        "username": "user 1234",
+        "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
+        "chips": 3105,
+        "lastAction": '',
+        "bet": 0,
+        "isFolded": false
+      }],
+      "actor_player_id": {},
+      "dealer_player_id": {},
+      "round": "idle",
+      "cards_on_table": [],
+      "pot": 0
+    };
+  } else {
+    let max_players = 6;
+    let cards_number = 0;
+
+    let gameplayer_obj_1 = {
+      "id": 101,
+      "username": "user 101",
+      "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
+      "chips": 3101,
+      "lastAction": 'raise',
+      "bet": 250,
+      "isFolded": false
+    };
+    let gameplayer_obj_2 = {
+      "id": 102,
+      "username": "user 102",
+      "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
+      "chips": 3102,
+      "lastAction": 'fold',
+      "bet": 200,
+      "isFolded": true
+    };
+    let gameplayer_obj_3 = {
+      "id": 103,
+      "username": "user 103",
+      "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
+      "chips": 3103,
+      "lastAction": 'call',
+      "bet": 200,
+      "isFolded": false
+    };
+    let gameplayer_obj_4 = {
+      "id": 104,
+      "username": "user 104",
+      "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
+      "chips": 3104,
+      "lastAction": 'fold',
+      "bet": 250,
+      "isFolded": true
+    };
+    let gameplayer_obj_5 = {
+      "id": 1234,
+      "username": "user 1234",
+      "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
+      "chips": 3105,
+      "lastAction": 'raise',
+      "bet": 150,
+      "isFolded": false
+    };
+    let gameplayer_obj_6 = {
+      "id": 106,
+      "username": "user 106",
+      "avatar": "http://findwise.github.io/Hydra/images/big-hydra-no-text.png",
+      "chips": 3106,
+      "lastAction": 'check',
+      "bet": 150,
+      "isFolded": false
+    };
+
+    let player_list = [gameplayer_obj_1, gameplayer_obj_2, gameplayer_obj_3, gameplayer_obj_4, gameplayer_obj_5, gameplayer_obj_6];
+
+    let round_list = ["betting", "flop", "turn", "river", "showdown"];
+    let round = round_list[Math.floor(Math.random() * 6)];
+
+    if (round === "flop") {
+      cards_number = 3;
+    } else if (round === "turn") {
+      cards_number = 4;
+    } else if (round === "river" || round === "showdown") {
+      cards_number = 5;
+    } else {
+      cards_number = 3 + Math.floor(Math.random() * 3);
+    }
+
+    let colors = ["H", "C", "S", "D"];
+    let numbers = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"];  
+    let card_array = [];
+    while (card_array.length < cards_number) {
+      let card_to_add = colors[Math.floor(Math.random() * 4)] + numbers[Math.floor(Math.random() * 13)];
+      if (card_array.indexOf(card_to_add) === -1) {
+        card_array.push(card_to_add);
+      }
+    };
+
+    if (true) {
+      result = {
+        "id": game_id,
+        "players": player_list,
+        "actor_player_id": player_list[Math.floor(Math.random() * max_players)].id,
+//        "actor_player_id": 1234,
+        "dealer_player_id": player_list[round_no % max_players].id,
+        "round": round,
+//        "round": 'showdown',
+        "cards_on_table": card_array,
+        "pot": 2100
+      };
+      round_no++;
+    } else {
+      result = {
+        "result": "fail", 
+        "message": "game id doesn’t exist"
+      };
+    };    
+  };
+ 
+  console.log("result: " + result);
+  response.send(result);
+});
+
+router.put("/:id", function (request, response) {
+  console.log(request.body);
+  let game_id = request.params.id;
+  let result = {};
+  if (true) {
+    result = {
+      "result": "success", 
+      "message": "Action taken."
+    };
+  } else {
+    result = {
+      "result": "fail", 
+      "message": "Game id doesn’t exist."
+    };
+  };
+  response.send(result);
+});
+
+router.post("/:id/join", function (request, response) {
+  console.log(request.body);
+  let game_id = request.params.id;
+  let user_name = "andybendy"
+  let game_name = "GameRoom1"
+  let result = {};
+  if (true) {
+    result = {
+      "result": "success", 
+      "message": user_name + " joined game: " + game_name};
+  } else {
+    result = {
+      "result": "fail", 
+      "message": "Game id doesn’t exist."
+    };
+  };
+  response.send(result);
+});
+
+router.post("/:id/leave", function (request, response) {
+  let game_id = request.params.id;
+  let user_name = "andybendy"
+  let game_name = "GameRoom1"
+  let result = {};
+  if (true) {
+    result = {
+      "result": "success", 
+      "message": user_name + " left game: " + game_name};
+  } else {
+    result = {
+      "result": "fail", 
+      "message": "Game id doesn’t exist."
+    };
+  };
+  response.send(result);
+});
+
+router.get("/:id/hand", function (request, response) {
+  let game_id = request.params.id;
+  
+  let colors = ["H", "C", "S", "D"];
+  let numbers = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"];
+  let card_array = [];
+  while (card_array.length < 2) {
+    let card_to_add = colors[Math.floor(Math.random() * 4)] + numbers[Math.floor(Math.random() * 13)];
+    if (card_array.indexOf(card_to_add) === -1) {
+      card_array.push(card_to_add);
+    }
+  };
+  
+  let result = card_array;
+  response.send(result);
+});
+
+router.get("/:id/showdown", function (request, response) {
+  if (false) {
+    let game_id = request.params.id;
+    let max_players = 6;
+
+    let colors = ["H", "C", "S", "D"];
+    let numbers = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"];
+
+    let user_cards = [];
+    for (let i = 0; i < max_players; i++) {
+      let user_obj = {};
+      let user_id = i;
+      let card_array = [];
+      while (card_array.length < 2) {
+        let card_to_add = colors[Math.floor(Math.random() * 4)] + numbers[Math.floor(Math.random() * 13)];
+        if (card_array.indexOf(card_to_add) === -1) {
+          card_array.push(card_to_add);
+        }
+      };
+      user_obj.user_id = user_id;
+      user_obj.cards = card_array;
+      user_cards.push(user_obj);
+    }
+
+    let result = {
+      "winner_user_id": Math.floor(Math.random() * max_players),
+      "user_cards": user_cards
+    };
+    response.send(result);
+  }    
+});
+    
+
+module.exports = router;

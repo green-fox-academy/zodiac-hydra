@@ -1,22 +1,24 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import Table from '../Table/Table';
 import Header from '../Header/Header';
-import RoundEnd from '../RoundEnd';
+import {fetchGameroom} from './gameroom_actions'
 
-export class GameRoomComp extends React.Component {
+export class GameroomComp extends React.Component {
 
   constructor(props) {
     super(props);
-    this.roomID = window.location.pathname.slice(10);
+    this.roomID = window.location.pathname.slice(6);
+    console.log('Room ID', this.roomID);
+    this.props.fetchGameroom(this.roomID)
   }
 
   render() {
     return(
       <section>
-        <Header table_name={this.props.tables[this.roomID-1].name} big_blind={this.props.tables[this.roomID-1].big_blind}/>
-        <Table/>
-        <RoundEnd/>
+        <Header />
+        <Table />
       </section>
     );
   }
@@ -24,10 +26,15 @@ export class GameRoomComp extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    tables: state.tables.tables
+    gameroom: state.gameroom.gameroom
   }
 }
 
-let gameRoomTables = connect(mapStateToProps)(GameRoomComp);
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({fetchGameroom: fetchGameroom}, dispatch)
+}
 
-export default gameRoomTables;
+let gameroom = connect(mapStateToProps, matchDispatchToProps)(GameroomComp);
+
+export default gameroom;
+

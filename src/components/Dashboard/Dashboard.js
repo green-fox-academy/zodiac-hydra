@@ -10,6 +10,7 @@ export class DashboardComp extends React.Component {
 
   constructor(props) {
     super(props);
+    window.sessionStorage.joined = '0';
     this.props.fetchUserInfo()
   }
 
