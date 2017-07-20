@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 60px;
+  min-height: 70px;
   color: #219e7b;
 }
 
@@ -12,7 +12,7 @@ h1 {
   font-weight: 300;
   font-style: normal;
   font-size: 30px;
-  margin: 0 0 0 80px;
+  margin: 0 0 0 72px;
 }
 
 .signupButton {
@@ -30,6 +30,7 @@ h1 {
 
 .nav-container img {
   margin-right: 15px;
+  margin-bottom: 0;
   border: 5px solid #50677e;
   border-radius: 30px;
 }

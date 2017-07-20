@@ -103,7 +103,7 @@
 }
 
 .user3 {
-  top: -100px;
+  top: -90px;
   right: 60px;
 }
 
@@ -118,7 +118,7 @@
 }
 
 .user2 {
-  top: -100px;
+  top: -90px;
   left: 60px;
 }
 
@@ -134,9 +134,9 @@
 
 .chips {
   position: absolute;
-  left: -2px;
-  bottom: -23px;
-  width: 50px;
+  left: -3px;
+  bottom: -30px;
+  width: 60px;
   height: 20px;
   color: #a1a1a1;
   font-size: 12px;
@@ -285,6 +285,40 @@
   align-items: center;
 }
 
+/* WAITING state styling */
+
+.waitingPar {
+  position: absolute;
+  top: -28px;
+  left: -12px;
+  width: 80px;
+  height: 20px;
+  color: black;
+  font-size: 12px;
+  background-color: #ccc;
+  border-radius: 10px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* STANDUP state styling */
+
+.standupPar {
+  position: absolute;
+  top: -28px;
+  left: -12px;
+  width: 80px;
+  height: 20px;
+  color: white;
+  font-size: 12px;
+  background-color: black;
+  border-radius: 10px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* ONTURN state styling */
 
 .onTurn .avatarImg {
@@ -359,7 +393,7 @@
 
 .standings {
   position: absolute;
-  top: 150px;
+  top: 170px;
   width: 100%;
 }
 

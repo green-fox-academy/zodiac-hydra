@@ -28,6 +28,8 @@ export class TableComp extends React.Component {
         return (userData).map((user, i) => {
           let userClass = 'player user' + (i+1).toString();
           let dealerIcon = '';
+          let waitingPar = '';
+          let standupPar = '';
           let foldedPar = '';
           let raisedPar = '';
           if (user.id === this.props.gameData.dealer_player_id) {
@@ -40,7 +42,14 @@ export class TableComp extends React.Component {
           if (user.id.toString() === window.sessionStorage.userID) {
             userClass += ' activeUser';
           };
-          if (user.isFolded === true) {
+          if (user.isWaiting === true) {
+            userClass += ' waiting';
+            waitingPar = <p className="waitingPar">WAITING</p>
+          };
+          if (user.lastAction === 'standup') {
+            userClass += ' standup';
+            standupPar = <p className="standupPar">STOOD UP</p>
+          } else if (user.isFolded === true) {
             userClass += ' folded';
             foldedPar = <p className="foldedPar">FOLDED</p>
           };
@@ -53,6 +62,8 @@ export class TableComp extends React.Component {
             <p className="username">{user.username}</p>
             <p className="chips">{user.chipsAtGame}</p>
             {dealerIcon}
+            {waitingPar}
+            {standupPar}
             {foldedPar}
             {raisedPar}
             {this.userAreaRenderer(user.id.toString(), i, user.isFolded)}
@@ -220,26 +231,7 @@ export class TableComp extends React.Component {
           </div>
         </div>
       );
-    } else {
-
-      if (this.props.gameData.round === 'showdown') {
-        return(
-          <div>
-            <div className="table">
-              {this.playerRenderer(this.props.gameData.players)}
-                <div className="centerCards">
-                  {this.centerCardsRenderer(this.props.gameData.cards_on_table)}
-                <p className="pot"> Pot: {this.props.gameData.pot}</p>
-              </div>
-            </div>
-            {this.userActionAreaRenderer()}
-            <div className="standings">
-              <h2>Round ended</h2>
-              <p>Winner ID: {this.props.showdownData.winner_user_ids[0]} </p>
-            </div>
-          </div>
-        );
-      }
+    } else if (this.props.gameData.round === 'showdown') {
       return(
         <div>
           <div className="table">
@@ -250,6 +242,27 @@ export class TableComp extends React.Component {
             </div>
           </div>
           {this.userActionAreaRenderer()}
+          <div className="standings">
+            <h2>Round ended</h2>
+            <p>Winner ID: {this.props.showdownData.winner_user_ids[0]} </p>
+          </div>
+        </div>
+      );
+    } else {
+      return(
+        <div>
+          <div className="table">
+            {this.playerRenderer(this.props.gameData.players)}
+              <div className="centerCards">
+                {this.centerCardsRenderer(this.props.gameData.cards_on_table)}
+              <p className="pot"> Pot: {this.props.gameData.pot}</p>
+            </div>
+          </div>
+          {this.userActionAreaRenderer()}
+          <div className="standings">
+            <p>On turn: {this.props.gameData.actor_player_id} </p>
+            <p>Round: {this.props.gameData.round} </p>
+          </div>
         </div>
       );
     }

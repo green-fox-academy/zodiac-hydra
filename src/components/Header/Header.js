@@ -58,7 +58,7 @@ export class HeaderComp extends React.Component {
   buttonText() {
     if (window.sessionStorage.joined === '1') {
       this.setState({
-        buttonText: 'SIT OUT',
+        buttonText: 'STAND UP',
         backButtonClasslist: 'invisible gameButton buyInButton'
       })
     } else {
