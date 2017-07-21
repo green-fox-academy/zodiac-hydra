@@ -51,10 +51,26 @@
 }
 
 .profile {
-  margin: 15px;
+  margin: 10px;
+  font-family: 'Open Sans', sans-serif;
+  color: #219e7b;
+  margin-left: 30px;
+  text-shadow: none;
+}
+
+.profileChips {
+  margin: 0px 0px 0px 30px;
+  font-family: 'Open Sans', sans-serif;
+  color: #219e7b;
+  text-shadow: none;
 }
 
 img {
   margin-left: 5px;
   margin-bottom: -12px;
+}
+
+.buttons {
+  margin-top: 7px;
+  margin-bottom: 7px;
 }

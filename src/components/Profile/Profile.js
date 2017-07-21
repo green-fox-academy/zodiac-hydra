@@ -11,7 +11,7 @@ export class ProfileComp extends React.Component {
     let user = this.props.userInfo;
     console.log("USER STUFF", user);
     return (
-      <div>
+      <div className="profileInfo">
         <p className="profile">Username: {user.username}</p>
         <p className="profile">E-mail: {user.email}</p>
         <p className="profile">Profile picture:
@@ -19,7 +19,7 @@ export class ProfileComp extends React.Component {
         </p>
         <label className="profile">Change your avatar:</label>
         <input className="profile" onChange={this.changeAvatar.bind(this)}></input>
-        <p className="profile">Chips: {user.chips}</p>
+        <p className="profileChips">Chips: {user.chips}</p>
       </div>
     );
   }
