@@ -105,7 +105,6 @@ export class TableComp extends React.Component {
           <div className="chipsArea">{this.props.gameData.players[i].bet}</div>
         </div>
       }
-
     }
   }
 
@@ -207,15 +206,25 @@ export class TableComp extends React.Component {
   }
 
   componentWillMount() {
-
     setTimeout(function(){
       if (this.props.gameData.round !== 'idle' && this.state.handFetched === false) {
         this.props.fetchHand(window.sessionStorage.roomID);
         this.setState({
-          handFetched: true
+          handFetched: true,
+          showdownFetched: false
         })
       };
     }.bind(this), 2500);
+  }
+
+  componentWillUpdate() {
+    if (this.props.gameData.round === 'showdown' && this.state.showdownFetched === false) {
+      console.log('Fetch Showdown inited');
+      this.props.fetchShowdown(window.sessionStorage.roomID);
+      this.setState({
+        showdownFetched: true
+      })
+    };
   }
 
   render() {
@@ -227,7 +236,13 @@ export class TableComp extends React.Component {
           </div>
         </div>
       );
-    } else if (this.props.gameData.round === 'showdown') {
+    } else if (this.props.gameData.round === 'showdown' && this.state.showdownFetched === true) {
+      let winnerName = '';
+      this.props.gameData.players.forEach(function(player) {
+        if (player.id === this.props.showdownData.winner_user_ids[0]) {
+          winnerName = player.username;
+        }
+      }.bind(this));
       return(
         <div>
           <div className="table">
@@ -240,11 +255,17 @@ export class TableComp extends React.Component {
           {this.userActionAreaRenderer()}
           <div className="standings">
             <h2>Round ended</h2>
-            <p>Winner ID: {this.props.showdownData.winner_user_ids[0]} </p>
+            <p>Winner: {winnerName} </p>
           </div>
         </div>
       );
-    } else {
+    } else if (this.props.gameData.round === 'betting') {
+      let actorName = '';
+      for (let i = 0; i < this.props.gameData.players.length; i++) {
+        if (this.props.gameData.players[i].id === this.props.gameData.actor_player_id) {
+          actorName = this.props.gameData.players[i].username;
+        }
+      }
       return(
         <div>
           <div className="table">
@@ -256,8 +277,15 @@ export class TableComp extends React.Component {
           </div>
           {this.userActionAreaRenderer()}
           <div className="standings">
-            <p>On turn: {this.props.gameData.actor_player_id} </p>
+            <p>On turn: {actorName} </p>
             <p>Round: {this.props.gameData.round} </p>
+          </div>
+        </div>
+      );
+    } else {
+      return(
+        <div>
+          <div className="table">
           </div>
         </div>
       );

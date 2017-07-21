@@ -22,13 +22,6 @@ export const fetchTable = (id) => {
       .then(function (res) {
         console.log("Game data: ",res);
       dispatch(loadTable(res.data));
-      if (res.data.round === 'showdown') {
-        console.log('Fetch Showdown inited');
-        fetchShowdown(window.sessionStorage.roomID);
-        // this.setState({
-        //   showdownFetched: true
-        // })
-      };
     })
       .catch(function (error) {
         if (error.response) {
