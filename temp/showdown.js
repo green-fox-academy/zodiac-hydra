@@ -155,10 +155,10 @@ let flushValidator = function(five_number_array) {
     if (five_number_array[0] === 2 && five_number_array[4] === 14) {
       result = 511000 + 5;
     } else {
-      result = 511000 + five_number_array[4]
+      result = 511000 + parseInt(five_number_array[4], 10)
     }
   } else {
-    result = 350000 + highCardValidator(five_number_array);
+    result = 350000 + parseInt(highCardValidator(five_number_array), 10);
   }
   return result;
 }
@@ -178,9 +178,9 @@ let fullHouseValidator = function(five_number_array) {
   let result = 0;
   five_number_array = five_number_array.sort((a, b) => a - b);
   if ((five_number_array[0] === five_number_array[1] && five_number_array[0] === five_number_array[2]) && five_number_array[3] === five_number_array[4]) {
-    result = 510000 + 15*five_number_array[0] + five_number_array[4];
+    result = 510000 + 15*parseInt(five_number_array[0], 10) + parseInt(five_number_array[4], 10);
   } else if (five_number_array[0] === five_number_array[1] && (five_number_array[2] === five_number_array[3] && five_number_array[3] === five_number_array[4])) {
-    result = 510000 + five_number_array[0] + 15*five_number_array[4];
+    result = 510000 + parseInt(five_number_array[0], 10) + 15*parseInt(five_number_array[4], 10);
   }
   return result;
 }
@@ -192,7 +192,7 @@ let straightValidator = function(five_number_array) {
     if (five_number_array[0] === 2 && five_number_array[4] === 14) {
       result = 340000 + 5;
     } else {
-      result = 340000 + five_number_array[4]
+      result = 340000 + parseInt(five_number_array[4], 10);
     }
   }
   return result;
@@ -202,11 +202,11 @@ let drillValidator = function(five_number_array) {
   let result = 0;
   five_number_array = five_number_array.sort((a, b) => a - b);
   if (five_number_array[0] === five_number_array[1] && five_number_array[0] === five_number_array[2]) {
-    result = 325000 + five_number_array[3] + 11*five_number_array[4] + five_number_array[2]*1000;
+    result = 325000 + parseInt(five_number_array[3], 10) + 11*parseInt(five_number_array[4], 10) + parseInt(five_number_array[2], 10)*1000;
   } else if (five_number_array[1] === five_number_array[2] && five_number_array[1] === five_number_array[3]) {
-    result = 325000 + five_number_array[0] + 11*five_number_array[4] + five_number_array[2]*1000;
+    result = 325000 + parseInt(five_number_array[0], 10) + 11*parseInt(five_number_array[4], 10) + parseInt(five_number_array[2], 10)*1000;
   } else if (five_number_array[2] === five_number_array[3] && five_number_array[2] === five_number_array[4]) {
-    result = 325000 + five_number_array[0] + 11*five_number_array[1] + five_number_array[2]*1000;
+    result = 325000 + parseInt(five_number_array[0], 10) + 11*parseInt(five_number_array[1], 10) + parseInt(five_number_array[2], 10)*1000;
   }
   return result;
 }
@@ -215,11 +215,11 @@ let twoPairsValidator = function(five_number_array) {
   let result = 0;
   five_number_array = five_number_array.sort((a, b) => a - b);
   if (five_number_array[0] === five_number_array[1] && five_number_array[2] === five_number_array[3]) {
-    result = 320000 + five_number_array[4] + 15*five_number_array[0] + five_number_array[2]*225;
+    result = 320000 + parseInt(five_number_array[4], 10) + 15*parseInt(five_number_array[0], 10) + parseInt(five_number_array[2], 10)*225;
   } else if (five_number_array[0] === five_number_array[1] && five_number_array[3] === five_number_array[4]) {
-    result = 320000 + five_number_array[2] + 15*five_number_array[0] + five_number_array[3]*225;
+    result = 320000 + parseInt(five_number_array[2], 10) + 15*parseInt(five_number_array[0], 10) + parseInt(five_number_array[3], 10)*225;
   } else if (five_number_array[1] === five_number_array[2] && five_number_array[3] === five_number_array[4]) {
-    result = 320000 + five_number_array[0] + 15*five_number_array[1] + five_number_array[3]*225;
+    result = 320000 + parseInt(five_number_array[0], 10) + 15*parseInt(five_number_array[1], 10) + parseInt(five_number_array[3], 10)*225;
   }
   return result;
 }
@@ -228,25 +228,24 @@ let pairValidator = function(five_number_array) {
   let result = 0;
   five_number_array = five_number_array.sort((a, b) => a - b);
   if (five_number_array[0] === five_number_array[1]) {
-    result = 160000 + five_number_array[2] + 10*five_number_array[3] + five_number_array[4]*100 + five_number_array[0]*10000;
+    result = 160000 + parseInt(five_number_array[2], 10) + 10*parseInt(five_number_array[3], 10) + parseInt(five_number_array[4], 10)*100 + parseInt(five_number_array[0], 10)*10000;
   } else if (five_number_array[1] === five_number_array[2]) {
-    result = 160000 + five_number_array[0] + 10*five_number_array[3] + five_number_array[4]*100 + five_number_array[1]*10000;
+    result = 160000 + parseInt(five_number_array[0], 10) + 10*parseInt(five_number_array[3], 10) + parseInt(five_number_array[4], 10)*100 + parseInt(five_number_array[1], 10)*10000;
   } else if (five_number_array[2] === five_number_array[3]) {
-    result = 160000 + five_number_array[0] + 10*five_number_array[1] + five_number_array[4]*100 + five_number_array[2]*10000;
+    result = 160000 + parseInt(five_number_array[0], 10) + 10*parseInt(five_number_array[1], 10) + parseInt(five_number_array[4], 10)*100 + parseInt(five_number_array[2], 10)*10000;
   } else if (five_number_array[3] === five_number_array[4]) {
-    result = 160000 + five_number_array[0] + 10*five_number_array[1] + five_number_array[2]*100 + five_number_array[3]*10000;
+    result = 160000 + parseInt(five_number_array[0], 10) + 10*parseInt(five_number_array[1], 10) + parseInt(five_number_array[2], 10)*100 + parseInt(five_number_array[3], 10)*10000;
   }
   return result;
 }
 
 let validator = function(five_cards_array) {
-  console.log(five_cards_array);
   let result = 0;
 
   let five_number_array = [];
   for (let i = 0; i < 5; i++) {
-    if (five_cards_array[i].charAt(1) >= 2 && five_cards_array[i].charAt(1) <= 9) {
-      five_number_array.push(five_cards_array[i].charAt(1));
+    if (parseInt(five_cards_array[i].charAt(1), 10) >= 2 && parseInt(five_cards_array[i].charAt(1), 10) <= 9) {
+      five_number_array.push(parseInt(five_cards_array[i].charAt(1), 10));
     } else if (five_cards_array[i].charAt(1) === 'T') {
       five_number_array.push(10);
     } else if (five_cards_array[i].charAt(1) === 'J') {
@@ -268,7 +267,7 @@ let validator = function(five_cards_array) {
   } else {
     result = pokerValidator(five_number_array) + fullHouseValidator(five_number_array) + straightValidator(five_number_array);
     if (result === 0) {
-      result = drillValidator(five_number_array) + twoPairsValidator(five_number_array);
+      result = parseInt(drillValidator(five_number_array), 10) + parseInt(twoPairsValidator(five_number_array), 10);
       if (result === 0) {
         result = pairValidator(five_number_array);
         if (result === 0) {
@@ -277,10 +276,26 @@ let validator = function(five_cards_array) {
       }
     }
   }
-  console.log(result);
   return result;
 }
 
-five_from_seven(card_array).forEach(function(el) {
-  validator(el);
-})
+let evaluator = function(card_array_seven_list) {
+  let resultList = [];
+  card_array_seven_list.forEach(function(card_array) {
+    let resultListOfPlayer = [];
+    five_from_seven(card_array).forEach(function(el) {
+      resultListOfPlayer.push(validator(el));
+    })
+    let resultMaxOfPlayer = 0;
+    resultListOfPlayer.forEach(function(res) {
+      if (res > resultMaxOfPlayer) {
+        resultMaxOfPlayer = res;
+      }
+    })
+    resultList.push(resultMaxOfPlayer);
+  })
+  console.log('EVALUATOR RESULT: ', resultList);
+  return resultList;
+}
+
+evaluator([card_array, ['C7', 'S9', 'H2', 'DQ', 'SQ', 'C5', 'D2']]);

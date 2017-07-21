@@ -12,13 +12,12 @@ console.log('ROOM ID at table: ', window.sessionStorage.roomID);
 export class TableComp extends React.Component {
   constructor(props) {
     super(props);
-    this.props.fetchTable(window.sessionStorage.roomID);
+    this.props.fetchTable(window.sessionStorage.roomID)
     this.startPoll();
     this.state = {
       handFetched: false,
       showdownFetched: false
     };
-
   }
 
   playerRenderer(userData) {
@@ -87,7 +86,7 @@ export class TableComp extends React.Component {
           <img className="card activeCard1" src={require("../img/cards/" + this.props.handData[0] + ".png")} alt=""/>
           <img className="card activeCard2" src={require("../img/cards/" + this.props.handData[1] + ".png")} alt=""/>
         </div>
-        <div className="chipsArea"></div>
+        <div className="chipsArea">{this.props.gameData.players[i].bet}</div>
       </div>
     } else {
       if (this.props.gameData.round === 'idle') {
@@ -103,7 +102,7 @@ export class TableComp extends React.Component {
       } else {
         return <div className="userArea">
           <div className="cardsArea"></div>
-          <div className="chipsArea"></div>
+          <div className="chipsArea">{this.props.gameData.players[i].bet}</div>
         </div>
       }
 
@@ -140,7 +139,7 @@ export class TableComp extends React.Component {
       if (currentBet < maxBet) {
         buttonText = 'CALL';
       }
-      return <div className="container">
+      return <div className={this.state.userActionsClasslist}>
         <div className="raiseInput">
           <p className="raiseMinus">-</p>
           <input ref='raiseInput' type="number" className="inputField" placeholder="100"/>
@@ -158,37 +157,38 @@ export class TableComp extends React.Component {
   userActionCall() {
     console.log('Call action called');
     let message = {"action": 'call'};
-    let url = '/games/' + this.props.gameroom.id;
+    let url = '/games/' + window.sessionStorage.roomID;
     axios.put(root + url, message)
       .then(function (res) {
         console.log("Action response: ",res);
       })
       .catch(function (error) {
         console.log(error);
-      })
+      });
   }
 
   userActionRaise() {
     console.log('Raise action called');
-    let amount = document.querySelector('input').value;
+    let amount = parseInt(document.querySelector('.inputField').value, 10);
+    console.log('With amount: ', amount);
     let message = {
       "action": 'raise',
       "value": amount
     };
-    let url = '/game/' + this.props.gameroom.id;
+    let url = '/games/' + window.sessionStorage.roomID;
     axios.put(root + url, message)
       .then(function (res) {
         console.log("Action response: ",res);
       })
       .catch(function (error) {
         console.log(error);
-      })
+      });
   }
 
   userActionFold() {
     console.log('Fold action called');
     let message = {"action": 'fold'};
-    let url = '/game/' + this.props.gameroom.id;
+    let url = '/games/' + window.sessionStorage.roomID;
     axios.put(root + url, message)
       .then(function (res) {
         console.log("Action response: ",res);
@@ -207,19 +207,15 @@ export class TableComp extends React.Component {
   }
 
   componentWillMount() {
-    if (this.props.gameData.round !== 'idle' && this.state.handFetched === false) {
-      this.props.fetchHand(window.sessionStorage.roomID);
-      this.setState({
-        handFetched: true
-      })
-    };
-    if (this.props.gameData.round === 'showdown') {
-      console.log('Fetch Showdown inited');
-      this.props.fetchShowdown(window.sessionStorage.roomID);
-      this.setState({
-        showdownFetched: true
-      })
-    }
+
+    setTimeout(function(){
+      if (this.props.gameData.round !== 'idle' && this.state.handFetched === false) {
+        this.props.fetchHand(window.sessionStorage.roomID);
+        this.setState({
+          handFetched: true
+        })
+      };
+    }.bind(this), 2500);
   }
 
   render() {

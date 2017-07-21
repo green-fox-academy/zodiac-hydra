@@ -15,7 +15,7 @@ export class SignUp extends React.Component {
     let refEmail = this.refs.signUpEmail.value;
     let refPassword = this.refs.signUpPassword.value;
     let message = {
-      "name": refName,
+      "username": refName,
       "email": refEmail,
       "password": refPassword
     };

@@ -22,6 +22,13 @@ export const fetchTable = (id) => {
       .then(function (res) {
         console.log("Game data: ",res);
       dispatch(loadTable(res.data));
+      if (res.data.round === 'showdown') {
+        console.log('Fetch Showdown inited');
+        fetchShowdown(window.sessionStorage.roomID);
+        // this.setState({
+        //   showdownFetched: true
+        // })
+      };
     })
       .catch(function (error) {
         if (error.response) {
@@ -54,6 +61,7 @@ export const loadHand = (handData) => {
 
 export const fetchHand = (id) => {
   return (dispatch, getState) => {
+    console.log('FETCH HAND STARTED');
     let url = '/games/' + id + '/hand'
     axios.get(root + url)
       .then(function (res) {
